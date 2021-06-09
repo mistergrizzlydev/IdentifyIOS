@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+        <array key="nexa-slab-xbold.otf">
+            <string>NexaSlab-xBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKOnBoardingDetailViewController" customModule="Kimlik" customModuleProvider="target">
+            <connections>
+                <outlet property="backBtnImg" destination="Qpb-SC-iwJ" id="haO-hW-6os"/>
+                <outlet property="backBtnTxt" destination="WPS-a1-E0O" id="Jhx-3I-YfE"/>
+                <outlet property="boardImg" destination="wJb-OW-Qem" id="7JM-bH-wI3"/>
+                <outlet property="boardLabel" destination="VzL-tL-MWm" id="BaE-Jy-Uek"/>
+                <outlet property="boardPageControl" destination="6iP-ug-SAq" id="cuS-bt-wYw"/>
+                <outlet property="nextBtnImg" destination="vZZ-ym-htg" id="mlh-zb-KOu"/>
+                <outlet property="nextBtnTxt" destination="4lr-N2-z4T" id="5Me-nq-jR5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="SplashBack" translatesAutoresizingMaskIntoConstraints="NO" id="WZd-RD-nB5">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SDKLogoHeader" translatesAutoresizingMaskIntoConstraints="NO" id="uEI-NC-Z6p">
+                    <rect key="frame" x="131" y="100" width="152" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="152" id="0MV-Se-nlg"/>
+                        <constraint firstAttribute="height" constant="60" id="oH9-L9-nLE"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="nfcBack" translatesAutoresizingMaskIntoConstraints="NO" id="wJb-OW-Qem">
+                    <rect key="frame" x="0.0" y="168" width="414" height="560"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kimliğinizi telefonunuza yaklaştırarak NFC okutma" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzL-tL-MWm">
+                    <rect key="frame" x="30" y="626" width="354" height="42"/>
+                    <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
+                    <color key="textColor" name="KB White"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="6iP-ug-SAq">
+                    <rect key="frame" x="146" y="690.5" width="122.5" height="27.5"/>
+                </pageControl>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZwY-Gz-4nh">
+                    <rect key="frame" x="38" y="756" width="64" height="32"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpb-SC-iwJ">
+                            <rect key="frame" x="0.0" y="0.0" width="20" height="32"/>
+                            <fontDescription key="fontDescription" name="NexaSlab-xBold" family="Nexa Slab xBold" pointSize="17"/>
+                            <state key="normal" image="backArrow">
+                                <color key="titleColor" name="KB White"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPS-a1-E0O">
+                            <rect key="frame" x="32" y="0.0" width="32" height="32"/>
+                            <fontDescription key="fontDescription" name="NexaSlab-xBold" family="Nexa Slab xBold" pointSize="17"/>
+                            <state key="normal" title="Geri"/>
+                        </button>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ter-6R-H0Y" userLabel="ileri">
+                    <rect key="frame" x="314" y="756" width="62" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lr-N2-z4T">
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                            <fontDescription key="fontDescription" name="NexaSlab-xBold" family="Nexa Slab xBold" pointSize="19"/>
+                            <state key="normal" title="İleri">
+                                <color key="titleColor" name="KB White"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZZ-ym-htg">
+                            <rect key="frame" x="42" y="0.0" width="20" height="35"/>
+                            <state key="normal" image="nextArrow"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="KB White"/>
+            <constraints>
+                <constraint firstItem="WZd-RD-nB5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="18O-Vr-lKC"/>
+                <constraint firstItem="WZd-RD-nB5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="336-hY-96t"/>
+                <constraint firstItem="6iP-ug-SAq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BSz-wk-ehZ"/>
+                <constraint firstItem="wJb-OW-Qem" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DkU-qS-NFw"/>
+                <constraint firstItem="ter-6R-H0Y" firstAttribute="top" secondItem="6iP-ug-SAq" secondAttribute="bottom" constant="38" id="Edt-7M-I8q"/>
+                <constraint firstItem="uEI-NC-Z6p" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Khp-f2-pvm"/>
+                <constraint firstAttribute="trailing" secondItem="VzL-tL-MWm" secondAttribute="trailing" constant="30" id="N1F-v9-CtG"/>
+                <constraint firstItem="VzL-tL-MWm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="RpO-JS-0VX"/>
+                <constraint firstItem="ZwY-Gz-4nh" firstAttribute="top" secondItem="6iP-ug-SAq" secondAttribute="bottom" constant="38" id="Yvu-Lx-gtp"/>
+                <constraint firstItem="ZwY-Gz-4nh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="38" id="dkZ-0j-hYO"/>
+                <constraint firstItem="wJb-OW-Qem" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="h4S-3M-rG5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wJb-OW-Qem" secondAttribute="trailing" id="jHk-ys-BWl"/>
+                <constraint firstItem="uEI-NC-Z6p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="k6X-6Z-LSs"/>
+                <constraint firstItem="VzL-tL-MWm" firstAttribute="bottom" secondItem="wJb-OW-Qem" secondAttribute="bottom" constant="-60" id="l4k-Sh-N7U"/>
+                <constraint firstAttribute="trailing" secondItem="WZd-RD-nB5" secondAttribute="trailing" id="nNn-qE-b3j"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ter-6R-H0Y" secondAttribute="trailing" constant="38" id="qsO-xM-bAV"/>
+                <constraint firstAttribute="bottom" secondItem="WZd-RD-nB5" secondAttribute="bottom" id="rly-LD-KMh"/>
+                <constraint firstItem="wJb-OW-Qem" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uRY-gn-881"/>
+                <constraint firstItem="6iP-ug-SAq" firstAttribute="bottom" secondItem="wJb-OW-Qem" secondAttribute="bottom" constant="-10" id="x3F-O5-ZyQ"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="99"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SDKLogoHeader" width="218" height="86"/>
+        <image name="SplashBack" width="375" height="812"/>
+        <image name="backArrow" width="20" height="15"/>
+        <image name="nextArrow" width="20" height="15"/>
+        <image name="nfcBack" width="375" height="560"/>
+        <namedColor name="KB White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

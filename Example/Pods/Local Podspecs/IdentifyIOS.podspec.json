@@ -1,0 +1,36 @@
+{
+  "name": "IdentifyIOS",
+  "version": "0.1.0",
+  "summary": "A short description of IdentifyIOS.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/emir@beytekin.net/IdentifyIOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "emir@beytekin.net": "emir@beytekin.net"
+  },
+  "source": {
+    "git": "https://github.com/emir@beytekin.net/IdentifyIOS.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "12.1"
+  },
+  "source_files": "*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.9.1"
+    ],
+    "Starscream": [
+      "~> 3.0.2"
+    ],
+    "GoogleWebRTC": [
+
+    ],
+    "NFCPassportReader": [
+
+    ]
+  }
+}

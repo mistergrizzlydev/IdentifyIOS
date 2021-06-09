@@ -1,0 +1,6 @@
+framework module Pods_IdentifyIOS_Tests {
+  umbrella header "Pods-IdentifyIOS_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

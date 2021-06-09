@@ -1,0 +1,19 @@
+use_frameworks!
+
+platform :ios, '12.1'
+
+target 'IdentifyIOS_Example' do
+  pod 'IdentifyIOS', :path => '../'
+  
+  pod 'QKMRZParser'
+  pod 'CHIOTPField/Two'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SwiftSignatureView'
+  
+
+  target 'IdentifyIOS_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

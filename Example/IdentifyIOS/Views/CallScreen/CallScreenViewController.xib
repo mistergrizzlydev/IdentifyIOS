@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-ExtraBold.ttf">
+            <string>NunitoSans-ExtraBold</string>
+        </array>
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CallScreenViewController" customModule="Kimlik" customModuleProvider="target">
+            <connections>
+                <outlet property="acceptBtn" destination="p3r-ny-ren" id="1Nb-XK-zzu"/>
+                <outlet property="appLogo" destination="Aic-TO-zRN" id="tTZ-pp-8kL"/>
+                <outlet property="backgroundImage" destination="XPP-Ng-Z75" id="6Y7-Q1-DF2"/>
+                <outlet property="callDescriptionLabel" destination="XcH-Lz-hl2" id="uEk-UZ-ISO"/>
+                <outlet property="callTitleLabel" destination="xQ6-ob-CYp" id="FMj-aA-vXi"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="SDKCallingBack" translatesAutoresizingMaskIntoConstraints="NO" id="XPP-Ng-Z75">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SDKLogoHeader" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-TO-zRN">
+                    <rect key="frame" x="131" y="71" width="152" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="152" id="GXn-yT-dId"/>
+                        <constraint firstAttribute="height" constant="60" id="lUF-Pc-qQ1"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wD2-Of-9Qi">
+                    <rect key="frame" x="32" y="573.5" width="350" height="67.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Müşteri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ6-ob-CYp">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="30.5"/>
+                            <fontDescription key="fontDescription" name="NunitoSans-ExtraBold" family="Nunito Sans" pointSize="26"/>
+                            <color key="textColor" name="KB White"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcH-Lz-hl2">
+                            <rect key="frame" x="0.0" y="46.5" width="350" height="21"/>
+                            <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
+                            <color key="textColor" name="KB White"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3r-ny-ren">
+                    <rect key="frame" x="91" y="666" width="232" height="191"/>
+                    <state key="normal" image="greenCall"/>
+                    <connections>
+                        <action selector="acceptCall:" destination="-1" eventType="touchUpInside" id="7IQ-bJ-GJd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="wD2-Of-9Qi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7nU-bR-rwV"/>
+                <constraint firstItem="p3r-ny-ren" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9UZ-g8-eDi"/>
+                <constraint firstItem="XPP-Ng-Z75" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CCb-Vm-THm"/>
+                <constraint firstItem="XPP-Ng-Z75" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M1F-up-T0y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wD2-Of-9Qi" secondAttribute="trailing" constant="32" id="QKz-E8-fT2"/>
+                <constraint firstItem="Aic-TO-zRN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="27" id="gMx-jd-1u3"/>
+                <constraint firstItem="wD2-Of-9Qi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="nk2-yX-mHu"/>
+                <constraint firstItem="p3r-ny-ren" firstAttribute="top" secondItem="wD2-Of-9Qi" secondAttribute="bottom" constant="25" id="sGD-eZ-eUh"/>
+                <constraint firstItem="XPP-Ng-Z75" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vYW-h2-g2l"/>
+                <constraint firstAttribute="bottom" secondItem="XPP-Ng-Z75" secondAttribute="bottom" id="y4m-y1-98T"/>
+                <constraint firstItem="Aic-TO-zRN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zCf-JE-Lrc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="p3r-ny-ren" secondAttribute="bottom" constant="5" id="zLd-9U-Vzp"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SDKCallingBack" width="375" height="812"/>
+        <image name="SDKLogoHeader" width="218" height="86"/>
+        <image name="greenCall" width="232" height="191"/>
+        <namedColor name="KB White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

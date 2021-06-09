@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKSignatureViewController" customModule="Kimlik" customModuleProvider="target">
+            <connections>
+                <outlet property="againBtn" destination="Ffg-J0-wLK" id="OV1-hT-FNh"/>
+                <outlet property="backView" destination="i5M-Pr-FkT" id="yGW-NW-d6b"/>
+                <outlet property="sendBtn" destination="q8y-3i-kFX" id="C7P-pE-xkh"/>
+                <outlet property="signDescLabel" destination="9J3-Ld-Vjq" id="d5o-qg-m4N"/>
+                <outlet property="signatureView" destination="vpA-qo-XPw" id="1d8-EM-uG0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-Ut-Hnr">
+                    <rect key="frame" x="12" y="323" width="390" height="250"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpA-qo-XPw" customClass="SwiftSignatureView" customModule="SwiftSignatureView">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="217.5"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                    <color key="value" name="Dark Blue"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="strokeAlpha">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9J3-Ld-Vjq">
+                            <rect key="frame" x="0.0" y="229.5" width="390" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="KB White"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="QEp-vb-IeU"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ep8-Mi-5zc">
+                    <rect key="frame" x="12" y="795" width="390" height="55"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-J0-wLK">
+                            <rect key="frame" x="0.0" y="0.0" width="189" height="55"/>
+                            <color key="backgroundColor" name="KB White"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="İmzayı Sil"/>
+                            <connections>
+                                <action selector="clearSignAct:" destination="-1" eventType="touchUpInside" id="rVc-kV-v4a"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8y-3i-kFX">
+                            <rect key="frame" x="201" y="0.0" width="189" height="55"/>
+                            <color key="backgroundColor" name="Dark Blue"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Gönder">
+                                <color key="titleColor" name="KB White"/>
+                            </state>
+                            <connections>
+                                <action selector="sendSignAct:" destination="-1" eventType="touchUpInside" id="GS0-Ia-TL6"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="Light Gray"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="eDt-Bm-KJ6"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ep8-Mi-5zc" secondAttribute="trailing" constant="12" id="Cst-b1-bMk"/>
+                <constraint firstItem="ep8-Mi-5zc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="KD3-75-KUG"/>
+                <constraint firstItem="fB6-Ut-Hnr" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Kka-4H-FCx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ep8-Mi-5zc" secondAttribute="bottom" constant="12" id="SMs-GA-9Aw"/>
+                <constraint firstItem="fB6-Ut-Hnr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vvl-jf-3d4"/>
+                <constraint firstItem="fB6-Ut-Hnr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="arZ-qm-SpB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fB6-Ut-Hnr" secondAttribute="trailing" constant="12" id="gc6-jY-D0r"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="124"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Dark Blue">
+            <color red="0.19599999487400055" green="0.15299999713897705" blue="0.78799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="KB White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Light Gray">
+            <color red="0.71700000762939453" green="0.72600001096725464" blue="0.74599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

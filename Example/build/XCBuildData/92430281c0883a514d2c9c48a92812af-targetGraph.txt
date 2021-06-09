@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+IdentifyIOS in Pods
+Pods-IdentifyIOS_Example in Pods, depends on:
+IdentifyIOS in Pods (explicit)
+Pods-IdentifyIOS_Tests in Pods, depends on:
+Pods-IdentifyIOS_Example in Pods (explicit)

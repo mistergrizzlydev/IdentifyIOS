@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKSelfieViewController" customModule="Kimlik" customModuleProvider="target">
+            <connections>
+                <outlet property="againBtn" destination="7LW-ix-cxB" id="Y5M-0W-0zk"/>
+                <outlet property="appLogo" destination="CgP-nJ-sJD" id="Ksd-pm-h03"/>
+                <outlet property="backGround" destination="i5M-Pr-FkT" id="no8-fO-8uW"/>
+                <outlet property="comingPhotoView" destination="uWK-DB-jc2" id="SkQ-Pu-uyA"/>
+                <outlet property="submitBtn" destination="rfO-nn-hx8" id="3SE-it-d4u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uWK-DB-jc2" customClass="UIImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SDKLogoHeader" translatesAutoresizingMaskIntoConstraints="NO" id="CgP-nJ-sJD">
+                    <rect key="frame" x="131" y="71" width="152" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="152" id="SCt-6k-V1o"/>
+                        <constraint firstAttribute="height" constant="60" id="vsw-CZ-NT4"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0Rd-W9-VjH">
+                    <rect key="frame" x="12" y="795" width="390" height="55"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LW-ix-cxB">
+                            <rect key="frame" x="0.0" y="0.0" width="189" height="55"/>
+                            <color key="backgroundColor" name="KB White"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Tekrar Çek"/>
+                            <connections>
+                                <action selector="reTakeAct:" destination="-1" eventType="touchUpInside" id="3ZW-5W-OCl"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfO-nn-hx8">
+                            <rect key="frame" x="201" y="0.0" width="189" height="55"/>
+                            <color key="backgroundColor" name="Dark Blue"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Gönder">
+                                <color key="titleColor" name="KB White"/>
+                            </state>
+                            <connections>
+                                <action selector="submitAct:" destination="-1" eventType="touchUpInside" id="QPY-f9-28c"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="Light Gray"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="aFB-z2-m0J"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0Rd-W9-VjH" secondAttribute="trailing" constant="12" id="CB8-Oj-17i"/>
+                <constraint firstItem="CgP-nJ-sJD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FC8-D8-MoD"/>
+                <constraint firstAttribute="bottom" secondItem="uWK-DB-jc2" secondAttribute="bottom" id="Fo5-Sz-OFd"/>
+                <constraint firstItem="0Rd-W9-VjH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="Nrh-aX-rGN"/>
+                <constraint firstItem="uWK-DB-jc2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TkL-ER-nHd"/>
+                <constraint firstItem="uWK-DB-jc2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZAs-rq-9de"/>
+                <constraint firstItem="uWK-DB-jc2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rO0-FB-EdR"/>
+                <constraint firstItem="CgP-nJ-sJD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="27" id="sW5-sO-lgK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0Rd-W9-VjH" secondAttribute="bottom" constant="12" id="uYb-Ne-wIw"/>
+            </constraints>
+            <point key="canvasLocation" x="-214.49275362318843" y="135.9375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SDKLogoHeader" width="218" height="86"/>
+        <namedColor name="Dark Blue">
+            <color red="0.19599999487400055" green="0.15299999713897705" blue="0.78799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="KB White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Light Gray">
+            <color red="0.71700000762939453" green="0.72600001096725464" blue="0.74599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
