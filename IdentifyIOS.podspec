@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.1'
 
   s.source_files = '*'
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
   s.dependency 'Alamofire', '~> 4.9.1'
   s.dependency 'Starscream', '~> 3.0.2'
