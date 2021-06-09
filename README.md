@@ -7,6 +7,7 @@
 
 ## Example
 
+Copy the "Example/IdentifyIOS/Views" folder to your directory
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
@@ -17,12 +18,12 @@ IdentifyIOS is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'IdentifyIOS'
+pod 'IdentifyIOS', :git => 'git@github.com:emirbeytekin/IdentifyIOS.git', :tag => '0.1.2'
 ```
 
 ## Author
 
-emir@beytekin.net, emir@beytekin.net
+emir@beytekin.net
 
 ## License
 
