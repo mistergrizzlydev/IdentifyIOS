@@ -780,6 +780,29 @@
 		41D297FF36AD5300E4BD530E121B9DCF /* IdentifyIOS */ = {
 			isa = PBXGroup;
 			children = (
+				48B195522670D12900430AD2 /* base */,
+				3536776828C85DB0DF708840BBC1BC43 /* IdentifyIOS.podspec */,
+				8E0C283F71CD85BC343BFC9A4A8C3362 /* LICENSE */,
+				02C91CF39DB6D7FDFB323153394E958F /* README.md */,
+				3AC472B2EE438301B00295BC51FF8BDE /* Pod */,
+				FF974A0DF9C90C1CED7DF3F163CAB09D /* Support Files */,
+			);
+			name = IdentifyIOS;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		44A728A432F25D04473A8987C440F98A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D084565C8EA038D5F63A21F30EF74406 /* Pods-IdentifyIOS_Example */,
+				99223252481D6607CB598657DBEE2A55 /* Pods-IdentifyIOS_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		48B195522670D12900430AD2 /* base */ = {
+			isa = PBXGroup;
+			children = (
 				486AEA842670AB6200FD9CBE /* IdentifySDK.h */,
 				486AEA8A2670AB6200FD9CBE /* Identify24.h */,
 				486AEA8B2670AB6200FD9CBE /* Identify.swift */,
@@ -816,23 +839,8 @@
 				486AEAB02670AB6200FD9CBE /* AlertManager.swift */,
 				486AEAB22670AB6200FD9CBE /* UIView+.swift */,
 				486AEAB32670AB6200FD9CBE /* GradientLabel.swift */,
-				3536776828C85DB0DF708840BBC1BC43 /* IdentifyIOS.podspec */,
-				8E0C283F71CD85BC343BFC9A4A8C3362 /* LICENSE */,
-				02C91CF39DB6D7FDFB323153394E958F /* README.md */,
-				3AC472B2EE438301B00295BC51FF8BDE /* Pod */,
-				FF974A0DF9C90C1CED7DF3F163CAB09D /* Support Files */,
 			);
-			name = IdentifyIOS;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		44A728A432F25D04473A8987C440F98A /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D084565C8EA038D5F63A21F30EF74406 /* Pods-IdentifyIOS_Example */,
-				99223252481D6607CB598657DBEE2A55 /* Pods-IdentifyIOS_Tests */,
-			);
-			name = "Targets Support Files";
+			path = base;
 			sourceTree = "<group>";
 		};
 		680EEB03EFECD0A261ECF62B3111E517 /* GoogleWebRTC */ = {
