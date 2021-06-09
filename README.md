@@ -11,6 +11,7 @@ Copy the "Example/IdentifyIOS/Views" folder to your directory
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+Min target iOS 12.1
 
 ## Installation
 
