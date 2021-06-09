@@ -24,6 +24,10 @@ To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'IdentifyIOS', :git => 'git@github.com:emirbeytekin/IdentifyIOS.git', :tag => '0.1.2'
+pod 'QKMRZParser'
+pod 'CHIOTPField/Two'
+pod 'IQKeyboardManagerSwift'
+pod 'SwiftSignatureView'
 ```
 
 ## Author
