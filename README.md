@@ -7,16 +7,20 @@
 
 ## Example
 
-Copy the "Example/IdentifyIOS/Views" folder to your directory
+** Copy the "Example/IdentifyIOS/Views" and "Images.xcassets" folder to your directory **
+                    
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 Min target iOS 12.1
+                    
+** Don't forget check your plist and entitlements file! **
 
 ## Installation
 
-IdentifyIOS is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+IdentifyIOS is available through [CocoaPods](https://cocoapods.org). 
+                    
+To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'IdentifyIOS', :git => 'git@github.com:emirbeytekin/IdentifyIOS.git', :tag => '0.1.2'
@@ -29,3 +33,4 @@ emir@beytekin.net
 ## License
 
 IdentifyIOS is available under the MIT license. See the LICENSE file for more info.
+
