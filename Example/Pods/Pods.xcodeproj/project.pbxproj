@@ -53,7 +53,6 @@
 		2A39F44DC407E57FFA68051A26A6D136 /* SSLClientCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C32152E44A9A4D7D0A48D400532EC /* SSLClientCertificate.swift */; };
 		2B777E1738EDE70E9784E118F55C9E94 /* DataGroup14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C9C18569D4FA368BB02982D0B8D78 /* DataGroup14.swift */; };
 		2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC13CFB8D1B8758F604F82534BB3D4 /* SessionDelegate.swift */; };
-		2F31AB61CDEA322FBAA8454918B26936 /* Identify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74513171CC1F691EE36B4AE879C2F4B0 /* Identify.swift */; };
 		30B63ABB31D31B203ECF577A4B613F65 /* QKMRZParser-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C8262578EC96AA488D3DD6C4AE2FC2B5 /* QKMRZParser-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		331248F16C883B199E3CB627994E75D2 /* ChipAuthenticationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523DB4048065E61C41D6228CBF5FB993 /* ChipAuthenticationHandler.swift */; };
 		33483C1C427390BED308CBAB3EEEE277 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524C314804437A403D5B21BC70DE2D70 /* CoreGraphics.framework */; };
@@ -66,41 +65,42 @@
 		3F0AC8DA2FF52961DFBA9B995A094AB8 /* QKMRZParser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 414347652478D27D034CF19D855E2C15 /* QKMRZParser-dummy.m */; };
 		41BA6E81F80EEF15FAD6BF55DADBFFE1 /* MRZFieldFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1189F9BB5DCE9160B8B3ABC5F96F1C9C /* MRZFieldFormatter.swift */; };
 		4737103B10A1C40C5301D0512B9310E4 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC738E24B890506135D4E28C19103D /* IQKeyboardReturnKeyHandler.swift */; };
-		486AE9CE26709C9A00FD9CBE /* IdentifySDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 486AE99F26709C9A00FD9CBE /* IdentifySDK.h */; };
-		486AE9CF26709C9A00FD9CBE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9A126709C9A00FD9CBE /* Constant.swift */; };
-		486AE9D026709C9A00FD9CBE /* SDKClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9A226709C9A00FD9CBE /* SDKClasses.swift */; };
-		486AE9D126709C9A00FD9CBE /* SDKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9A426709C9A00FD9CBE /* SDKEnums.swift */; };
-		486AE9D226709C9A00FD9CBE /* Identify24.h in Headers */ = {isa = PBXBuildFile; fileRef = 486AE9A526709C9A00FD9CBE /* Identify24.h */; };
-		486AE9D326709C9A00FD9CBE /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9A826709C9A00FD9CBE /* NetworkRequests.swift */; };
-		486AE9D426709C9A00FD9CBE /* PassportUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9AB26709C9A00FD9CBE /* PassportUtil.swift */; };
-		486AE9D526709C9A00FD9CBE /* PassportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9AD26709C9A00FD9CBE /* PassportModel.swift */; };
-		486AE9D626709C9A00FD9CBE /* SocketResponser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9AF26709C9A00FD9CBE /* SocketResponser.swift */; };
-		486AE9D726709C9A00FD9CBE /* CameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9B026709C9A00FD9CBE /* CameraFilter.swift */; };
-		486AE9D826709C9A00FD9CBE /* RTCCustomFrameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9B126709C9A00FD9CBE /* RTCCustomFrameCapture.swift */; };
-		486AE9D926709C9A00FD9CBE /* SignalingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9B226709C9A00FD9CBE /* SignalingMessage.swift */; };
-		486AE9DA26709C9A00FD9CBE /* WebRTCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9B326709C9A00FD9CBE /* WebRTCClient.swift */; };
-		486AE9DB26709C9A00FD9CBE /* CameraSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9B426709C9A00FD9CBE /* CameraSession.swift */; };
-		486AE9DC26709C9A00FD9CBE /* NunitoSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9B626709C9A00FD9CBE /* NunitoSans-LightItalic.ttf */; };
-		486AE9DD26709C9A00FD9CBE /* NunitoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9B726709C9A00FD9CBE /* NunitoSans-BoldItalic.ttf */; };
-		486AE9DE26709C9A00FD9CBE /* NunitoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9B826709C9A00FD9CBE /* NunitoSans-ExtraLight.ttf */; };
-		486AE9DF26709C9A00FD9CBE /* NunitoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9B926709C9A00FD9CBE /* NunitoSans-Light.ttf */; };
-		486AE9E026709C9A00FD9CBE /* NunitoSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9BA26709C9A00FD9CBE /* NunitoSans-BlackItalic.ttf */; };
-		486AE9E126709C9A00FD9CBE /* NunitoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9BB26709C9A00FD9CBE /* NunitoSans-ExtraBold.ttf */; };
-		486AE9E226709C9A00FD9CBE /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9BC26709C9A00FD9CBE /* NunitoSans-Regular.ttf */; };
-		486AE9E326709C9A00FD9CBE /* NunitoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9BD26709C9A00FD9CBE /* NunitoSans-SemiBoldItalic.ttf */; };
-		486AE9E426709C9A00FD9CBE /* NunitoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9BE26709C9A00FD9CBE /* NunitoSans-Italic.ttf */; };
-		486AE9E526709C9A00FD9CBE /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9BF26709C9A00FD9CBE /* NunitoSans-Bold.ttf */; };
-		486AE9E626709C9A00FD9CBE /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9C026709C9A00FD9CBE /* NunitoSans-SemiBold.ttf */; };
-		486AE9E726709C9A00FD9CBE /* NunitoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9C126709C9A00FD9CBE /* NunitoSans-Black.ttf */; };
-		486AE9E826709C9A00FD9CBE /* NunitoSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9C226709C9A00FD9CBE /* NunitoSans-ExtraBoldItalic.ttf */; };
-		486AE9E926709C9A00FD9CBE /* nexa-slab-xbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9C326709C9A00FD9CBE /* nexa-slab-xbold.otf */; };
-		486AE9EA26709C9A00FD9CBE /* NunitoSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AE9C426709C9A00FD9CBE /* NunitoSans-ExtraLightItalic.ttf */; };
-		486AE9EB26709C9A00FD9CBE /* SDKProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9C626709C9A00FD9CBE /* SDKProtocols.swift */; };
-		486AE9EC26709C9A00FD9CBE /* SDKLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9C826709C9A00FD9CBE /* SDKLanguageManager.swift */; };
-		486AE9ED26709C9A00FD9CBE /* SDKColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9C926709C9A00FD9CBE /* SDKColorManager.swift */; };
-		486AE9EE26709C9A00FD9CBE /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9CA26709C9A00FD9CBE /* AlertManager.swift */; };
-		486AE9EF26709C9A00FD9CBE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9CC26709C9A00FD9CBE /* UIView+.swift */; };
-		486AE9F026709C9A00FD9CBE /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE9CD26709C9A00FD9CBE /* GradientLabel.swift */; };
+		486AEAB42670AB6200FD9CBE /* IdentifySDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 486AEA842670AB6200FD9CBE /* IdentifySDK.h */; };
+		486AEAB52670AB6200FD9CBE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA862670AB6200FD9CBE /* Constant.swift */; };
+		486AEAB62670AB6200FD9CBE /* SDKClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA872670AB6200FD9CBE /* SDKClasses.swift */; };
+		486AEAB72670AB6200FD9CBE /* SDKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA892670AB6200FD9CBE /* SDKEnums.swift */; };
+		486AEAB82670AB6200FD9CBE /* Identify24.h in Headers */ = {isa = PBXBuildFile; fileRef = 486AEA8A2670AB6200FD9CBE /* Identify24.h */; };
+		486AEAB92670AB6200FD9CBE /* Identify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA8B2670AB6200FD9CBE /* Identify.swift */; };
+		486AEABA2670AB6200FD9CBE /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA8E2670AB6200FD9CBE /* NetworkRequests.swift */; };
+		486AEABB2670AB6200FD9CBE /* PassportUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA912670AB6200FD9CBE /* PassportUtil.swift */; };
+		486AEABC2670AB6200FD9CBE /* PassportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA932670AB6200FD9CBE /* PassportModel.swift */; };
+		486AEABD2670AB6200FD9CBE /* SocketResponser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA952670AB6200FD9CBE /* SocketResponser.swift */; };
+		486AEABE2670AB6200FD9CBE /* CameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA962670AB6200FD9CBE /* CameraFilter.swift */; };
+		486AEABF2670AB6200FD9CBE /* RTCCustomFrameCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA972670AB6200FD9CBE /* RTCCustomFrameCapture.swift */; };
+		486AEAC02670AB6200FD9CBE /* SignalingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA982670AB6200FD9CBE /* SignalingMessage.swift */; };
+		486AEAC12670AB6200FD9CBE /* WebRTCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA992670AB6200FD9CBE /* WebRTCClient.swift */; };
+		486AEAC22670AB6200FD9CBE /* CameraSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEA9A2670AB6200FD9CBE /* CameraSession.swift */; };
+		486AEAC32670AB6200FD9CBE /* NunitoSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEA9C2670AB6200FD9CBE /* NunitoSans-LightItalic.ttf */; };
+		486AEAC42670AB6200FD9CBE /* NunitoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEA9D2670AB6200FD9CBE /* NunitoSans-BoldItalic.ttf */; };
+		486AEAC52670AB6200FD9CBE /* NunitoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEA9E2670AB6200FD9CBE /* NunitoSans-ExtraLight.ttf */; };
+		486AEAC62670AB6200FD9CBE /* NunitoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEA9F2670AB6200FD9CBE /* NunitoSans-Light.ttf */; };
+		486AEAC72670AB6200FD9CBE /* NunitoSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA02670AB6200FD9CBE /* NunitoSans-BlackItalic.ttf */; };
+		486AEAC82670AB6200FD9CBE /* NunitoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA12670AB6200FD9CBE /* NunitoSans-ExtraBold.ttf */; };
+		486AEAC92670AB6200FD9CBE /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA22670AB6200FD9CBE /* NunitoSans-Regular.ttf */; };
+		486AEACA2670AB6200FD9CBE /* NunitoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA32670AB6200FD9CBE /* NunitoSans-SemiBoldItalic.ttf */; };
+		486AEACB2670AB6200FD9CBE /* NunitoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA42670AB6200FD9CBE /* NunitoSans-Italic.ttf */; };
+		486AEACC2670AB6200FD9CBE /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA52670AB6200FD9CBE /* NunitoSans-Bold.ttf */; };
+		486AEACD2670AB6200FD9CBE /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA62670AB6200FD9CBE /* NunitoSans-SemiBold.ttf */; };
+		486AEACE2670AB6200FD9CBE /* NunitoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA72670AB6200FD9CBE /* NunitoSans-Black.ttf */; };
+		486AEACF2670AB6200FD9CBE /* NunitoSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA82670AB6200FD9CBE /* NunitoSans-ExtraBoldItalic.ttf */; };
+		486AEAD02670AB6200FD9CBE /* nexa-slab-xbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAA92670AB6200FD9CBE /* nexa-slab-xbold.otf */; };
+		486AEAD12670AB6200FD9CBE /* NunitoSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486AEAAA2670AB6200FD9CBE /* NunitoSans-ExtraLightItalic.ttf */; };
+		486AEAD22670AB6200FD9CBE /* SDKProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEAAC2670AB6200FD9CBE /* SDKProtocols.swift */; };
+		486AEAD32670AB6200FD9CBE /* SDKLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEAAE2670AB6200FD9CBE /* SDKLanguageManager.swift */; };
+		486AEAD42670AB6200FD9CBE /* SDKColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEAAF2670AB6200FD9CBE /* SDKColorManager.swift */; };
+		486AEAD52670AB6200FD9CBE /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEAB02670AB6200FD9CBE /* AlertManager.swift */; };
+		486AEAD62670AB6200FD9CBE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEAB22670AB6200FD9CBE /* UIView+.swift */; };
+		486AEAD72670AB6200FD9CBE /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AEAB32670AB6200FD9CBE /* GradientLabel.swift */; };
 		4933C8DCD0A1958CAD07333EF82C0011 /* td3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411420FCFADC63CFDDE6BD51F66293BF /* td3.swift */; };
 		4A5676A85B40AFDD6996B44A14480BA9 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B240647833B03296B8F606A495ECD30 /* Logging.swift */; };
 		4A8C7D8C6B1F7D1718BF3CED1C744148 /* ChipAuthenticationPublicKeyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19734260F827341F1DC9D22D58ADE1 /* ChipAuthenticationPublicKeyInfo.swift */; };
@@ -369,41 +369,42 @@
 		42E92D78923ADB76C1745F8751FBE024 /* Pods-IdentifyIOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-IdentifyIOS_Tests-umbrella.h"; sourceTree = "<group>"; };
 		432C9C18569D4FA368BB02982D0B8D78 /* DataGroup14.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataGroup14.swift; path = Sources/NFCPassportReader/DataGroups/DataGroup14.swift; sourceTree = "<group>"; };
 		4572A265C86837283B36C0B01974B0D0 /* SwiftSignatureView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftSignatureView-dummy.m"; sourceTree = "<group>"; };
-		486AE99F26709C9A00FD9CBE /* IdentifySDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifySDK.h; sourceTree = "<group>"; };
-		486AE9A126709C9A00FD9CBE /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		486AE9A226709C9A00FD9CBE /* SDKClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKClasses.swift; sourceTree = "<group>"; };
-		486AE9A426709C9A00FD9CBE /* SDKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKEnums.swift; sourceTree = "<group>"; };
-		486AE9A526709C9A00FD9CBE /* Identify24.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identify24.h; sourceTree = "<group>"; };
-		486AE9A826709C9A00FD9CBE /* NetworkRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
-		486AE9AB26709C9A00FD9CBE /* PassportUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportUtil.swift; sourceTree = "<group>"; };
-		486AE9AD26709C9A00FD9CBE /* PassportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportModel.swift; sourceTree = "<group>"; };
-		486AE9AF26709C9A00FD9CBE /* SocketResponser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketResponser.swift; sourceTree = "<group>"; };
-		486AE9B026709C9A00FD9CBE /* CameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFilter.swift; sourceTree = "<group>"; };
-		486AE9B126709C9A00FD9CBE /* RTCCustomFrameCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTCCustomFrameCapture.swift; sourceTree = "<group>"; };
-		486AE9B226709C9A00FD9CBE /* SignalingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalingMessage.swift; sourceTree = "<group>"; };
-		486AE9B326709C9A00FD9CBE /* WebRTCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRTCClient.swift; sourceTree = "<group>"; };
-		486AE9B426709C9A00FD9CBE /* CameraSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSession.swift; sourceTree = "<group>"; };
-		486AE9B626709C9A00FD9CBE /* NunitoSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-LightItalic.ttf"; sourceTree = "<group>"; };
-		486AE9B726709C9A00FD9CBE /* NunitoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		486AE9B826709C9A00FD9CBE /* NunitoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
-		486AE9B926709C9A00FD9CBE /* NunitoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Light.ttf"; sourceTree = "<group>"; };
-		486AE9BA26709C9A00FD9CBE /* NunitoSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BlackItalic.ttf"; sourceTree = "<group>"; };
-		486AE9BB26709C9A00FD9CBE /* NunitoSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		486AE9BC26709C9A00FD9CBE /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
-		486AE9BD26709C9A00FD9CBE /* NunitoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		486AE9BE26709C9A00FD9CBE /* NunitoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Italic.ttf"; sourceTree = "<group>"; };
-		486AE9BF26709C9A00FD9CBE /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
-		486AE9C026709C9A00FD9CBE /* NunitoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		486AE9C126709C9A00FD9CBE /* NunitoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Black.ttf"; sourceTree = "<group>"; };
-		486AE9C226709C9A00FD9CBE /* NunitoSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		486AE9C326709C9A00FD9CBE /* nexa-slab-xbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-slab-xbold.otf"; sourceTree = "<group>"; };
-		486AE9C426709C9A00FD9CBE /* NunitoSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		486AE9C626709C9A00FD9CBE /* SDKProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKProtocols.swift; sourceTree = "<group>"; };
-		486AE9C826709C9A00FD9CBE /* SDKLanguageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKLanguageManager.swift; sourceTree = "<group>"; };
-		486AE9C926709C9A00FD9CBE /* SDKColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKColorManager.swift; sourceTree = "<group>"; };
-		486AE9CA26709C9A00FD9CBE /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		486AE9CC26709C9A00FD9CBE /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		486AE9CD26709C9A00FD9CBE /* GradientLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
+		486AEA842670AB6200FD9CBE /* IdentifySDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifySDK.h; sourceTree = "<group>"; };
+		486AEA862670AB6200FD9CBE /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		486AEA872670AB6200FD9CBE /* SDKClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKClasses.swift; sourceTree = "<group>"; };
+		486AEA892670AB6200FD9CBE /* SDKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKEnums.swift; sourceTree = "<group>"; };
+		486AEA8A2670AB6200FD9CBE /* Identify24.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identify24.h; sourceTree = "<group>"; };
+		486AEA8B2670AB6200FD9CBE /* Identify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identify.swift; sourceTree = "<group>"; };
+		486AEA8E2670AB6200FD9CBE /* NetworkRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
+		486AEA912670AB6200FD9CBE /* PassportUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportUtil.swift; sourceTree = "<group>"; };
+		486AEA932670AB6200FD9CBE /* PassportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportModel.swift; sourceTree = "<group>"; };
+		486AEA952670AB6200FD9CBE /* SocketResponser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketResponser.swift; sourceTree = "<group>"; };
+		486AEA962670AB6200FD9CBE /* CameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFilter.swift; sourceTree = "<group>"; };
+		486AEA972670AB6200FD9CBE /* RTCCustomFrameCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTCCustomFrameCapture.swift; sourceTree = "<group>"; };
+		486AEA982670AB6200FD9CBE /* SignalingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalingMessage.swift; sourceTree = "<group>"; };
+		486AEA992670AB6200FD9CBE /* WebRTCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRTCClient.swift; sourceTree = "<group>"; };
+		486AEA9A2670AB6200FD9CBE /* CameraSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSession.swift; sourceTree = "<group>"; };
+		486AEA9C2670AB6200FD9CBE /* NunitoSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		486AEA9D2670AB6200FD9CBE /* NunitoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		486AEA9E2670AB6200FD9CBE /* NunitoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		486AEA9F2670AB6200FD9CBE /* NunitoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Light.ttf"; sourceTree = "<group>"; };
+		486AEAA02670AB6200FD9CBE /* NunitoSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		486AEAA12670AB6200FD9CBE /* NunitoSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		486AEAA22670AB6200FD9CBE /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
+		486AEAA32670AB6200FD9CBE /* NunitoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		486AEAA42670AB6200FD9CBE /* NunitoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Italic.ttf"; sourceTree = "<group>"; };
+		486AEAA52670AB6200FD9CBE /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
+		486AEAA62670AB6200FD9CBE /* NunitoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		486AEAA72670AB6200FD9CBE /* NunitoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Black.ttf"; sourceTree = "<group>"; };
+		486AEAA82670AB6200FD9CBE /* NunitoSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		486AEAA92670AB6200FD9CBE /* nexa-slab-xbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nexa-slab-xbold.otf"; sourceTree = "<group>"; };
+		486AEAAA2670AB6200FD9CBE /* NunitoSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		486AEAAC2670AB6200FD9CBE /* SDKProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKProtocols.swift; sourceTree = "<group>"; };
+		486AEAAE2670AB6200FD9CBE /* SDKLanguageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKLanguageManager.swift; sourceTree = "<group>"; };
+		486AEAAF2670AB6200FD9CBE /* SDKColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKColorManager.swift; sourceTree = "<group>"; };
+		486AEAB02670AB6200FD9CBE /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		486AEAB22670AB6200FD9CBE /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		486AEAB32670AB6200FD9CBE /* GradientLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
 		496C32152E44A9A4D7D0A48D400532EC /* SSLClientCertificate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLClientCertificate.swift; path = Sources/Starscream/SSLClientCertificate.swift; sourceTree = "<group>"; };
 		4AB5976A41883B73E65B39E81547A2CB /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/NFCPassportReader/Errors.swift; sourceTree = "<group>"; };
 		4B5DC0E3B5B7885621F66C64D5BDE54E /* X509Wrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = X509Wrapper.swift; path = Sources/NFCPassportReader/X509Wrapper.swift; sourceTree = "<group>"; };
@@ -441,7 +442,6 @@
 		7208A96841E0D4DFBF2513407936DDC0 /* Pods_IdentifyIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentifyIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72338FED94C5BDD80733D292E7122FCD /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		726C55CF4521F20ECA1966DBF24C3978 /* CHIOTPField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHIOTPField-umbrella.h"; sourceTree = "<group>"; };
-		74513171CC1F691EE36B4AE879C2F4B0 /* Identify.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Identify.swift; sourceTree = "<group>"; };
 		75B597C87FC0EC123B988116D391B48B /* CHIOTPField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CHIOTPField.modulemap; sourceTree = "<group>"; };
 		75EEA300E5B0EB8BA26180CD61BF5CF9 /* DataGroupParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataGroupParser.swift; path = Sources/NFCPassportReader/DataGroupParser.swift; sourceTree = "<group>"; };
 		766E8FF4D794D63DB7ACA6D776E61544 /* String-Ext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String-Ext.swift"; path = "QKMRZParser/String-Ext.swift"; sourceTree = "<group>"; };
@@ -780,7 +780,42 @@
 		41D297FF36AD5300E4BD530E121B9DCF /* IdentifyIOS */ = {
 			isa = PBXGroup;
 			children = (
-				486AE99E26709C9A00FD9CBE /* sdk */,
+				486AEA842670AB6200FD9CBE /* IdentifySDK.h */,
+				486AEA8A2670AB6200FD9CBE /* Identify24.h */,
+				486AEA8B2670AB6200FD9CBE /* Identify.swift */,
+				486AEA862670AB6200FD9CBE /* Constant.swift */,
+				486AEA872670AB6200FD9CBE /* SDKClasses.swift */,
+				486AEA892670AB6200FD9CBE /* SDKEnums.swift */,
+				486AEA8E2670AB6200FD9CBE /* NetworkRequests.swift */,
+				486AEA912670AB6200FD9CBE /* PassportUtil.swift */,
+				486AEA932670AB6200FD9CBE /* PassportModel.swift */,
+				486AEA952670AB6200FD9CBE /* SocketResponser.swift */,
+				486AEA962670AB6200FD9CBE /* CameraFilter.swift */,
+				486AEA972670AB6200FD9CBE /* RTCCustomFrameCapture.swift */,
+				486AEA982670AB6200FD9CBE /* SignalingMessage.swift */,
+				486AEA992670AB6200FD9CBE /* WebRTCClient.swift */,
+				486AEA9A2670AB6200FD9CBE /* CameraSession.swift */,
+				486AEA9C2670AB6200FD9CBE /* NunitoSans-LightItalic.ttf */,
+				486AEA9D2670AB6200FD9CBE /* NunitoSans-BoldItalic.ttf */,
+				486AEA9E2670AB6200FD9CBE /* NunitoSans-ExtraLight.ttf */,
+				486AEA9F2670AB6200FD9CBE /* NunitoSans-Light.ttf */,
+				486AEAA02670AB6200FD9CBE /* NunitoSans-BlackItalic.ttf */,
+				486AEAA12670AB6200FD9CBE /* NunitoSans-ExtraBold.ttf */,
+				486AEAA22670AB6200FD9CBE /* NunitoSans-Regular.ttf */,
+				486AEAA32670AB6200FD9CBE /* NunitoSans-SemiBoldItalic.ttf */,
+				486AEAA42670AB6200FD9CBE /* NunitoSans-Italic.ttf */,
+				486AEAA52670AB6200FD9CBE /* NunitoSans-Bold.ttf */,
+				486AEAA62670AB6200FD9CBE /* NunitoSans-SemiBold.ttf */,
+				486AEAA72670AB6200FD9CBE /* NunitoSans-Black.ttf */,
+				486AEAA82670AB6200FD9CBE /* NunitoSans-ExtraBoldItalic.ttf */,
+				486AEAA92670AB6200FD9CBE /* nexa-slab-xbold.otf */,
+				486AEAAA2670AB6200FD9CBE /* NunitoSans-ExtraLightItalic.ttf */,
+				486AEAAC2670AB6200FD9CBE /* SDKProtocols.swift */,
+				486AEAAE2670AB6200FD9CBE /* SDKLanguageManager.swift */,
+				486AEAAF2670AB6200FD9CBE /* SDKColorManager.swift */,
+				486AEAB02670AB6200FD9CBE /* AlertManager.swift */,
+				486AEAB22670AB6200FD9CBE /* UIView+.swift */,
+				486AEAB32670AB6200FD9CBE /* GradientLabel.swift */,
 				3536776828C85DB0DF708840BBC1BC43 /* IdentifyIOS.podspec */,
 				8E0C283F71CD85BC343BFC9A4A8C3362 /* LICENSE */,
 				02C91CF39DB6D7FDFB323153394E958F /* README.md */,
@@ -798,145 +833,6 @@
 				99223252481D6607CB598657DBEE2A55 /* Pods-IdentifyIOS_Tests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		486AE99E26709C9A00FD9CBE /* sdk */ = {
-			isa = PBXGroup;
-			children = (
-				74513171CC1F691EE36B4AE879C2F4B0 /* Identify.swift */,
-				486AE99F26709C9A00FD9CBE /* IdentifySDK.h */,
-				486AE9A026709C9A00FD9CBE /* Classes */,
-				486AE9A326709C9A00FD9CBE /* Enums */,
-				486AE9A526709C9A00FD9CBE /* Identify24.h */,
-				486AE9A626709C9A00FD9CBE /* import groups */,
-				486AE9B526709C9A00FD9CBE /* Fonts */,
-				486AE9C526709C9A00FD9CBE /* Protocols */,
-				486AE9C726709C9A00FD9CBE /* Base */,
-			);
-			path = sdk;
-			sourceTree = "<group>";
-		};
-		486AE9A026709C9A00FD9CBE /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9A126709C9A00FD9CBE /* Constant.swift */,
-				486AE9A226709C9A00FD9CBE /* SDKClasses.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		486AE9A326709C9A00FD9CBE /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9A426709C9A00FD9CBE /* SDKEnums.swift */,
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
-		486AE9A626709C9A00FD9CBE /* import groups */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9A726709C9A00FD9CBE /* Network */,
-				486AE9A926709C9A00FD9CBE /* nfc */,
-				486AE9AE26709C9A00FD9CBE /* WebRTC */,
-				486AE9B426709C9A00FD9CBE /* CameraSession.swift */,
-			);
-			path = "import groups";
-			sourceTree = "<group>";
-		};
-		486AE9A726709C9A00FD9CBE /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9A826709C9A00FD9CBE /* NetworkRequests.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		486AE9A926709C9A00FD9CBE /* nfc */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9AA26709C9A00FD9CBE /* Util */,
-				486AE9AC26709C9A00FD9CBE /* Model */,
-			);
-			path = nfc;
-			sourceTree = "<group>";
-		};
-		486AE9AA26709C9A00FD9CBE /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9AB26709C9A00FD9CBE /* PassportUtil.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		486AE9AC26709C9A00FD9CBE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9AD26709C9A00FD9CBE /* PassportModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		486AE9AE26709C9A00FD9CBE /* WebRTC */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9AF26709C9A00FD9CBE /* SocketResponser.swift */,
-				486AE9B026709C9A00FD9CBE /* CameraFilter.swift */,
-				486AE9B126709C9A00FD9CBE /* RTCCustomFrameCapture.swift */,
-				486AE9B226709C9A00FD9CBE /* SignalingMessage.swift */,
-				486AE9B326709C9A00FD9CBE /* WebRTCClient.swift */,
-			);
-			path = WebRTC;
-			sourceTree = "<group>";
-		};
-		486AE9B526709C9A00FD9CBE /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9B626709C9A00FD9CBE /* NunitoSans-LightItalic.ttf */,
-				486AE9B726709C9A00FD9CBE /* NunitoSans-BoldItalic.ttf */,
-				486AE9B826709C9A00FD9CBE /* NunitoSans-ExtraLight.ttf */,
-				486AE9B926709C9A00FD9CBE /* NunitoSans-Light.ttf */,
-				486AE9BA26709C9A00FD9CBE /* NunitoSans-BlackItalic.ttf */,
-				486AE9BB26709C9A00FD9CBE /* NunitoSans-ExtraBold.ttf */,
-				486AE9BC26709C9A00FD9CBE /* NunitoSans-Regular.ttf */,
-				486AE9BD26709C9A00FD9CBE /* NunitoSans-SemiBoldItalic.ttf */,
-				486AE9BE26709C9A00FD9CBE /* NunitoSans-Italic.ttf */,
-				486AE9BF26709C9A00FD9CBE /* NunitoSans-Bold.ttf */,
-				486AE9C026709C9A00FD9CBE /* NunitoSans-SemiBold.ttf */,
-				486AE9C126709C9A00FD9CBE /* NunitoSans-Black.ttf */,
-				486AE9C226709C9A00FD9CBE /* NunitoSans-ExtraBoldItalic.ttf */,
-				486AE9C326709C9A00FD9CBE /* nexa-slab-xbold.otf */,
-				486AE9C426709C9A00FD9CBE /* NunitoSans-ExtraLightItalic.ttf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		486AE9C526709C9A00FD9CBE /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9C626709C9A00FD9CBE /* SDKProtocols.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		486AE9C726709C9A00FD9CBE /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9C826709C9A00FD9CBE /* SDKLanguageManager.swift */,
-				486AE9C926709C9A00FD9CBE /* SDKColorManager.swift */,
-				486AE9CA26709C9A00FD9CBE /* AlertManager.swift */,
-				486AE9CB26709C9A00FD9CBE /* Extensions */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		486AE9CB26709C9A00FD9CBE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				486AE9CC26709C9A00FD9CBE /* UIView+.swift */,
-				486AE9CD26709C9A00FD9CBE /* GradientLabel.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		680EEB03EFECD0A261ECF62B3111E517 /* GoogleWebRTC */ = {
@@ -1260,8 +1156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA5D8112A4760E39C209C12A17EA6A2C /* IdentifyIOS-umbrella.h in Headers */,
-				486AE9CE26709C9A00FD9CBE /* IdentifySDK.h in Headers */,
-				486AE9D226709C9A00FD9CBE /* Identify24.h in Headers */,
+				486AEAB42670AB6200FD9CBE /* IdentifySDK.h in Headers */,
+				486AEAB82670AB6200FD9CBE /* Identify24.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1563,21 +1459,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				486AE9E726709C9A00FD9CBE /* NunitoSans-Black.ttf in Resources */,
-				486AE9DC26709C9A00FD9CBE /* NunitoSans-LightItalic.ttf in Resources */,
-				486AE9DD26709C9A00FD9CBE /* NunitoSans-BoldItalic.ttf in Resources */,
-				486AE9E826709C9A00FD9CBE /* NunitoSans-ExtraBoldItalic.ttf in Resources */,
-				486AE9EA26709C9A00FD9CBE /* NunitoSans-ExtraLightItalic.ttf in Resources */,
-				486AE9E626709C9A00FD9CBE /* NunitoSans-SemiBold.ttf in Resources */,
-				486AE9DE26709C9A00FD9CBE /* NunitoSans-ExtraLight.ttf in Resources */,
-				486AE9E526709C9A00FD9CBE /* NunitoSans-Bold.ttf in Resources */,
-				486AE9E426709C9A00FD9CBE /* NunitoSans-Italic.ttf in Resources */,
-				486AE9E226709C9A00FD9CBE /* NunitoSans-Regular.ttf in Resources */,
-				486AE9E926709C9A00FD9CBE /* nexa-slab-xbold.otf in Resources */,
-				486AE9E026709C9A00FD9CBE /* NunitoSans-BlackItalic.ttf in Resources */,
-				486AE9E326709C9A00FD9CBE /* NunitoSans-SemiBoldItalic.ttf in Resources */,
-				486AE9E126709C9A00FD9CBE /* NunitoSans-ExtraBold.ttf in Resources */,
-				486AE9DF26709C9A00FD9CBE /* NunitoSans-Light.ttf in Resources */,
+				486AEACE2670AB6200FD9CBE /* NunitoSans-Black.ttf in Resources */,
+				486AEAC32670AB6200FD9CBE /* NunitoSans-LightItalic.ttf in Resources */,
+				486AEAC42670AB6200FD9CBE /* NunitoSans-BoldItalic.ttf in Resources */,
+				486AEACF2670AB6200FD9CBE /* NunitoSans-ExtraBoldItalic.ttf in Resources */,
+				486AEAD12670AB6200FD9CBE /* NunitoSans-ExtraLightItalic.ttf in Resources */,
+				486AEACD2670AB6200FD9CBE /* NunitoSans-SemiBold.ttf in Resources */,
+				486AEAC52670AB6200FD9CBE /* NunitoSans-ExtraLight.ttf in Resources */,
+				486AEACC2670AB6200FD9CBE /* NunitoSans-Bold.ttf in Resources */,
+				486AEACB2670AB6200FD9CBE /* NunitoSans-Italic.ttf in Resources */,
+				486AEAC92670AB6200FD9CBE /* NunitoSans-Regular.ttf in Resources */,
+				486AEAD02670AB6200FD9CBE /* nexa-slab-xbold.otf in Resources */,
+				486AEAC72670AB6200FD9CBE /* NunitoSans-BlackItalic.ttf in Resources */,
+				486AEACA2670AB6200FD9CBE /* NunitoSans-SemiBoldItalic.ttf in Resources */,
+				486AEAC82670AB6200FD9CBE /* NunitoSans-ExtraBold.ttf in Resources */,
+				486AEAC62670AB6200FD9CBE /* NunitoSans-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1833,29 +1729,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				486AE9ED26709C9A00FD9CBE /* SDKColorManager.swift in Sources */,
-				486AE9DB26709C9A00FD9CBE /* CameraSession.swift in Sources */,
-				2F31AB61CDEA322FBAA8454918B26936 /* Identify.swift in Sources */,
-				486AE9D826709C9A00FD9CBE /* RTCCustomFrameCapture.swift in Sources */,
-				486AE9D426709C9A00FD9CBE /* PassportUtil.swift in Sources */,
-				486AE9EE26709C9A00FD9CBE /* AlertManager.swift in Sources */,
-				486AE9DA26709C9A00FD9CBE /* WebRTCClient.swift in Sources */,
-				486AE9D626709C9A00FD9CBE /* SocketResponser.swift in Sources */,
-				486AE9EF26709C9A00FD9CBE /* UIView+.swift in Sources */,
-				486AE9D526709C9A00FD9CBE /* PassportModel.swift in Sources */,
+				486AEAD42670AB6200FD9CBE /* SDKColorManager.swift in Sources */,
+				486AEAC22670AB6200FD9CBE /* CameraSession.swift in Sources */,
 				B67C8E691838100A06B7185CA3389B77 /* IdentifyIOS-dummy.m in Sources */,
+				486AEABF2670AB6200FD9CBE /* RTCCustomFrameCapture.swift in Sources */,
+				486AEABB2670AB6200FD9CBE /* PassportUtil.swift in Sources */,
+				486AEAD52670AB6200FD9CBE /* AlertManager.swift in Sources */,
+				486AEAC12670AB6200FD9CBE /* WebRTCClient.swift in Sources */,
+				486AEABD2670AB6200FD9CBE /* SocketResponser.swift in Sources */,
+				486AEAD62670AB6200FD9CBE /* UIView+.swift in Sources */,
+				486AEABC2670AB6200FD9CBE /* PassportModel.swift in Sources */,
 				004CC99C6CED853E249CD58F5F0FCA96 /* IdentifyIOS.podspec in Sources */,
-				486AE9D126709C9A00FD9CBE /* SDKEnums.swift in Sources */,
-				486AE9D026709C9A00FD9CBE /* SDKClasses.swift in Sources */,
-				486AE9D726709C9A00FD9CBE /* CameraFilter.swift in Sources */,
-				486AE9EC26709C9A00FD9CBE /* SDKLanguageManager.swift in Sources */,
-				486AE9EB26709C9A00FD9CBE /* SDKProtocols.swift in Sources */,
-				486AE9D326709C9A00FD9CBE /* NetworkRequests.swift in Sources */,
+				486AEAB52670AB6200FD9CBE /* Constant.swift in Sources */,
+				486AEAB72670AB6200FD9CBE /* SDKEnums.swift in Sources */,
 				B7021647E5F36B2E1C99B88A0E2A21D1 /* LICENSE in Sources */,
+				486AEABE2670AB6200FD9CBE /* CameraFilter.swift in Sources */,
+				486AEAD32670AB6200FD9CBE /* SDKLanguageManager.swift in Sources */,
+				486AEAD22670AB6200FD9CBE /* SDKProtocols.swift in Sources */,
+				486AEABA2670AB6200FD9CBE /* NetworkRequests.swift in Sources */,
+				486AEAB92670AB6200FD9CBE /* Identify.swift in Sources */,
 				2A2336A97C3CD43D6FD8557B62F9B790 /* README.md in Sources */,
-				486AE9F026709C9A00FD9CBE /* GradientLabel.swift in Sources */,
-				486AE9D926709C9A00FD9CBE /* SignalingMessage.swift in Sources */,
-				486AE9CF26709C9A00FD9CBE /* Constant.swift in Sources */,
+				486AEAD72670AB6200FD9CBE /* GradientLabel.swift in Sources */,
+				486AEAC02670AB6200FD9CBE /* SignalingMessage.swift in Sources */,
+				486AEAB62670AB6200FD9CBE /* SDKClasses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

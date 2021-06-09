@@ -658,8 +658,9 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
 
 extension UIImage {
     
-    public func toBase64() -> String {
-        return self.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+    public func toBase64() -> String? {
+        guard let imageData = self.pngData() else { return nil }
+        return imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
     }
 }
 

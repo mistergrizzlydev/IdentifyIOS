@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IdentifyIOS'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'identify.com.tr'
 
 # This description is used to generate tags and improve search results.
@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/emirbeytekin/IdentifyIOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  s.swift_version = "5"
   s.ios.deployment_target = '12.1'
 
   s.source_files = '*'
