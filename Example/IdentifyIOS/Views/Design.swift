@@ -108,6 +108,20 @@ public struct DesignConstants {
     public static var soundScrBtnBackColor: UIColor? = UIColor.white
     public static var soundScrBtnText: String? = "Basılı tutun ve şehir ismini okuyun"
     public static var soundScrBtnFont: UIFont? = DEFAULT_LABEL_FAMILY
-
+    
+    // izin ekranları
+    public static var permissionScrBackgroundColor: UIColor? = DEFAULT_BACKGROUND_COLOR
+    public static var permissionTitle: String? = "Uygulama İzinleri"
+    public static var permissionTitleColor: UIColor? = DEFAULT_LABEL_COLOR
+    public static var permissionDesc: String? = "Devam edebilmek için lütfen kamera, mikrofon ve konuşma izinlerine onay veriniz."
+    public static var permissionDescColor: UIColor? = DEFAULT_LABEL_COLOR
+    
+    public static var rejectedBtnBackColor: UIColor? = UIColor.red
+    public static var acceptedtedBtnBackColor: UIColor? = UIColor.green
+    
+    public static var alertTitle: String? = "Hata"
+    public static var alertDesc: String? = "Ayarlara gitmek istiyor musunuz?"
+    public static var alertPositiveAct: String? = "Ayarlara Git"
+    public static var alertNegativeAct: String? = "İptal Et"
     
 }

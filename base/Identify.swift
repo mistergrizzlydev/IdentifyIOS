@@ -10,8 +10,6 @@ import UIKit
 import Alamofire
 import Starscream
 import WebRTC
-//import NFCPassportReader
-//import QKMRZParser
 import CoreNFC
 import Speech
 
@@ -47,11 +45,12 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var identfiyModules = [Modules]()
     public var selfieType: SelfieTypes?
     public var selectedHost: HostType?
+    
+    public var camOk = false
+    public var micOk = false
+    public var speechOk = false
 
     private init() {
-        self.microphoneReq()
-        self.wantCameraRequest()
-        self.speechReq()
 //        setupSettings()
     }
     
@@ -604,54 +603,33 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         }
     }
     
-    public func speechReq() {
-        SFSpeechRecognizer.requestAuthorization { (status) in
-            switch status {
-            case .notDetermined:  print("Not determined")
-            case .restricted:  print("Restricted")
-            case .denied:  print("Denied")
-            case .authorized:  print("")
-            @unknown default:  print("Unknown case")
-          }
-        }
-    }
-    
-    public func microphoneReq() {
-        var microphoneAccessGranted = false
-        let microPhoneStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
+    public func permissionsAllowed() -> Bool {
         
+        let microPhoneStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
         switch microPhoneStatus {
         case .authorized:
-            microphoneAccessGranted = true
-        case .denied, .restricted, .notDetermined:
-            microphoneAccessGranted = false
-            AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: { (alowedAccess) -> Void in
-                if !alowedAccess {
-//                    weakSelf?.showMicrophonePermisionPopUp()
-                }
-            })
+            self.micOk = true
+        default:
+            self.micOk = false
         }
-    }
         
-    public func wantCameraRequest() {
-        let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
-        let userAgreedToUseIt = authorizationStatus == .authorized
-        if userAgreedToUseIt {
-           
-            //Do whatever you want to do with camera.
-            
-        } else if authorizationStatus == .denied
-            || authorizationStatus == .restricted
-            || authorizationStatus == .notDetermined {
-            
-            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (alowedAccess) -> Void in
-                if alowedAccess {
-                    self.microphoneReq()
-                } else {
-                    self.microphoneReq()
-                }
-            })
+        let cameraStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        switch cameraStatus {
+        case .authorized:
+            self.camOk = true
+        default:
+            self.camOk = false
         }
+        
+        if let speechRecognizer = SFSpeechRecognizer() {
+            if speechRecognizer.isAvailable {
+                self.speechOk = true
+            } else {
+                self.speechOk = false
+            }
+        }
+        
+        return micOk && camOk && speechOk
     }
 
 }

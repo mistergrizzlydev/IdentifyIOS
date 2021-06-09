@@ -29,6 +29,18 @@ class ViewController: UIViewController {
         manager.stunPassword = "test"
         manager.setupUrls()
         
+        if manager.permissionsAllowed() == false {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                let next = SDKPermissionsViewController.instantiate()
+                next.modalPresentationStyle = .fullScreen
+                self.present(next, animated: true, completion: nil)
+            }
+        } else {
+            debugPrint("izinler ok")
+        }
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

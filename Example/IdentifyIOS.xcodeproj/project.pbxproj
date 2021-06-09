@@ -44,6 +44,9 @@
 		4867116B266FABF500743FAD /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48671148266FABF500743FAD /* Design.swift */; };
 		4867116C266FABF500743FAD /* SDKSelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867114A266FABF500743FAD /* SDKSelfieViewController.swift */; };
 		4867116D266FABF500743FAD /* SDKSelfieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867114B266FABF500743FAD /* SDKSelfieViewController.xib */; };
+		48BEF2942670FDBB00822E5A /* SDKPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */; };
+		48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */; };
+		48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF29626710BDA00822E5A /* Colors.xcassets */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -124,6 +127,9 @@
 		4867126B266FAEED00743FAD /* QKMRZParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QKMRZParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867126C266FAEED00743FAD /* SwiftSignatureView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSignatureView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48BEF2902670F5C300822E5A /* IdentifyIOS_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdentifyIOS_Example.entitlements; sourceTree = "<group>"; };
+		48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKPermissionsViewController.swift; sourceTree = "<group>"; };
+		48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKPermissionsViewController.xib; sourceTree = "<group>"; };
+		48BEF29626710BDA00822E5A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* IdentifyIOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdentifyIOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 		4867111A266FABF500743FAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				48BEF2912670FD5A00822E5A /* Permissions */,
 				4867111B266FABF500743FAD /* Modules List */,
 				4867111E266FABF500743FAD /* CallScreen */,
 				48671121266FABF500743FAD /* Signature */,
@@ -322,6 +329,15 @@
 			path = SelfieCameraView;
 			sourceTree = "<group>";
 		};
+		48BEF2912670FD5A00822E5A /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */,
+				48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +368,7 @@
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				48BEF29626710BDA00822E5A /* Colors.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -518,6 +535,8 @@
 				4867116D266FABF500743FAD /* SDKSelfieViewController.xib in Resources */,
 				48671150266FABF500743FAD /* SDKSignatureViewController.xib in Resources */,
 				4867114F266FABF500743FAD /* CallScreenViewController.xib in Resources */,
+				48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */,
+				48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */,
 				48671158266FABF500743FAD /* KYC.storyboard in Resources */,
 				48671152266FABF500743FAD /* SmsScreenViewController.xib in Resources */,
 				4867115B266FABF500743FAD /* SmileViewController.xib in Resources */,
@@ -644,6 +663,7 @@
 				4867116A266FABF500743FAD /* SDKSoundRecognitionViewController.swift in Sources */,
 				48671167266FABF500743FAD /* SDKOnBoardingViewController.swift in Sources */,
 				48671157266FABF500743FAD /* StringUtils.swift in Sources */,
+				48BEF2942670FDBB00822E5A /* SDKPermissionsViewController.swift in Sources */,
 				48671151266FABF500743FAD /* SDKSignatureViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				4867115E266FABF500743FAD /* UserDefaults.swift in Sources */,

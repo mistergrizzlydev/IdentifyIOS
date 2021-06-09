@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKPermissionsViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="camBtn" destination="dDz-aL-TMD" id="dDb-5q-rhf"/>
+                <outlet property="dismissBtn" destination="cog-J7-BXv" id="cyB-nh-VD3"/>
+                <outlet property="micBtn" destination="ibJ-cI-11I" id="sVN-Se-i6Q"/>
+                <outlet property="permissionDesc" destination="Aym-l2-iUE" id="5Hv-5U-k2I"/>
+                <outlet property="permissionTitle" destination="jcl-rI-FVL" id="KBn-9E-b5v"/>
+                <outlet property="speechBtn" destination="R2L-BH-69H" id="b7r-uZ-IcE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="permission" translatesAutoresizingMaskIntoConstraints="NO" id="mWH-SF-ytn">
+                    <rect key="frame" x="0.0" y="68" width="414" height="450"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="450" id="eRa-2e-dUY"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vqP-Rh-Up3">
+                    <rect key="frame" x="18" y="418" width="378" height="226.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcl-rI-FVL">
+                            <rect key="frame" x="0.0" y="0.0" width="378" height="23"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aym-l2-iUE">
+                            <rect key="frame" x="0.0" y="35" width="378" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibJ-cI-11I">
+                            <rect key="frame" x="0.0" y="67.5" width="378" height="45"/>
+                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="WIt-0C-qN1"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Microphone Permission">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDz-aL-TMD">
+                            <rect key="frame" x="0.0" y="124.5" width="378" height="45"/>
+                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="3X4-4L-Rqp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Camera Permission">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2L-BH-69H">
+                            <rect key="frame" x="0.0" y="181.5" width="378" height="45"/>
+                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="fyD-qc-nYP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Speech Permission">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </stackView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cog-J7-BXv">
+                    <rect key="frame" x="18" y="799" width="378" height="45"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="G0i-gy-MCl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="Tamamlandı">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="mWH-SF-ytn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IFk-xK-ZAD"/>
+                <constraint firstItem="vqP-Rh-Up3" firstAttribute="top" secondItem="mWH-SF-ytn" secondAttribute="bottom" constant="-100" id="JRO-Rj-zCg"/>
+                <constraint firstItem="mWH-SF-ytn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="LEZ-7z-5Q1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vqP-Rh-Up3" secondAttribute="trailing" constant="18" id="OfD-H3-gob"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mWH-SF-ytn" secondAttribute="trailing" id="Q0P-vF-zyy"/>
+                <constraint firstItem="cog-J7-BXv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="Zv3-7J-xPQ"/>
+                <constraint firstItem="vqP-Rh-Up3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="fy9-R7-5tn"/>
+                <constraint firstItem="vqP-Rh-Up3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pIP-Tc-m2t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cog-J7-BXv" secondAttribute="trailing" constant="18" id="vjY-cu-iQq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cog-J7-BXv" secondAttribute="bottom" constant="18" id="zkQ-Vk-OLf"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="95"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="permission" width="375" height="560"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
