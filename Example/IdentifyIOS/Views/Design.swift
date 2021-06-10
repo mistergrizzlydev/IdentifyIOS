@@ -119,9 +119,9 @@ public struct DesignConstants {
     public static var rejectedBtnBackColor: UIColor? = UIColor.red
     public static var acceptedtedBtnBackColor: UIColor? = UIColor.green
     
-    public static var alertTitle: String? = "Hata"
-    public static var alertDesc: String? = "Ayarlara gitmek istiyor musunuz?"
-    public static var alertPositiveAct: String? = "Ayarlara Git"
-    public static var alertNegativeAct: String? = "İptal Et"
+    public static var permissionAlertTitle: String? = "Hata"
+    public static var permissionAlertDesc: String? = "Ayarlara gitmek istiyor musunuz?"
+    public static var permissionAlertPositiveAct: String? = "Ayarlara Git"
+    public static var permissionAlertNegativeAct: String? = "İptal Et"
     
 }

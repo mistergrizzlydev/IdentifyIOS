@@ -61,8 +61,8 @@ class SDKPermissionsViewController: SDKBaseViewController {
     }
     
     func goToSettings() {
-        let alertController = UIAlertController (title: DesignConstants.alertTitle, message: DesignConstants.alertDesc, preferredStyle: .alert)
-        let settingsAction = UIAlertAction(title: DesignConstants.alertPositiveAct, style: .default) { (_) -> Void in
+        let alertController = UIAlertController (title: DesignConstants.permissionAlertTitle, message: DesignConstants.permissionAlertDesc, preferredStyle: .alert)
+        let settingsAction = UIAlertAction(title: DesignConstants.permissionAlertPositiveAct, style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
             }
@@ -71,7 +71,7 @@ class SDKPermissionsViewController: SDKBaseViewController {
             }
         }
         alertController.addAction(settingsAction)
-        let cancelAction = UIAlertAction(title: DesignConstants.alertNegativeAct, style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: DesignConstants.permissionAlertNegativeAct, style: .default, handler: nil)
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true, completion: nil)
