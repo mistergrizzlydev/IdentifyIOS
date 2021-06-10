@@ -161,6 +161,10 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func connect(_ sender: Any) {
+        manager.connectToRoom()
+    }
+    
     @objc func listenNotification() {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(userLoggedIn), name: Notification.Name("UserLoggedIn"), object: nil)
