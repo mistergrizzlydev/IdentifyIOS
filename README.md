@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
 ## Gereklilikler
-iOS 12.1 sürümü ve üzerinde çalışır
+iOS 12.1 sürümü ve üzerinde çalışır.
                     
 ** Lütfen plist ve entitlements dosyanızı kontrol etmeyi unutmayın. Aşağıda gösterilen tüm özellikler Example/IdentifyIOS/ViewController.swift dosyasında mevcuttur. **
 
