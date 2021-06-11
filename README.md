@@ -15,7 +15,7 @@ iOS 12.1 sürümü ve üzerinde çalışır
 Aşağıdaki kodu kendi .podfile dosyanıza ekleyin:
 
 ```ruby
-pod 'IdentifyIOS', :git => 'git@github.com:emirbeytekin/IdentifyIOS.git', :tag => '0.1.3'
+pod 'IdentifyIOS'
 pod 'QKMRZParser'
 pod 'CHIOTPField/Two'
 pod 'IQKeyboardManagerSwift'

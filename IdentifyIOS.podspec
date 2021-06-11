@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IdentifyIOS'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'identify.com.tr'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 "Identify 24 iOS Pod"
                        DESC
 
-  s.homepage         = 'https://github.com/emirbeytekin/IdentifyIOS'
+  s.homepage         = 'https://github.com/Identify24/IdentifyIOS'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Emir Beytekin' => 'emir@beytekin.net' }
-  s.source           = { :git => 'https://github.com/emirbeytekin/IdentifyIOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:Identify24/IdentifyIOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.swift_version = "5"
