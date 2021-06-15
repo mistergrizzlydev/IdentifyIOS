@@ -1,6 +1,0 @@
-framework module IdentifyIOS {
-  umbrella header "IdentifyIOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
