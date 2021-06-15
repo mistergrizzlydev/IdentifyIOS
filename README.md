@@ -20,6 +20,7 @@ pod 'QKMRZParser'
 pod 'CHIOTPField/Two'
 pod 'IQKeyboardManagerSwift'
 pod 'SwiftSignatureView'
+pod 'GoogleMLKit/FaceDetection'
 ```
 
 ## Identify SDK
