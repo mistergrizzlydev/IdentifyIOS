@@ -264,6 +264,11 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     }
     
     func showHumanVerification() {
+        let nextVC = HumanVerificationViewController.instantiate()
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.delegate = self
+        self.present(nextVC, animated: false, completion: nil)
+        /*
         if self.arFaceAvailable {
             let smiley = SmileViewController.instantiate()
             smiley.modalPresentationStyle = .fullScreen
@@ -279,6 +284,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
             oldSmiley.oldDeviceSmileyDelegate = self
             self.present(oldSmiley, animated: true, completion: nil)
         }
+        */
     }
     
     func showSelfieView() {

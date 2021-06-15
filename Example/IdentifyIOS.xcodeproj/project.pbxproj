@@ -47,6 +47,9 @@
 		48BEF2942670FDBB00822E5A /* SDKPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */; };
 		48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */; };
 		48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF29626710BDA00822E5A /* Colors.xcassets */; };
+		48FF1A122678FBB8003F7851 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */; };
+		48FF1A132678FBB8003F7851 /* HumanVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */; };
+		48FF1A142678FBB8003F7851 /* HumanVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48FF1A112678FBB8003F7851 /* HumanVerificationViewController.xib */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -130,6 +133,9 @@
 		48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKPermissionsViewController.swift; sourceTree = "<group>"; };
 		48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKPermissionsViewController.xib; sourceTree = "<group>"; };
 		48BEF29626710BDA00822E5A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanVerificationViewController.swift; sourceTree = "<group>"; };
+		48FF1A112678FBB8003F7851 /* HumanVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumanVerificationViewController.xib; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* IdentifyIOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdentifyIOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 		4867111A266FABF500743FAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				48FF1A0E2678FBA1003F7851 /* New - Human Verification */,
 				48BEF2912670FD5A00822E5A /* Permissions */,
 				4867111B266FABF500743FAD /* Modules List */,
 				4867111E266FABF500743FAD /* CallScreen */,
@@ -336,6 +343,16 @@
 				48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */,
 			);
 			path = Permissions;
+			sourceTree = "<group>";
+		};
+		48FF1A0E2678FBA1003F7851 /* New - Human Verification */ = {
+			isa = PBXGroup;
+			children = (
+				48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */,
+				48FF1A112678FBB8003F7851 /* HumanVerificationViewController.xib */,
+				48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */,
+			);
+			path = "New - Human Verification";
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -537,6 +554,7 @@
 				4867114F266FABF500743FAD /* CallScreenViewController.xib in Resources */,
 				48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */,
 				48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */,
+				48FF1A142678FBB8003F7851 /* HumanVerificationViewController.xib in Resources */,
 				48671158266FABF500743FAD /* KYC.storyboard in Resources */,
 				48671152266FABF500743FAD /* SmsScreenViewController.xib in Resources */,
 				4867115B266FABF500743FAD /* SmileViewController.xib in Resources */,
@@ -650,6 +668,7 @@
 				48671165266FABF500743FAD /* SDKPopUpActionViewController.swift in Sources */,
 				4867116B266FABF500743FAD /* Design.swift in Sources */,
 				4867115F266FABF500743FAD /* SDKCallWaitScreenController.swift in Sources */,
+				48FF1A132678FBB8003F7851 /* HumanVerificationViewController.swift in Sources */,
 				4867116C266FABF500743FAD /* SDKSelfieViewController.swift in Sources */,
 				48671156266FABF500743FAD /* VisionViewController.swift in Sources */,
 				48671159266FABF500743FAD /* SDKMrzViewController.swift in Sources */,
@@ -669,6 +688,7 @@
 				4867115E266FABF500743FAD /* UserDefaults.swift in Sources */,
 				48671168266FABF500743FAD /* SDKBaseViewController.swift in Sources */,
 				48671153266FABF500743FAD /* OneTimeExt.swift in Sources */,
+				48FF1A122678FBB8003F7851 /* UIUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
