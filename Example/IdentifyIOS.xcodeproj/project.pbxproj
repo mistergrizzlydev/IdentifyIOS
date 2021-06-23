@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481542F12679E53D00F09A4A /* identifytr.cer in Resources */ = {isa = PBXBuildFile; fileRef = 481542F02679E53A00F09A4A /* identifytr.cer */; };
 		4821A7A3266F9E990037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */; };
 		4821A7AA266F9EC30037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */; };
-		4821A7AB266F9EC30037331F /* Pods_IdentifyIOS_Example.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867111C266FABF500743FAD /* SDKModulesListViewController.xib */; };
 		4867114D266FABF500743FAD /* SDKModulesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867111D266FABF500743FAD /* SDKModulesListViewController.swift */; };
 		4867114E266FABF500743FAD /* CallScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867111F266FABF500743FAD /* CallScreenViewController.swift */; };
@@ -69,26 +69,13 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		4821A7A5266F9E990037331F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4821A7AB266F9EC30037331F /* Pods_IdentifyIOS_Example.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0200F35752AC93564B1E1B97 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		07CD712F76A7D9969C967BF2 /* Pods-IdentifyIOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdentifyIOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2341B4BC304E1B51AE9B0299 /* Pods_IdentifyIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentifyIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BE7C41026499EB70D7E712 /* Pods-IdentifyIOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdentifyIOS_Tests.release.xcconfig"; path = "Target Support Files/Pods-IdentifyIOS_Tests/Pods-IdentifyIOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		481542F02679E53A00F09A4A /* identifytr.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = identifytr.cer; sourceTree = "<group>"; };
 		4821A7A6266F9EAD0037331F /* IdentifyIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IdentifyIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867111C266FABF500743FAD /* SDKModulesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKModulesListViewController.xib; sourceTree = "<group>"; };
@@ -382,6 +369,7 @@
 			children = (
 				4867111A266FABF500743FAD /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				481542F02679E53A00F09A4A /* identifytr.cer */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -466,7 +454,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				8F34D05CD0967B0D5F862058 /* [CP] Embed Pods Frameworks */,
-				4821A7A5266F9E990037331F /* Embed Frameworks */,
+				37D8F9CC6AE6BE99A8B94824 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -560,6 +548,7 @@
 				4867115B266FABF500743FAD /* SmileViewController.xib in Resources */,
 				4867115D266FABF500743FAD /* SDKNfcViewController.xib in Resources */,
 				48671166266FABF500743FAD /* SDKOnBoardingViewController.xib in Resources */,
+				481542F12679E53D00F09A4A /* identifytr.cer in Resources */,
 				4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				48671164266FABF500743FAD /* SDKOnBoardingDetailViewController.xib in Resources */,
@@ -576,6 +565,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		37D8F9CC6AE6BE99A8B94824 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitFaceDetection/GoogleMVFaceDetectorResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8F34D05CD0967B0D5F862058 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,26 +592,40 @@
 				"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CHIOTPField/CHIOTPField.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/IdentifyIOS/IdentifyIOS.framework",
 				"${BUILT_PRODUCTS_DIR}/NFCPassportReader/NFCPassportReader.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/QKMRZParser/QKMRZParser.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSignatureView/SwiftSignatureView.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIOTPField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IdentifyIOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NFCPassportReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QKMRZParser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSignatureView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

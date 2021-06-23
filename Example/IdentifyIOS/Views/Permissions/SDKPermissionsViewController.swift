@@ -9,6 +9,10 @@
 import UIKit
 import Speech
 
+protocol PermissionViewDelegate {
+    func permissionCompleted()
+}
+
 class SDKPermissionsViewController: SDKBaseViewController {
     
     @IBOutlet weak var micBtn: UIButton!
@@ -21,6 +25,7 @@ class SDKPermissionsViewController: SDKBaseViewController {
     var micOk = false
     var camOk = false
     var speechOk = false
+    var permissionDelegate: PermissionViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +62,9 @@ class SDKPermissionsViewController: SDKBaseViewController {
     }
     
     @objc func dismissPermissionScreen() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.permissionDelegate?.permissionCompleted()
+        })
     }
     
     func goToSettings() {

@@ -117,6 +117,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                     self.showSpeechRecognitionView()
                 }
             case .waitScreen:
+//                self.userDefaults.setValue(key: "modulesCompleted", value: "completed") // geliştirilmesi devam ediyor
                 manager.sendCurrentScreen(screen: .waitScreen)
                 UIView.animate(withDuration: 0.3) {
                     self.view.alpha = 1

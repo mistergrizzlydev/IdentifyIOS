@@ -14,7 +14,8 @@ class SDKBaseViewController: UIViewController {
     
     let languageManager = SDKLanguageManager.shared
     let colorManager = SDKColorManager.shared
-    
+    let userDefaults = UserDefaultService.shared
+
     var nfcAvailable: Bool = {
         if #available(iOS 13.0, *) {
             return NFCNDEFReaderSession.readingAvailable && NFCTagReaderSession.readingAvailable

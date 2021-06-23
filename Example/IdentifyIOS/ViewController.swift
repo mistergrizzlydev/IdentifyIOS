@@ -9,16 +9,21 @@
 import UIKit
 import IdentifyIOS
 
-class ViewController: UIViewController {
-
+class ViewController: SDKBaseViewController {
+    
     let manager = IdentifyManager.shared
     
+    var quitType: AppQuitType {
+        return manager.appQuitType ?? .restartModules
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         listenNotification()
+        manager.appQuitType = .restartModules
         manager.selectedHost = .identifyTr
         //        manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
-        manager.addModules(module: [.livenessDetection])
+        manager.addModules(module: [.nfc, .selfie, .livenessDetection])
         manager.userToken = "6e676552-9dc4-11eb-99a4-0acde28968be" // size verilecek olan token
         manager.netw.timeoutIntervalForRequest = 35
         manager.netw.timeoutIntervalForResource = 15
@@ -29,14 +34,25 @@ class ViewController: UIViewController {
         manager.stunUsername = "test"
         manager.stunPassword = "test"
         manager.setupUrls()
+//        checkAppQuitType()
         checkPermissions()
         self.setupUI() // ister kodla, isterseniz views klasöründen tasarımı değiştirebilirsiniz
+    }
+    
+    func checkAppQuitType() { // geliştirilmesi devam ediyor.
+//        switch quitType {
+//        case .onlyCall:
+//            self.skipAllModules()
+//        default:
+//            return
+//        }
     }
     
     func checkPermissions() { // kullanıcının kamera - mikrafon ve konuşma iznini kontrol eder, gereksizse kapatabilirsiniz.
         if manager.permissionsAllowed() == false {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 let next = SDKPermissionsViewController.instantiate()
+                next.permissionDelegate = self
                 next.modalPresentationStyle = .fullScreen
                 self.present(next, animated: true, completion: nil)
             }
@@ -186,3 +202,10 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: PermissionViewDelegate {
+    
+    func permissionCompleted() {
+        debugPrint("permission delegate ok")
+    }
+    
+}

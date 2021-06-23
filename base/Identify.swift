@@ -45,11 +45,13 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var identfiyModules = [Modules]()
     public var selfieType: SelfieTypes?
     public var selectedHost: HostType?
+    public var appQuitType: AppQuitType? = .restartModules
     
     public var camOk = false
     public var micOk = false
     public var speechOk = false
-
+    let userDefaults = UserDefaults.standard
+    
     private init() {
 //        setupSettings()
     }

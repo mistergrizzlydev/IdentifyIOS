@@ -65,7 +65,7 @@ class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
         self.setUpAnnotationOverlayView()
         self.setUpCaptureSessionOutput()
         self.setUpCaptureSessionInput()
-        
+        self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.showStepPopUp(step: .leftEye)
         }

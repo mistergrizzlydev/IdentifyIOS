@@ -16,21 +16,24 @@ public class SDKNetwork {
     public var timeoutIntervalForRequest = 30
     public var timeoutIntervalForResource = 30
     
-    private lazy var alamoFireManager: SessionManager? = {
-       let configuration = URLSessionConfiguration.default
-       configuration.timeoutIntervalForRequest = TimeInterval(self.timeoutIntervalForRequest)
-       configuration.timeoutIntervalForResource = TimeInterval(self.timeoutIntervalForResource)
-       let alamoFireManager = Alamofire.SessionManager(configuration: configuration)
-       return alamoFireManager
+    private lazy var alamoFireManager: Session? = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = TimeInterval(self.timeoutIntervalForRequest)
+        configuration.timeoutIntervalForResource = TimeInterval(self.timeoutIntervalForResource)
+        let evaluator: [String: ServerTrustEvaluating] = [
+            "api.identifytr.com": PublicKeysTrustEvaluator()
+        ]
+        let alamoFireManager = Alamofire.Session(configuration: configuration, serverTrustManager: ServerTrustManager(evaluators: evaluator))
+        return alamoFireManager
 
    }()
-    
+
     public func connectToRoom(identId: String, callback: @escaping((_ results: RoomResponse) -> Void)) {
         let urlStr = BASE_URL + "mobile/getIdentDetails/" + IdentifyManager.shared.userToken
-        var jsonHeaders = [String : String]()
-        jsonHeaders["Content-Type"] = "application/json"
+        let jsonHeaders: HTTPHeaders = ["Content-Type": "application/json"]
         
-        alamoFireManager?.request(urlStr, method: .get, parameters:nil, encoding: URLEncoding.default , headers:jsonHeaders).validate(contentType: ["application/json"]).responseJSON { response in
+        alamoFireManager!.request(urlStr, method: .get, parameters:nil, encoding: URLEncoding.default , headers:jsonHeaders).validate(contentType: ["application/json"]).responseJSON { response in
+            
             guard let data = response.data else { return }
             do {
                 let decoder = JSONDecoder()
@@ -50,11 +53,11 @@ public class SDKNetwork {
     
     public func verifySms(tid: String, tan: String, callback: @escaping ((_ results: EmptyResponse) -> Void)) {
         let urlStr = BASE_URL + "mobile/verifyTan"
-        var jsonHeaders = [String : String]()
-        jsonHeaders["Content-Type"] = "application/json"
+        let jsonHeaders: HTTPHeaders = ["Content-Type": "application/json"]
+
         let papara = SmsJson.init(tid: tid, tan: tan)
         
-        Alamofire.request(urlStr, method: .post, parameters:papara.asDictionary(), encoding: JSONEncoding.default , headers:jsonHeaders).responseJSON { response in
+        alamoFireManager?.request(urlStr, method: .post, parameters:papara.asDictionary(), encoding: JSONEncoding.default , headers:jsonHeaders).responseJSON { response in
 
             guard let data = response.data else { return }
             do {
@@ -75,10 +78,9 @@ public class SDKNetwork {
     
     public func verifyNFC(model: IdentifyCard, callback: @escaping ((_ results: Bool) -> Void)) {
         let urlStr = BASE_URL + "mobile/nfc_verify"
-        var jsonHeaders = [String : String]()
-        jsonHeaders["Content-Type"] = "application/json"
+        let jsonHeaders: HTTPHeaders = ["Content-Type": "application/json"]
         
-        Alamofire.request(urlStr, method: .post, parameters:model.asDictionary(), encoding: JSONEncoding.default , headers:jsonHeaders).responseJSON { response in
+        alamoFireManager?.request(urlStr, method: .post, parameters:model.asDictionary(), encoding: JSONEncoding.default , headers:jsonHeaders).responseJSON { response in
 
             debugPrint("Parameters:// \(model.asDictionary())")
 //            if let  JSON = response.result.value,
@@ -107,8 +109,7 @@ public class SDKNetwork {
         params["type"] = selfieType.rawValue
         params["ident_id"] = IdentifyManager.shared.userToken
         params["image"] = image
-        var jsonHeaders = [String : String]()
-        jsonHeaders["Content-Type"] = "application/json"
+        let jsonHeaders: HTTPHeaders = ["Content-Type": "application/json"]
         
         alamoFireManager?.request(urlStr, method: .post, parameters:params, encoding: JSONEncoding.default , headers:jsonHeaders).responseJSON { response in
             guard let data = response.data else { return }
@@ -134,6 +135,7 @@ public class SDKNetwork {
     }
     
 }
+
 public class IdentifyCardSDK: Codable {
     public var ident_id: String?
     public var name: String?

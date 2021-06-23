@@ -41,3 +41,8 @@ public enum SelfieTypes: String, Codable {
     case frontId        = "idFront"
     case signature      = "signature"
 }
+
+public enum AppQuitType: String {
+    case restartModules
+    case onlyCall
+}

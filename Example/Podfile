@@ -9,7 +9,7 @@ target 'IdentifyIOS_Example' do
   pod 'CHIOTPField/Two'
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftSignatureView'
-  
+  pod 'GoogleMLKit/FaceDetection'
 
   target 'IdentifyIOS_Tests' do
     inherit! :search_paths
