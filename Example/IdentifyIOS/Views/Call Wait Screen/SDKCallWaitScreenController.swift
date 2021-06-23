@@ -47,7 +47,6 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         UIView.animate(withDuration: 0) {
             self.view.alpha = 0
         }
-        
         backgroundConnectAction()
         self.appLogo.image = GlobalConstants.appLogo
         myCam.isHidden = true
@@ -117,7 +116,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                     self.showSpeechRecognitionView()
                 }
             case .waitScreen:
-//                self.userDefaults.setValue(key: "modulesCompleted", value: "completed") // geliştirilmesi devam ediyor
+                self.userDefaults.setBool(key: "modulesCompleted", value: true)
                 manager.sendCurrentScreen(screen: .waitScreen)
                 UIView.animate(withDuration: 0.3) {
                     self.view.alpha = 1
@@ -126,6 +125,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                 return
             }
         } else { // tüm modüller tamamlandı ve çağrı bekleme ekranına düştü
+            self.userDefaults.setBool(key: "modulesCompleted", value: true)
             manager.sendCurrentScreen(screen: .waitScreen)
             UIView.animate(withDuration: 0.3) {
                 self.view.alpha = 1
@@ -451,10 +451,9 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
         waitScreen.isHidden = true
     }
     
-    func endCall() { // görüşme tamamlandı
+    func endCall() { // kullanıcı 50 sn boyunca çağrıyı yanıtlamadı
         manager.socket.disconnect()
-        showThankYouView()
-        showWaitingArea()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func comingSms() { // sms geldi
@@ -471,13 +470,18 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
     
     func terminateCall() { // görüşme sonlandı
         manager.socket.disconnect()
-        self.dismiss(animated: false, completion: nil)
+        self.userDefaults.setBool(key: "modulesCompleted", value: false) // işlemler tamamlanınca cache i temizliyoruz
+        showThankYouView()
+        showWaitingArea()
     }
     
     func imOffline() { // panelde sayfa yenilendi veya browser kapatıldı
-//        manager.socket.disconnect()
-//        self.dismiss(animated: false, completion: nil)
-//        showThankYouView()
-//        showWaitingArea()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.manager.socket.connect()
+        }
+        myCam.isHidden = true
+        customerCam.isHidden = true
+        translate()
+        waitScreen.isHidden = false
     }
 }

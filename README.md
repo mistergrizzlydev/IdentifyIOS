@@ -58,6 +58,11 @@ manager.stunServers = ["stun:stun.l.google.com:19302", "turn:3.64.99.127:3478"]
 manager.stunUsername = "test"
 manager.stunPassword = "test"
 ```
+Bağlantı kopması gibi durumlarda aşamalara baştan başlamanıza gerek yok.
+```ruby
+manager.appQuitType = .onlyCall // Görüşmede bağlantı koptuysa sadece görüşme ekranını açar
+manager.appQuitType = .restartModules // tüm işlemler baştan başlar
+```
 ## Tüm Aşamaları Atla, Tesimcilye Bağlan
                     
 SDKBaseViewController dosyasına eklenen "addSkipModulesButton" fonksiyonunu istediğiniz ekrandan çağırabilirsiniz. Böylece tüm aşamaları iptal edip müşteri temsilcisi bekleme ekranına yönlendirmiş olursunuz.

@@ -20,7 +20,7 @@ class ViewController: SDKBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listenNotification()
-        manager.appQuitType = .restartModules
+        manager.appQuitType = .onlyCall
         manager.selectedHost = .identifyTr
         //        manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
         manager.addModules(module: [.nfc, .selfie, .livenessDetection])
@@ -34,18 +34,20 @@ class ViewController: SDKBaseViewController {
         manager.stunUsername = "test"
         manager.stunPassword = "test"
         manager.setupUrls()
-//        checkAppQuitType()
+        checkAppQuitType()
         checkPermissions()
         self.setupUI() // ister kodla, isterseniz views klasöründen tasarımı değiştirebilirsiniz
     }
     
     func checkAppQuitType() { // geliştirilmesi devam ediyor.
-//        switch quitType {
-//        case .onlyCall:
-//            self.skipAllModules()
-//        default:
-//            return
-//        }
+        if userDefaults.getBool(key: "modulesCompleted") == true {
+            switch quitType {
+            case .onlyCall:
+                self.skipAllModules()
+            default:
+                return
+            }
+        }
     }
     
     func checkPermissions() { // kullanıcının kamera - mikrafon ve konuşma iznini kontrol eder, gereksizse kapatabilirsiniz.
@@ -90,7 +92,7 @@ class ViewController: SDKBaseViewController {
         DesignConstants.ringScrCallScrTitleFont = .systemFont(ofSize: 12)
         DesignConstants.ringScrCallScrTitleColor = .yellow
         
-        DesignConstants.ringScrCallScrDesc = "Lüfetn telefonunuzu açın"
+        DesignConstants.ringScrCallScrDesc = "Lütfen telefonunuzu açın"
         DesignConstants.ringScrCallScrDescFont = .systemFont(ofSize: 12)
         DesignConstants.ringScrCallScrDescColor = .white
         

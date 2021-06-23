@@ -18,8 +18,16 @@ class UserDefaultService {
         userDefaults.setValue(value, forKey: key)
     }
     
+    func setBool(key: String, value: Bool) {
+        userDefaults.setValue(value, forKey: key)
+    }
+    
     func getValue(key: String) -> String {
         return userDefaults.string(forKey: key) ?? ""
+    }
+    
+    func getBool(key: String) -> Bool {
+        return userDefaults.bool(forKey: key)
     }
 }
 
