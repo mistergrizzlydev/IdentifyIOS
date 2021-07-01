@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		481542F12679E53D00F09A4A /* identifytr.cer in Resources */ = {isa = PBXBuildFile; fileRef = 481542F02679E53A00F09A4A /* identifytr.cer */; };
 		4821A7A3266F9E990037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */; };
 		4821A7AA266F9EC30037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */; };
 		4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867111C266FABF500743FAD /* SDKModulesListViewController.xib */; };
@@ -44,6 +43,7 @@
 		4867116B266FABF500743FAD /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48671148266FABF500743FAD /* Design.swift */; };
 		4867116C266FABF500743FAD /* SDKSelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867114A266FABF500743FAD /* SDKSelfieViewController.swift */; };
 		4867116D266FABF500743FAD /* SDKSelfieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867114B266FABF500743FAD /* SDKSelfieViewController.xib */; };
+		4887C437268D9B82008AEA79 /* identifytr.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4887C435268D9B77008AEA79 /* identifytr.cer */; };
 		48BEF2942670FDBB00822E5A /* SDKPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */; };
 		48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */; };
 		48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF29626710BDA00822E5A /* Colors.xcassets */; };
@@ -75,7 +75,6 @@
 		2341B4BC304E1B51AE9B0299 /* Pods_IdentifyIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentifyIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BE7C41026499EB70D7E712 /* Pods-IdentifyIOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdentifyIOS_Tests.release.xcconfig"; path = "Target Support Files/Pods-IdentifyIOS_Tests/Pods-IdentifyIOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		481542F02679E53A00F09A4A /* identifytr.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = identifytr.cer; sourceTree = "<group>"; };
 		4821A7A6266F9EAD0037331F /* IdentifyIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IdentifyIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867111C266FABF500743FAD /* SDKModulesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKModulesListViewController.xib; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		4867126A266FAEED00743FAD /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867126B266FAEED00743FAD /* QKMRZParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QKMRZParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867126C266FAEED00743FAD /* SwiftSignatureView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSignatureView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4887C435268D9B77008AEA79 /* identifytr.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = identifytr.cer; sourceTree = "<group>"; };
 		48BEF2902670F5C300822E5A /* IdentifyIOS_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdentifyIOS_Example.entitlements; sourceTree = "<group>"; };
 		48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKPermissionsViewController.swift; sourceTree = "<group>"; };
 		48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKPermissionsViewController.xib; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 			children = (
 				4867111A266FABF500743FAD /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				481542F02679E53A00F09A4A /* identifytr.cer */,
+				4887C435268D9B77008AEA79 /* identifytr.cer */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -548,7 +548,7 @@
 				4867115B266FABF500743FAD /* SmileViewController.xib in Resources */,
 				4867115D266FABF500743FAD /* SDKNfcViewController.xib in Resources */,
 				48671166266FABF500743FAD /* SDKOnBoardingViewController.xib in Resources */,
-				481542F12679E53D00F09A4A /* identifytr.cer in Resources */,
+				4887C437268D9B82008AEA79 /* identifytr.cer in Resources */,
 				4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				48671164266FABF500743FAD /* SDKOnBoardingDetailViewController.xib in Resources */,
