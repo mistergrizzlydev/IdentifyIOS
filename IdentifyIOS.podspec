@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IdentifyIOS'
-  s.version          = '0.1.8'
+  s.version          = '0.1.9'
   s.summary          = 'identify.com.tr'
 
 # This description is used to generate tags and improve search results.
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
   s.dependency 'Alamofire'
-  s.dependency 'Starscream', '~> 3.0.2'
+  s.dependency 'Starscream', '~> 3.1.1'
   s.dependency 'GoogleWebRTC'
   s.dependency 'NFCPassportReader'
   
