@@ -43,10 +43,10 @@
 		4867116B266FABF500743FAD /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48671148266FABF500743FAD /* Design.swift */; };
 		4867116C266FABF500743FAD /* SDKSelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867114A266FABF500743FAD /* SDKSelfieViewController.swift */; };
 		4867116D266FABF500743FAD /* SDKSelfieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867114B266FABF500743FAD /* SDKSelfieViewController.xib */; };
-		4887C437268D9B82008AEA79 /* identifytr.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4887C435268D9B77008AEA79 /* identifytr.cer */; };
 		48BEF2942670FDBB00822E5A /* SDKPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */; };
 		48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */; };
 		48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF29626710BDA00822E5A /* Colors.xcassets */; };
+		48E6BFE926957FA5002B9C04 /* identifytr.cer in Resources */ = {isa = PBXBuildFile; fileRef = 48E6BFE726957F9D002B9C04 /* identifytr.cer */; };
 		48FF1A122678FBB8003F7851 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */; };
 		48FF1A132678FBB8003F7851 /* HumanVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */; };
 		48FF1A142678FBB8003F7851 /* HumanVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48FF1A112678FBB8003F7851 /* HumanVerificationViewController.xib */; };
@@ -115,11 +115,11 @@
 		4867126A266FAEED00743FAD /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867126B266FAEED00743FAD /* QKMRZParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QKMRZParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867126C266FAEED00743FAD /* SwiftSignatureView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSignatureView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4887C435268D9B77008AEA79 /* identifytr.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = identifytr.cer; sourceTree = "<group>"; };
 		48BEF2902670F5C300822E5A /* IdentifyIOS_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdentifyIOS_Example.entitlements; sourceTree = "<group>"; };
 		48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKPermissionsViewController.swift; sourceTree = "<group>"; };
 		48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKPermissionsViewController.xib; sourceTree = "<group>"; };
 		48BEF29626710BDA00822E5A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		48E6BFE726957F9D002B9C04 /* identifytr.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = identifytr.cer; sourceTree = "<group>"; };
 		48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanVerificationViewController.swift; sourceTree = "<group>"; };
 		48FF1A112678FBB8003F7851 /* HumanVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumanVerificationViewController.xib; sourceTree = "<group>"; };
@@ -367,9 +367,9 @@
 		607FACD21AFB9204008FA782 /* Example for IdentifyIOS */ = {
 			isa = PBXGroup;
 			children = (
+				48E6BFE726957F9D002B9C04 /* identifytr.cer */,
 				4867111A266FABF500743FAD /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				4887C435268D9B77008AEA79 /* identifytr.cer */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -454,7 +454,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				8F34D05CD0967B0D5F862058 /* [CP] Embed Pods Frameworks */,
-				37D8F9CC6AE6BE99A8B94824 /* [CP] Copy Pods Resources */,
+				C7949A129E906288D1A34F46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,7 +548,7 @@
 				4867115B266FABF500743FAD /* SmileViewController.xib in Resources */,
 				4867115D266FABF500743FAD /* SDKNfcViewController.xib in Resources */,
 				48671166266FABF500743FAD /* SDKOnBoardingViewController.xib in Resources */,
-				4887C437268D9B82008AEA79 /* identifytr.cer in Resources */,
+				48E6BFE926957FA5002B9C04 /* identifytr.cer in Resources */,
 				4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				48671164266FABF500743FAD /* SDKOnBoardingDetailViewController.xib in Resources */,
@@ -565,24 +565,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37D8F9CC6AE6BE99A8B94824 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitFaceDetection/GoogleMVFaceDetectorResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8F34D05CD0967B0D5F862058 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -653,6 +635,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7949A129E906288D1A34F46 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitFaceDetection/GoogleMVFaceDetectorResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD969EF9D642D7D9A42149A8 /* [CP] Check Pods Manifest.lock */ = {
@@ -856,12 +856,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = identify.sample.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -874,12 +875,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = identify.sample.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

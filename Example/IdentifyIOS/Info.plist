@@ -19,25 +19,21 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>nfc access</string>
+	<key>NSCameraUsageDescription</key>
+	<string>camera</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>microphone</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>speech</string>
-	<key>NSCameraUsageDescription</key>
-	<string>camera</string>
-	<key>NFCReaderUsageDescription</key>
-	<string>nfc access</string>
-	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
-	<array>
-		<string>A0000002471001</string>
-	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -45,6 +41,10 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
+	<array>
+		<string>A0000002471001</string>
 	</array>
 </dict>
 </plist>
