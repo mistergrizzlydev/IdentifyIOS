@@ -46,6 +46,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var selfieType: SelfieTypes?
     public var selectedHost: HostType?
     public var appQuitType: AppQuitType? = .restartModules
+    public var logLevel: LogLevel? = .all
     
     public var camOk = false
     public var micOk = false
@@ -632,6 +633,15 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         }
         
         return micOk && camOk && speechOk
+    }
+    
+    public func identifyLog(with message: String) {
+        switch logLevel {
+        case .all:
+            debugPrint(message)
+        default:
+            break
+        }
     }
 
 }

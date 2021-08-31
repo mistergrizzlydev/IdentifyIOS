@@ -46,3 +46,8 @@ public enum AppQuitType: String {
     case restartModules
     case onlyCall
 }
+
+public enum LogLevel: String, Codable {
+    case none = "None"
+    case all = "All"
+}

@@ -54,7 +54,10 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         translate()
         waitScreen.isHidden = false
         self.managerSetup()
-        
+        manager.socket.onDisconnect = { err in
+            self.backgroundConnectAction()
+        }
+//        checkBackgroundMode()
     }
     
     override func viewWillAppear(_ animated: Bool) {
