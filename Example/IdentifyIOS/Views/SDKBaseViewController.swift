@@ -10,11 +10,17 @@ import CoreNFC
 import ARKit
 import IdentifyIOS
 
+protocol CallCompletedDelegate:class {
+    func completed()
+}
+
 class SDKBaseViewController: UIViewController {
     
     let languageManager = SDKLanguageManager.shared
     let colorManager = SDKColorManager.shared
     let userDefaults = UserDefaultService.shared
+    var manager = IdentifyManager.shared
+    var callCompleted = false
 
     var nfcAvailable: Bool = {
         if #available(iOS 13.0, *) {
@@ -40,6 +46,17 @@ class SDKBaseViewController: UIViewController {
         debugPrint("viewDidLoad : \(self)")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        if self.callCompleted == false && manager.socket != nil {
+//            manager.socket.onDisconnect = { err in
+//                if self.manager.socket.isConnected == false {
+//                    self.manager.connectToServer()
+//                }
+//            }
+//        }
+    }
+    
     func addSkipModulesButton() {
         skipButton.setTitle("Tüm aşamaları atla ve temsilciye bağlan", for: .normal)
         skipButton.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 50)
@@ -54,7 +71,6 @@ class SDKBaseViewController: UIViewController {
         man.identfiyModules.removeAll()
         self.dismiss(animated: true, completion: {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "skipAllModules"), object: nil, userInfo: nil)
-
         })
     }
         
@@ -79,13 +95,18 @@ class SDKBaseViewController: UIViewController {
         return languageManager.translate(key: text)
     }
     
-    func popupAlert(title: String? = "Kimlik Basit", message: String?, actionTitles:[String?], actions:[((UIAlertAction) -> Void)?]) {
+    func popupAlert(title: String? = "Kimlik Basit", message: String?, actionTitles:[String?], actions:[((UIAlertAction) -> Void)?], isRootAlert: Bool? = false) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         for (index, title) in actionTitles.enumerated() {
             let action = UIAlertAction(title: title, style: .default, handler: actions[index])
             alert.addAction(action)
         }
-        self.present(alert, animated: true, completion: nil)
+        
+        if isRootAlert ?? false {
+            UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
+        } else {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func showPopUp(image: UIImage, desc: String) {
@@ -96,6 +117,7 @@ class SDKBaseViewController: UIViewController {
 var vSpinner : UIView?
 
 extension UIViewController {
+    
     func showLoader() {
         let spinnerView = UIView.init(frame: self.view.frame)
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -133,4 +155,14 @@ extension NotificationCenter {
         self.default.post(name: name, object: nil, userInfo: userInfo)
     }
     
+}
+
+extension String {
+    func toMrzDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let date = dateFormatter.date(from: self)
+        dateFormatter.dateFormat = "yyMMdd"
+        return dateFormatter.string(from: date!)
+    }
 }

@@ -5,6 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
+## What is new in 2.0.1
+- Multilanguage added
+- New Human Verification Module
+- Added headset support to the call screen
+- Added alert window when socket connection is lost
+- Added face control to selfie screen
+- Fixed camera session issue when dismissing Mrz screen
+- Switch to NFC screen if KPS data is connected
+- Default FPS setting reduced from 30 to 24
+- Added alarm tone next to vibration when incoming call
+
 ## Requirements
 Min Target iOS 12.1 
                     
@@ -63,6 +74,12 @@ You don't need to start all over again in case of disconnection..
 manager.appQuitType = .onlyCall // If the connection is lost during the call, it only opens the call screen.
 manager.appQuitType = .restartModules // All processes start over
 ```
+You can open the app without reading the MRZ with the KPS data
+```ruby
+manager.mrzBirthDate = "01.12.1950"
+manager.mrzValidDate = "03.05.2029"
+manager.mrzDocumentNo = "B26C75239"
+```
 ## Skip All Stages, Connect to Representative
                     
 You can call the "addSkipModulesButton" function added to SDKBaseViewController from any screen. Thus, you cancel all stages and direct them to the customer representative waiting screen.
@@ -87,3 +104,4 @@ emir@beytekin.net
 ## License
                     
 IdentifyIOS is available under the MIT license. See the LICENSE file for more info.
+

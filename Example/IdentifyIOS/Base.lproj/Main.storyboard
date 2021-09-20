@@ -20,8 +20,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wI6-qY-uMt">
-                                <rect key="frame" x="164" y="318.5" width="47" height="30"/>
-                                <state key="normal" title="Bağlan"/>
+                                <rect key="frame" x="28" y="308.5" width="319" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.62194844640000002" blue="0.22670041420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9Ad-k3-vnj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="Bağlan">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="connect:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uPb-zh-l7q"/>
                                 </connections>
@@ -29,8 +36,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wI6-qY-uMt" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="2FK-AH-e0T"/>
-                            <constraint firstItem="wI6-qY-uMt" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="bTd-x6-fdz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wI6-qY-uMt" secondAttribute="trailing" constant="12" id="bed-kJ-yio"/>
+                            <constraint firstItem="wI6-qY-uMt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="12" id="iKb-1T-W9K"/>
+                            <constraint firstItem="wI6-qY-uMt" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="sY3-lU-nsU"/>
+                            <constraint firstItem="wI6-qY-uMt" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="vlS-HZ-LCS"/>
                         </constraints>
                     </view>
                 </viewController>

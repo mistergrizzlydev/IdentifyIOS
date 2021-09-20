@@ -11,11 +11,14 @@ import IdentifyIOS
 import MLKit
 import AVFoundation
 
+protocol HumanVerificationDelegate {
+    func isHuman()
+}
 
 class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
     
-    let manager = IdentifyManager.shared
-    weak var delegate: SmileDelegate?
+//    let manager = IdentifyManager.shared
+    var delegate: HumanVerificationDelegate?
     
     private let detectors: [Detector] = [
       .onDeviceFace
@@ -73,7 +76,6 @@ class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
-      
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -181,9 +183,11 @@ class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
                 if face.hasSmilingProbability {
                   let smileProb = face.smilingProbability
                   if smileProb > 0.8 {
-                    DispatchQueue.main.async {
-                        self.delegate?.smileCompleted()
-                        self.dismiss(animated: true, completion: nil)
+                    stopSession()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.dismiss(animated: true, completion: {
+                            self.delegate?.isHuman()
+                        })
                     }
                   }
                 }

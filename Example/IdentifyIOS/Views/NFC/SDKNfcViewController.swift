@@ -28,6 +28,8 @@ class SDKNfcViewController: SDKBaseViewController, PopUpProtocol {
     
     var nfcErrorCount = 0
     
+    var withoutMrz = false
+    
     @IBOutlet weak var backGround: UIView!
     @IBOutlet weak var scanHolderView: UIView!
     @IBOutlet weak var scanAgainLabel: GradientLabel!
@@ -43,15 +45,20 @@ class SDKNfcViewController: SDKBaseViewController, PopUpProtocol {
         })
     }
 
-    var manager: IdentifyManager!
+//    var manager: IdentifyManager!
     let passportReader = PassportReader.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         appLogo.image = GlobalConstants.appLogo
+        self.withoutMrz = manager.mrzBirthDate != "" && manager.mrzValidDate != "" && manager.mrzDocumentNo != ""
         setupUI()
         if DesignConstants.nfcScrShowInfoPopup == true {
-            self.showPopUp(image: UIImage(named: "ob2")!, desc: DesignConstants.nfcScrInfoText!)
+            if withoutMrz {
+                self.showPopUp(image: UIImage(named: "ob2")!, desc: DesignConstants.nfcScrWithoutMrzInfoText!)
+            } else {
+                self.showPopUp(image: UIImage(named: "ob2")!, desc: DesignConstants.nfcScrInfoText!)
+            }
         }
         addSkipModulesButton()
     }
@@ -81,13 +88,18 @@ class SDKNfcViewController: SDKBaseViewController, PopUpProtocol {
     
     func startNFC() {
         presentIsOpen = true
-        let myBundle = Bundle(for: SDKMrzViewController.self)
-        let myStoryboard = UIStoryboard(name: "KYC", bundle: myBundle).instantiateSB() as SDKMrzViewController
-        myStoryboard.delegate = self
-        myStoryboard.navigationController?.isNavigationBarHidden = true
-        DispatchQueue.main.async {
-            self.present(myStoryboard, animated: true)
+        if withoutMrz {
+            readCard(with: nil)
+        } else {
+            let myBundle = Bundle(for: SDKMrzViewController.self)
+            let myStoryboard = UIStoryboard(name: "KYC", bundle: myBundle).instantiateSB() as SDKMrzViewController
+            myStoryboard.delegate = self
+            myStoryboard.navigationController?.isNavigationBarHidden = true
+            DispatchQueue.main.async {
+                self.present(myStoryboard, animated: true)
+            }
         }
+        
     }
     
     func handlePopUpAction(action: Bool) {
@@ -104,16 +116,20 @@ class SDKNfcViewController: SDKBaseViewController, PopUpProtocol {
 extension SDKNfcViewController: ProcessScanResult {
     
     func processNew(scanResult: PassportModel, barcodeString: String?) {
-        self.readCard(res: scanResult)
+        self.readCard(with: scanResult)
     }
     
-    func readCard(res: PassportModel) {
-        
+    func readCard(with res: PassportModel?) {
         let passportUtil = PassportUtil()
-        passportUtil.passportNumber = res.documentNumber
-        passportUtil.dateOfBirth = res.birthDate?.toString() ?? ""
-        passportUtil.expiryDate = res.expiryDate?.toString() ?? ""
-        let mrzKey = passportUtil.getMRZKey()
+        var mrzKey = ""
+        if withoutMrz {
+            mrzKey = passportUtil.makeMrzKey(birthDate: manager.mrzBirthDate.toMrzDate(), expireDate: manager.mrzValidDate.toMrzDate(), documentNo: manager.mrzDocumentNo)
+        } else {
+            passportUtil.passportNumber = res?.documentNumber ?? ""
+            passportUtil.dateOfBirth = res?.birthDate?.toString() ?? ""
+            passportUtil.expiryDate = res?.expiryDate?.toString() ?? ""
+            mrzKey = passportUtil.getMRZKey()
+        }
                 
         passportReader.readPassport(mrzKey: mrzKey, customDisplayMessage: { (displayMessage) in
             switch displayMessage {
@@ -145,8 +161,10 @@ extension SDKNfcViewController: ProcessScanResult {
                     }
                                         
                     let img = passportUtil.passport?.passportImage?.toBase64()
+                    let dateOfBirth = self.manager.mrzBirthDate
+                    let expireDate = self.manager.mrzValidDate
                     
-                    let idInfo = IdentifyCard(ident_id: self.manager.userToken, name: passportUtil.passport?.firstName ?? "", surname: passportUtil.passport?.lastName ?? "", personalNumber: passportUtil.passport?.personalNumber ?? "", birthdate: res.birthDate?.toString(format: "dd.MM.yyyy") ?? "", expireDate: res.expiryDate?.toString(format: "dd.MM.yyyy") ?? "", serialNumber: passportUtil.passport?.documentNumber ?? "", nationality: passportUtil.passport?.nationality ?? "", docType: documentType, authority: passportUtil.passport?.issuingAuthority ?? "", gender: gender, image: img)
+                    let idInfo = IdentifyCard(ident_id: self.manager.userToken, name: passportUtil.passport?.firstName ?? "", surname: passportUtil.passport?.lastName ?? "", personalNumber: passportUtil.passport?.personalNumber ?? "", birthdate: dateOfBirth, expireDate: expireDate, serialNumber: passportUtil.passport?.documentNumber ?? "", nationality: passportUtil.passport?.nationality ?? "", docType: documentType, authority: passportUtil.passport?.issuingAuthority ?? "", gender: gender, image: img)
                                                             
                     self.manager.netw.verifyNFC(model: idInfo) { (resp) in
                         if resp == true {
@@ -160,7 +178,7 @@ extension SDKNfcViewController: ProcessScanResult {
                     return
                 }
             } else {
-                AlertViewManager.defaultManager.showOkAlert("Kimlik Basit", message: "error.debugDescription") { (action) in
+                AlertViewManager.defaultManager.showOkAlert("Kimlik Basit", message: error.debugDescription) { (action) in
                     self.delegate?.nfcAvailable(status: false)
                     self.goToWaitScreen()
                 }

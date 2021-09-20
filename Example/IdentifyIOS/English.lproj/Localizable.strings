@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  Kimlik
+
+  Created by MacBookPro on 13.02.2021.
+  
+*/
+
+"Connect" = "Connect";
+"ConnectInfo" = "If you want connect to system, press connect button";
+"ScanAgain" = "Scan Your ID";
+"ScanInfo" = "Please prepare your ID for NFC reading.";
+"HumanSmile" = "Smile 😊";
+"HumanSmileDescription" = "If u want to continue, please smile :)";
+"CallTitle" = "Our customer representative is calling";
+"CallDescription" = "Please answer to start the video call.";
+"EnterSmsCode" = "Please enter SMS code.";
+"WaitingDesc1" = "Please wait on this screen for our customer representative to call you.";
+"WaitingDesc2" = "Make sure you have your ID with you and ready.";
+"ThankU" = "Thank you!";
+"SignatureInfo" = "For identification, please sign your signature in the specified area";
+"SoundRecognitionInfo" = "Hold the button and read the city name in the picture";
+
+// onboard
+"OnPage1" = "Have the back of your ID scanned.";
+"OnPage2" = "NFC swipe by bringing your ID closer to your phone";
+"OnPage3" = "Liveness check (Please smile 😊)";
+"OnPage4" = "Connecting to the customer representative";
+"OnPage5" = "SMS verification process";
+"NextPage" = "Next Page";
+"BackPage" = "Back Page";
+"SkipPage" = "Skip Page";
+"Continue" = "Continue";
+
+// popup
+"PopSelfie" = "Take a selfie with your face visible";
+"PopSmiley" = "Take a selfie with a smile";
+"PopVideo" = "Capture a video maximum 5 seconds long";
+"PopMRZ" = "Turn over your ID Card and show it to the camera";
+"PopNFC" = "Place your ID on the handset of your device and don't move it";
+"PopIdBackPhoto" = "Take a photo of the back of your ID";
+"PopIdFrontPhoto" = "Put your ID on a dark background and point the phone towards your ID";
+
+// core
+"CoreError" = "Error";
+"CoreSuccess" = "Success";
+"CoreOK" = "Ok";
+"WrongSMSCode" = "Wrong Sms Code";

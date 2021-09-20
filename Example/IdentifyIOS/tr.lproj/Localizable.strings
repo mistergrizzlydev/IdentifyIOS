@@ -1,0 +1,49 @@
+/*
+  Localizable.strings
+  Kimlik
+
+  Created by MacBookPro on 13.02.2021.
+  
+*/
+
+"Connect" = "Bağlan";
+"ConnectInfo" = "Sisteme giriş yapmak için bağlana basın.";
+"ScanAgain" = "Kartı Tarat";
+"ScanInfo" = "NFC okuma için lütfen kimliğinizi hazırlayın.";
+"HumanSmile" = "Gülümseyin 😊";
+"HumanSmileDescription" = "Devam etmek için gülümseyin lütfen :)";
+"CallTitle" = "Müşteri temsilcimiz arıyor";
+"CallDescription" = "Video görüşmeyi başlatmak için lütfen cevaplayınız.";
+"EnterSmsCode" = "Lütfen SMS ile iletilen kodu giriniz.";
+"WaitingDesc1" = "Müşteri temsilcimiz sizi aramak üzere lütfen bu ekranda bekleyiniz.";
+"WaitingDesc2" = "Kimliğinizin yanınızda ve hazır olduğundan emin olunuz.";
+"ThankU" = "Teşekkürler";
+"SignatureInfo" = "Kimlik tespiti için lütfen belirtilen alana imzanızı atın";
+"SoundRecognitionInfo" = "Butona basılı tutun ve resimdeki şehir ismini okuyun";
+
+// onboard
+"OnPage1" = "Kimliğinizin arkasını okutun.";
+"OnPage2" = "Kimliğinizi telefonunuza yaklaştırarak NFC okutma";
+"OnPage3" = "Canlılık kontrolü (Lütfen gülümseyin 😊)";
+"OnPage4" = "Müşteri temsilcisine bağlanma";
+"OnPage5" = "SMS ile doğrulama işlemi";
+"NextPage" = "İleri";
+"BackPage" = "Geri";
+"SkipPage" = "Atla";
+"Continue" = "Devam Et";
+
+// popup
+"PopSelfie" = "Yüzünüzün göründüğü bir selfie çekin";
+"PopSmiley" = "Gülümseyerek bir selfie çekin";
+"PopVideo" = "En fazla 5 saniye uzunluğunda video çekin";
+"PopMRZ" = "Kimliğinizin arkasını çevirin ve kameraya gösterin";
+"PopNFC" = "Kimliğinizi cihazınızın ahize bölümüne yerleştirin ve hareket ettirmeyin";
+"PopIdBackPhoto" = "Kimliğinizin arkasının fotoğrafını çekin";
+"PopIdFrontPhoto" = "Kimliğinizi arkaplanı koyu bir zemine koyun ve telefonu kimliğinize doğru tutun";
+
+
+// core
+"CoreError" = "Hata";
+"CoreSuccess" = "Başarılı";
+"CoreOK" = "Tamam";
+"WrongSMSCode" = "Hatalı SMS Kodu";

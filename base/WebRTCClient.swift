@@ -82,10 +82,10 @@ public class WebRTCClient: NSObject, RTCPeerConnectionDelegate, RTCVideoViewDele
         if self.channels.video {
             if isFront {
                 self.localVideoTrack.remove(self.localRenderView!)
-                startCaptureLocalVideo(cameraPositon: .front, videoWidth: 640, videoHeight: 640, videoFps: 30)
+                startCaptureLocalVideo(cameraPositon: .front, videoWidth: 640, videoHeight: 640, videoFps: 24)
             } else {
                 self.localVideoTrack.remove(self.localRenderView!)
-                startCaptureLocalVideo(cameraPositon: .back, videoWidth: 640, videoHeight: 640, videoFps: 30)
+                startCaptureLocalVideo(cameraPositon: .back, videoWidth: 640, videoHeight: 640, videoFps: 24)
             }
             self.localVideoTrack?.add(self.localRenderView!)
         }
@@ -107,7 +107,7 @@ public class WebRTCClient: NSObject, RTCPeerConnectionDelegate, RTCVideoViewDele
             capturer.stopCapture {
                 let position = (self.cameraDevicePosition == .front) ? AVCaptureDevice.Position.back : AVCaptureDevice.Position.front
                 self.cameraDevicePosition = position
-                self.startCaptureLocalVideo(cameraPositon: position, videoWidth: 640, videoHeight: 640, videoFps: 30)
+                self.startCaptureLocalVideo(cameraPositon: position, videoWidth: 640, videoHeight: 640, videoFps: 24)
             }
         }
     }
@@ -272,7 +272,7 @@ public class WebRTCClient: NSObject, RTCPeerConnectionDelegate, RTCVideoViewDele
     
     private func createVideoTrack() -> RTCVideoTrack {
         let videoSource = self.peerConnectionFactory.videoSource()
-        
+        videoSource.adaptOutputFormat(toWidth: 240, height: 320, fps: 24)
         if self.customFrameCapturer {
             self.videoCapturer = RTCCustomFrameCapturer(delegate: videoSource)
         }else if TARGET_OS_SIMULATOR != 0 {
@@ -563,9 +563,9 @@ extension WebRTCClient {
             
             self.rtcAudioSession.lockForConfiguration()
             do {
-                try self.rtcAudioSession.setCategory(AVAudioSession.Category.playAndRecord.rawValue)
-                try self.rtcAudioSession.overrideOutputAudioPort(.speaker)
+                try self.rtcAudioSession.setCategory(AVAudioSession.Category.playAndRecord.rawValue, with: [.defaultToSpeaker, .allowBluetoothA2DP, .allowAirPlay, .allowBluetooth])
                 try self.rtcAudioSession.setActive(true)
+
             } catch let error {
                 self.manager.identifyLog(with: "Couldn't force audio to speaker: \(error)")
             }

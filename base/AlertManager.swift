@@ -101,25 +101,25 @@ public class AlertViewManager : NSObject {
         }
         
         if let app = UIApplication.shared.delegate, let window = app.window, let presentingViewController = window?.rootViewController {
-            
-            let popOverPresentationVC = alertController.popoverPresentationController
-            
-            if let popover = popOverPresentationVC {
-                if let view = view as? UIBarButtonItem {
-                    popover.barButtonItem = view
-                }
-                else if let view = view as? UIView {
-                    popover.sourceView = view;
-                    popOverPresentationVC?.sourceRect = view.bounds;
-                } else {
-                    popOverPresentationVC?.sourceView = presentingViewController.view;
-                    popOverPresentationVC?.sourceRect = presentingViewController.view.bounds;
-                }
-                
-                popOverPresentationVC?.permittedArrowDirections = UIPopoverArrowDirection.any;
-            }
-            
-            self.presentAlertController(alertController, presentingViewController: presentingViewController)
+                    
+                    let popOverPresentationVC = alertController.popoverPresentationController
+                    
+                    if let popover = popOverPresentationVC {
+                        if let view = view as? UIBarButtonItem {
+                            popover.barButtonItem = view
+                        }
+                        else if let view = view as? UIView {
+                            popover.sourceView = view;
+                            popOverPresentationVC?.sourceRect = view.bounds;
+                        } else {
+                            popOverPresentationVC?.sourceView = presentingViewController.view;
+                            popOverPresentationVC?.sourceRect = presentingViewController.view.bounds;
+                        }
+                        
+                        popOverPresentationVC?.permittedArrowDirections = UIPopoverArrowDirection.any;
+                    }
+                    
+                    self.presentAlertController(alertController, presentingViewController: presentingViewController)
         }
     }
     

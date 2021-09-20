@@ -23,10 +23,10 @@ public class PassportUtil {
     public init () {}
     
     public func getMRZKey() -> String {
-        let d = UserDefaults.standard
-        d.set(passportNumber, forKey: "passportNumber")
-        d.set(dateOfBirth, forKey: "dateOfBirth")
-        d.set(expiryDate, forKey: "expiryDate")
+//        let d = UserDefaults.standard
+//        d.set(passportNumber, forKey: "passportNumber")
+//        d.set(dateOfBirth, forKey: "dateOfBirth")
+//        d.set(expiryDate, forKey: "expiryDate")
         
         // Calculate checksums
         let passportNrChksum = calcCheckSum(passportNumber)
@@ -34,6 +34,16 @@ public class PassportUtil {
         let expiryDateChksum = calcCheckSum(expiryDate)
         
         let mrzKey = "\(passportNumber)\(passportNrChksum)\(dateOfBirth)\(dateOfBirthChksum)\(expiryDate)\(expiryDateChksum)"
+        
+        return mrzKey
+    }
+    
+    public func makeMrzKey(birthDate: String, expireDate: String, documentNo: String) -> String {
+        // Calculate checksums
+        let passportNrChksum = calcCheckSum(documentNo)
+        let dateOfBirthChksum = calcCheckSum(birthDate)
+        let expiryDateChksum = calcCheckSum(expireDate)
+        let mrzKey = "\(documentNo)\(passportNrChksum)\(birthDate)\(dateOfBirthChksum)\(expireDate)\(expiryDateChksum)"
         
         return mrzKey
     }

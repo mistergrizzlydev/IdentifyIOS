@@ -56,6 +56,7 @@ public struct DesignConstants {
     public static var nfcScrTryAgainBtnTitleFont: UIFont? = DEFAULT_LABEL_FAMILY
     public static var nfcScrShowInfoPopup: Bool? = true
     public static var nfcScrInfoText: String? = langManager.translate(key: .popMRZ)
+    public static var nfcScrWithoutMrzInfoText: String? = "NFC taraması için kimliğinizi hazırlayın"
     
     public static var selfieScrBackgroundColor: UIColor? = DEFAULT_BACKGROUND_COLOR
     

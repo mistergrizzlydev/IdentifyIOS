@@ -76,6 +76,17 @@ class SDKMrzViewController: UIViewController {
             }
         }
 	}
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isBeingDismissed {
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.dismiss(animated: true) {
+                    self.captureSession.stopRunning()
+                }
+            }
+        }
+    }
 	
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)

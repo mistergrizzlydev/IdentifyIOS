@@ -12,7 +12,7 @@ import IdentifyIOS
 
 class SDKLoginViewController: SDKBaseViewController {
     
-    let manager = IdentifyManager.shared
+//    let manager = IdentifyManager.shared
     
     var deepLinkId = ""
     
@@ -29,7 +29,7 @@ class SDKLoginViewController: SDKBaseViewController {
     
     public init(deepLinkIds: String, hostType: HostType?) {
         self.deepLinkId = deepLinkIds
-        manager.selectedHost = hostType
+//        manager.selectedHost = hostType
         super.init(nibName: nil, bundle: nil)
         manager.setupUrls()
     }

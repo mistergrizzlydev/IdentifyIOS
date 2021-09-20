@@ -48,6 +48,10 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var appQuitType: AppQuitType? = .restartModules
     public var logLevel: LogLevel? = .all
     
+    public var mrzBirthDate = ""
+    public var mrzDocumentNo = ""
+    public var mrzValidDate = ""
+    
     public var camOk = false
     public var micOk = false
     public var speechOk = false
@@ -227,19 +231,20 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         webRTCClient.setup(videoTrack: true, audioTrack: true, dataChannel: true, customFrameCapturer: false, isFront: true)
         isConnected = true
         tryToConnectWebSocket = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
-            if self.webRTCClient.isConnected || self.socket.isConnected {
-                self.socket.enableCompression = true
-                self.socket.desiredTrustHostname = "identify24"
-                self.socket.disableSSLCertValidation = true
-                return
+            if self.socket != nil {
+                if self.webRTCClient.isConnected || self.socket.isConnected {
+                    self.socket.enableCompression = true
+                    self.socket.desiredTrustHostname = "identify24"
+                    self.socket.disableSSLCertValidation = true
+                    return
+                }
             }
         })
-//        socket.onDisconnect = { [weak self] error in
-//            self?.loadingDelegate?.hideAllLoaders()
-//            AlertViewManager.defaultManager.showOkAlert("Kimlik Basit", message: "Bağlantı sona erdi") { (action) in
-//                self?.dismissAllPresents()
-//            }
-//        }
+        socket.onDisconnect = { [weak self] error in
+            self?.loadingDelegate?.hideAllLoaders()
+            let nc = NotificationCenter.default
+            nc.post(name: Notification.Name("disconnectSocket"), object: nil)
+        }
         return true
     }
     

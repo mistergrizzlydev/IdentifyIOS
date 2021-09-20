@@ -46,6 +46,7 @@
 		48BEF2942670FDBB00822E5A /* SDKPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */; };
 		48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */; };
 		48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF29626710BDA00822E5A /* Colors.xcassets */; };
+		48CCB3F726F8757A00423170 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48CCB3F926F8757A00423170 /* Localizable.strings */; };
 		48E6BFE926957FA5002B9C04 /* identifytr.cer in Resources */ = {isa = PBXBuildFile; fileRef = 48E6BFE726957F9D002B9C04 /* identifytr.cer */; };
 		48FF1A122678FBB8003F7851 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */; };
 		48FF1A132678FBB8003F7851 /* HumanVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */; };
@@ -119,6 +120,10 @@
 		48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKPermissionsViewController.swift; sourceTree = "<group>"; };
 		48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKPermissionsViewController.xib; sourceTree = "<group>"; };
 		48BEF29626710BDA00822E5A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		48CCB3F326F8750A00423170 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		48CCB3F426F8750B00423170 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		48CCB3F826F8757A00423170 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		48CCB3FA26F8757F00423170 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48E6BFE726957F9D002B9C04 /* identifytr.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = identifytr.cer; sourceTree = "<group>"; };
 		48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanVerificationViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +381,7 @@
 				48BEF29626710BDA00822E5A /* Colors.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				48CCB3F926F8757A00423170 /* Localizable.strings */,
 			);
 			name = "Example for IdentifyIOS";
 			path = IdentifyIOS;
@@ -513,8 +519,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				English,
-				en,
 				Base,
+				tr,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -542,6 +548,7 @@
 				4867114F266FABF500743FAD /* CallScreenViewController.xib in Resources */,
 				48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */,
 				48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */,
+				48CCB3F726F8757A00423170 /* Localizable.strings in Resources */,
 				48FF1A142678FBB8003F7851 /* HumanVerificationViewController.xib in Resources */,
 				48671158266FABF500743FAD /* KYC.storyboard in Resources */,
 				48671152266FABF500743FAD /* SmsScreenViewController.xib in Resources */,
@@ -732,10 +739,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		48CCB3F926F8757A00423170 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48CCB3F826F8757A00423170 /* English */,
+				48CCB3FA26F8757F00423170 /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				607FACDA1AFB9204008FA782 /* Base */,
+				48CCB3F326F8750A00423170 /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -744,6 +761,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				607FACDF1AFB9204008FA782 /* Base */,
+				48CCB3F426F8750B00423170 /* tr */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -779,6 +797,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -832,6 +851,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -858,6 +878,7 @@
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
 				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -877,6 +898,7 @@
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
 				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

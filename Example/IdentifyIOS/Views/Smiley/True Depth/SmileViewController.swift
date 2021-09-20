@@ -17,7 +17,7 @@ protocol SmileDelegate:class {
 class SmileViewController: SDKBaseViewController {
 
     @IBOutlet var myCam: ARSCNView!
-    var manager: IdentifyManager?
+//    var manager: IdentifyManager?
     let configuration = ARFaceTrackingConfiguration()
     @IBOutlet weak var smileInfoLabel: UILabel!
     @IBOutlet weak var smileDescriptionLabel: UILabel!
@@ -70,7 +70,7 @@ extension SmileViewController: ARSCNViewDelegate {
         let smileRight = anchor.blendShapes[.mouthSmileRight]
         
         if ((smileLeft?.decimalValue ?? 0.0) + (smileRight?.decimalValue ?? 0.0)) > 0.9 {
-            self.manager?.sendLiveStatus()
+            self.manager.sendLiveStatus()
             myCam.session.pause()
             DispatchQueue.main.async {
                 self.delegate?.smileCompleted()

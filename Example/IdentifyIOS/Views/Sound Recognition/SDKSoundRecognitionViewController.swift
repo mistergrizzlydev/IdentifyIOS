@@ -38,6 +38,11 @@ class SDKSoundRecognitionViewController: SDKBaseViewController {
         addSkipModulesButton()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        audioSession = nil
+    }
+    
     func setupUI() {
         
         btnStart.setTitle(DesignConstants.soundScrBtnText, for: .normal)

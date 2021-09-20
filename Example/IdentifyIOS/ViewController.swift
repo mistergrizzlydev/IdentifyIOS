@@ -11,7 +11,7 @@ import IdentifyIOS
 
 class ViewController: SDKBaseViewController {
     
-    let manager = IdentifyManager.shared
+//    let manager = IdentifyManager.shared
     
     var quitType: AppQuitType {
         return manager.appQuitType ?? .restartModules
@@ -20,10 +20,20 @@ class ViewController: SDKBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listenNotification()
-        manager.appQuitType = .onlyCall
+        setupSDK()
+        checkAppQuitType()
+        checkPermissions()
+        self.setupUI() // ister kodla, isterseniz views klasöründen tasarımı değiştirebilirsiniz
+    }
+    
+    func setupSDK() {
+        manager.appQuitType = .restartModules
         manager.selectedHost = .identifyTr
-        //        manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
-        manager.addModules(module: [.nfc, .selfie, .livenessDetection])
+        manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
+//        manager.addModules(module: [.nfc, .selfie, .livenessDetection])
+//        manager.addModules(module: [.nfc, .selfie, .livenessDetection, .speech, .idCard, .videoRecord, .signature])
+//        manager.addModules(module: [.selfie, .livenessDetection, .idCard])
+
         manager.userToken = "6e676552-9dc4-11eb-99a4-0acde28968be" // size verilecek olan token
         manager.netw.timeoutIntervalForRequest = 35
         manager.netw.timeoutIntervalForResource = 15
@@ -34,9 +44,10 @@ class ViewController: SDKBaseViewController {
         manager.stunUsername = "test"
         manager.stunPassword = "test"
         manager.setupUrls()
-        checkAppQuitType()
-        checkPermissions()
-        self.setupUI() // ister kodla, isterseniz views klasöründen tasarımı değiştirebilirsiniz
+        // KPS sisteminiz varsa kullanıcıya ait verileri eklediğiniz takdirde MRZ tarama ekranı açılmayıp NFC ekranı açılacaktır
+//        manager.mrzBirthDate = "01.12.1950"
+//        manager.mrzValidDate = "03.05.2029"
+//        manager.mrzDocumentNo = "B26C75239"
     }
     
     func checkAppQuitType() { // geliştirilmesi devam ediyor.
@@ -71,7 +82,7 @@ class ViewController: SDKBaseViewController {
         DesignConstants.waitScrHiddenBackgroundPhoto = false // arkaplanda ortada yer alan görseli gizler
         DesignConstants.waitScrBackgroundPhoto = #imageLiteral(resourceName: "ob3") // arkaplanda ortada yer alan görseli değiştirir
         DesignConstants.waitScrDesc1LblText = "Merhaba"
-        DesignConstants.waitScrDesc2LblText = "Bilgilendirme metni"
+        DesignConstants.waitScrDesc2LblText = "Lütfen kimliğinizi yanınızda tutun"
         DesignConstants.waitScrDesc1FontFamily = .systemFont(ofSize: 12)
         DesignConstants.waitScrDesc2FontFamily = .systemFont(ofSize: 24)
         DesignConstants.waitScrDesc1LblColor = UIColor.yellow
@@ -180,7 +191,13 @@ class ViewController: SDKBaseViewController {
     }
     
     @IBAction func connect(_ sender: Any) {
-        manager.connectToRoom()
+        if manager.socket != nil {
+            manager.connectToRoom()
+        } else {
+            setupSDK()
+            manager.connectToRoom()
+        }
+        
     }
     
     @objc func listenNotification() {
@@ -210,4 +227,16 @@ extension ViewController: PermissionViewDelegate {
         debugPrint("permission delegate ok")
     }
     
+}
+
+extension UIApplication {
+    class func topViewController(viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = viewController as? UINavigationController {
+            return topViewController(viewController: nav.visibleViewController)
+        }
+        if let presented = viewController?.presentedViewController {
+            return topViewController(viewController: presented)
+        }
+        return viewController
+    }
 }

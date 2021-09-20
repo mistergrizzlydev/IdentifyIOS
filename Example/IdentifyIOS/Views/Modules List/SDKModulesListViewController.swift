@@ -10,7 +10,7 @@ import IdentifyIOS
 
 class SDKModulesListViewController: SDKBaseViewController, PopUpProtocol {
     
-    var manager: IdentifyManager!
+//    var manager: IdentifyManager!
     @IBOutlet weak var tableView: UITableView!
     var list = [Modules]()
     

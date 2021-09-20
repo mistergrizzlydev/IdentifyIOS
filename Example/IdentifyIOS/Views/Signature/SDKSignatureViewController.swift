@@ -16,7 +16,7 @@ protocol SignatureDelegate:class {
 
 class SDKSignatureViewController: SDKBaseViewController {
     
-    var manager: IdentifyManager?
+//    var manager: IdentifyManager?
     @IBOutlet var backView: UIView!
     @IBOutlet weak var signatureView: SwiftSignatureView!
     @IBOutlet weak var signDescLabel: UILabel!
@@ -69,7 +69,7 @@ class SDKSignatureViewController: SDKBaseViewController {
     @IBAction func sendSignAct(_ sender: Any) {
         showLoader()
         guard let signatureImg = signatureView.getCroppedSignature()?.convert(toSize: CGSize(width: 400, height: 250), scale: UIScreen.main.scale).toBase64() else { return }
-        self.manager?.netw.uploadSelfieImage(image: signatureImg, selfieType: .signature, callback: { response, error in
+        self.manager.netw.uploadSelfieImage(image: signatureImg, selfieType: .signature, callback: { response, error in
             self.hideLoader()
             if response == true {
                 self.dismiss(animated: true) {

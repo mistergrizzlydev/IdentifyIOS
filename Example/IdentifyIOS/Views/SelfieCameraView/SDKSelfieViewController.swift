@@ -18,7 +18,7 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
 
     @IBOutlet var backGround: UIView!
     @IBOutlet weak var comingPhotoView: UIImageView!
-    var manager: IdentifyManager?
+//    var manager: IdentifyManager?
     weak var delegate: SelfieDelegate?
     weak var oldDeviceSmileyDelegate: SmileDelegate?
     @IBOutlet weak var appLogo: UIImageView!
@@ -31,6 +31,7 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
         appLogo.image = GlobalConstants.appLogo
         self.view.backgroundColor = DesignConstants.selfieScrBackgroundColor
         self.setupUI()
+        
         switch selfieTypes {
         case .video:
             if DesignConstants.selfieScrVideoShowInfoPopUp == true {
@@ -109,6 +110,13 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
         }
         
         switch selfieTypes {
+        
+        case .selfie:
+            comingPhotoView.image = image
+            showLoader()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.detectFace()
+            }
         case .oldPhoneFace:
             showLoader()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -132,15 +140,15 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
         let portraitImage = myImage.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
         switch selfieTypes {
         case .selfie:
-            self.manager?.netw.uploadSelfieImage(image: portraitImage, selfieType: .selfie, callback: { response, error in
+            self.manager.netw.uploadSelfieImage(image: portraitImage, selfieType: .selfie, callback: { response, error in
                 if response == true {
-                    self.manager?.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadSelfie")
+                    self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadSelfie")
                     self.dismiss(animated: true) {
                         self.delegate?.selfieCompleted()
                         self.hideLoader()
                     }
                 } else {
-                    self.manager?.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadSelfie")
+                    self.manager.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadSelfie")
                     self.hideLoader()
                 }
                 if (error != nil) {
@@ -149,19 +157,19 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
                 }
             })
         case .frontId:
-            self.manager?.netw.uploadSelfieImage(image: idPhoto, selfieType: .frontId, callback: { response, error in
+            self.manager.netw.uploadSelfieImage(image: idPhoto, selfieType: .frontId, callback: { response, error in
                 self.hideLoader()
                 if response == true {
                     self.popupAlert(title: self.translate(text: .coreSuccess), message: DesignConstants.selfieScrIdBackPopUpInfoText, actionTitles: ["Tamam"], actions:[{ action1 in
                         self.selfieTypes = .backId
-                        self.manager?.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadIdFront")
+                        self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadIdFront")
                         self.openCamera()
                         self.submitBtn.isUserInteractionEnabled = false
                         self.submitBtn.alpha = DesignConstants.selfieScrCancelDisableAlpha
                         self.comingPhotoView.image = UIImage()
                     }])
                 } else {
-                    self.manager?.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadIdFront")
+                    self.manager.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadIdFront")
                 }
                 if (error != nil) {
                     print(error?.localizedDescription)
@@ -169,15 +177,15 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
                 }
             })
         case .backId:
-            self.manager?.netw.uploadSelfieImage(image: idPhoto, selfieType: .backId, callback: { response, error in
+            self.manager.netw.uploadSelfieImage(image: idPhoto, selfieType: .backId, callback: { response, error in
                 self.hideLoader()
                 if response == true {
-                    self.manager?.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadIdBack")
+                    self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadIdBack")
                     self.dismiss(animated: true) {
                         self.delegate?.selfieCompleted()
                     }
                 } else {
-                    self.manager?.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadIdBack")
+                    self.manager.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadIdBack")
                 }
                 
                 if (error != nil) {
@@ -209,6 +217,23 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
         UIGraphicsEndImageContext()
 
         return normalizedImage
+    }
+    
+    func detectFace() {
+        let myImage = CIImage(image: comingPhotoView.image!)!
+        let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+        let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
+        let faces = faceDetector?.features(in: myImage, options: [CIDetectorSmile:true])
+        if !faces!.isEmpty {
+            hideLoader()
+            submitBtn.isUserInteractionEnabled = true
+            submitBtn.alpha = 1
+        } else {
+            hideLoader()
+            self.popupAlert(title: self.translate(text: .coreError), message: "Yüz bulunamadı, tekrar deneyin", actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+                self.openCamera()
+            }])
+        }
     }
     
     func detectSmiley() {

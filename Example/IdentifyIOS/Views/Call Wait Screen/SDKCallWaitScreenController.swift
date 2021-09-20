@@ -35,12 +35,12 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     @IBOutlet weak var waitingDesc1: UILabel!
     @IBOutlet weak var waitingDesc2: UILabel!
     
-    var manager = IdentifyManager.shared
     var layerArray = NSMutableArray()
     var alreadySkippedNFC = false
     let modulesEnum: SdkModules? = .waitScreen
     weak var smsStatusDelegate: SmsStatusDelegate?
     @IBOutlet weak var completedBtn: UIButton!
+    var isCallScreenOpened = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,19 +51,29 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         self.appLogo.image = GlobalConstants.appLogo
         myCam.isHidden = true
         customerCam.isHidden = true
-        translate()
         waitScreen.isHidden = false
         self.managerSetup()
-        manager.socket.onDisconnect = { err in
-            self.backgroundConnectAction()
-        }
-//        checkBackgroundMode()
+//        checkSocketStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadModules), name: NSNotification.Name(rawValue: "skipAllModules"), object: nil) // tüm modülleri atlaması halinde tetiklenir
+        listenSocketNotification()
+    }
+    
+    @objc func listenSocketNotification() {
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(socketAlert), name: Notification.Name("disconnectSocket"), object: nil)
+    }
+        
+    @objc func socketAlert() {
+        if manager.socket.isConnected == false {
+            self.popupAlert(title: "Hata", message: "Socket bağlantınız kesildi, tekrar bağlanılıyor", actionTitles: ["Tekrar bağlan"], actions:[{ action1 in
+                self.manager.connectToServer()
+            }], isRootAlert: true)
+        }
     }
     
     @objc func reloadModules() {
@@ -146,15 +156,9 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         }
     }
     
-    
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupUI()
-    }
-    
-    func translate() {
-        
     }
     
     func showThankYouView() {
@@ -248,10 +252,6 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         
     }
     
-    @IBAction func acceptAct(_ sender: Any) {
-        manager.acceptCall()
-    }
-    
     func setupCameras() {
         let remoteVideoView = manager.webRTCClient.remoteVideoView()
         manager.webRTCClient.setupRemoteViewFrame(frame: CGRect(x: 0, y: 0, width: customerCam.frame.width, height: customerCam.frame.height))
@@ -271,7 +271,8 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         let nextVC = HumanVerificationViewController.instantiate()
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.delegate = self
-        self.present(nextVC, animated: false, completion: nil)
+        nextVC.manager = self.manager
+        self.present(nextVC, animated: true, completion: nil)
         /*
         if self.arFaceAvailable {
             let smiley = SmileViewController.instantiate()
@@ -335,6 +336,9 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     }
     
     func removeCurrentModule() {
+        manager.identfiyModules.first.map { mod in
+            print("kalkan modül:: \(mod.mName)")
+        }
         if manager.identfiyModules.count > 0 {
             manager.identfiyModules.removeFirst()
             checkModules()
@@ -342,7 +346,6 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     }
 
     @IBAction func closeWindowAct(_ sender: Any) {
-        manager.socket.disconnect()
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -378,6 +381,15 @@ extension SDKCallWaitScreenController: SmileDelegate {
     
 }
 
+extension SDKCallWaitScreenController: HumanVerificationDelegate {
+    
+    func isHuman() {
+        self.manager.sendLiveStatus()
+        removeCurrentModule()
+    }
+    
+}
+
 extension SDKCallWaitScreenController: ScannerStatusDelegate {
     
     func nfcCompleted() {
@@ -393,6 +405,7 @@ extension SDKCallWaitScreenController: ScannerStatusDelegate {
 extension SDKCallWaitScreenController: CallScreenDelegate {
     
     func acceptCall() {
+        isCallScreenOpened = false
         myCam.isHidden = false
         customerCam.isHidden = false
         manager.acceptCall()
@@ -452,11 +465,16 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
         callScreenVC.modalPresentationStyle = .overFullScreen
         self.present(callScreenVC, animated: true, completion: nil)
         waitScreen.isHidden = true
+        isCallScreenOpened = true
     }
     
     func endCall() { // kullanıcı 50 sn boyunca çağrıyı yanıtlamadı
         manager.socket.disconnect()
+        manager.socket = nil
         self.dismiss(animated: true, completion: nil)
+        showThankYouView()
+        showWaitingArea()
+        self.callCompleted = true
     }
     
     func comingSms() { // sms geldi
@@ -473,9 +491,14 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
     
     func terminateCall() { // görüşme sonlandı
         manager.socket.disconnect()
+        manager.socket = nil
         self.userDefaults.setBool(key: "modulesCompleted", value: false) // işlemler tamamlanınca cache i temizliyoruz
         showThankYouView()
         showWaitingArea()
+        if isCallScreenOpened {
+            self.dismiss(animated: true, completion: nil)
+        }
+        self.callCompleted = true
     }
     
     func imOffline() { // panelde sayfa yenilendi veya browser kapatıldı
@@ -484,7 +507,6 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
         }
         myCam.isHidden = true
         customerCam.isHidden = true
-        translate()
         waitScreen.isHidden = false
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 import AudioToolbox
 import IdentifyIOS
+import AVFoundation
 
 class CallScreenViewController: SDKBaseViewController {
     
@@ -35,6 +36,7 @@ class CallScreenViewController: SDKBaseViewController {
     
     @objc func callVibrate() {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        AudioServicesPlayAlertSound(SystemSoundID(1304))
     }
     
     func setupUI() {
