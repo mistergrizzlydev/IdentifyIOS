@@ -229,7 +229,6 @@ public class WebRTCClient: NSObject, RTCPeerConnectionDelegate, RTCVideoViewDele
     // MARK: - Setup
     private func setupPeerConnection() -> RTCPeerConnection{
         let rtcConf = RTCConfiguration()
-//        rtcConf.iceServers = [RTCIceServer(urlStrings: ["stun:stun.l.google.com:19302"])]
         rtcConf.iceServers = [RTCIceServer(urlStrings: manager.stunServers, username: manager.stunUsername, credential: manager.stunPassword)]
 
         let mediaConstraints = RTCMediaConstraints.init(mandatoryConstraints: nil, optionalConstraints: nil)
@@ -272,7 +271,7 @@ public class WebRTCClient: NSObject, RTCPeerConnectionDelegate, RTCVideoViewDele
     
     private func createVideoTrack() -> RTCVideoTrack {
         let videoSource = self.peerConnectionFactory.videoSource()
-        videoSource.adaptOutputFormat(toWidth: 240, height: 320, fps: 24)
+//        videoSource.adaptOutputFormat(toWidth: 240, height: 320, fps: 24)
         if self.customFrameCapturer {
             self.videoCapturer = RTCCustomFrameCapturer(delegate: videoSource)
         }else if TARGET_OS_SIMULATOR != 0 {

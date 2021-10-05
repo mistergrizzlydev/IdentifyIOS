@@ -30,9 +30,6 @@ class ViewController: SDKBaseViewController {
         manager.appQuitType = .restartModules
         manager.selectedHost = .identifyTr
         manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
-//        manager.addModules(module: [.nfc, .selfie, .livenessDetection])
-//        manager.addModules(module: [.nfc, .selfie, .livenessDetection, .speech, .idCard, .videoRecord, .signature])
-//        manager.addModules(module: [.selfie, .livenessDetection, .idCard])
 
         manager.userToken = "6e676552-9dc4-11eb-99a4-0acde28968be" // size verilecek olan token
         manager.netw.timeoutIntervalForRequest = 35

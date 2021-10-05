@@ -196,6 +196,7 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
             })
         case .video:
             self.dismiss(animated: true) {
+                self.manager.allSteps?.video = true
                 self.delegate?.selfieCompleted()
             }
         default:

@@ -19,6 +19,13 @@ struct ConnectSocketResp : Codable {
     let action: String
 }
 
+struct SendStepsResp : Codable {
+    let location: String
+    let room: String
+    let action: String
+    let steps: String?
+}
+
 struct NFCConnectSocketResp : Codable {
     let room: String
     let action: String
@@ -95,4 +102,15 @@ struct Candidate: Codable {
     let candidate: String
     let sdpMLineIndex: Int32
     let sdpMid: String
+}
+
+public class Steps: Codable {
+    public var nfc: Bool? = false
+    public var liveness: Bool? = false
+    public var idFront: Bool? = false
+    public var idBack: Bool? = false
+    public var video: Bool? = false
+    public var signature: Bool? = false
+    public var speech: Bool? = false
+    public var selfie: Bool? = false
 }

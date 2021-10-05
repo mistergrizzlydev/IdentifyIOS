@@ -20,10 +20,12 @@ public class SDKNetwork {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = TimeInterval(self.timeoutIntervalForRequest)
         configuration.timeoutIntervalForResource = TimeInterval(self.timeoutIntervalForResource)
-        let evaluator: [String: ServerTrustEvaluating] = [
-            "api.identifytr.com": PublicKeysTrustEvaluator()
-        ]
-        let alamoFireManager = Alamofire.Session(configuration: configuration, serverTrustManager: ServerTrustManager(evaluators: evaluator))
+//        let evaluator: [String: ServerTrustEvaluating] = [
+//            "api.identifytr.com": PublicKeysTrustEvaluator()
+//        ]
+//        let alamoFireManager = Alamofire.Session(configuration: configuration, serverTrustManager: ServerTrustManager(evaluators: evaluator))
+        let alamoFireManager = Alamofire.Session(configuration: configuration)
+
         return alamoFireManager
 
    }()
@@ -82,7 +84,7 @@ public class SDKNetwork {
         
         alamoFireManager?.request(urlStr, method: .post, parameters:model.asDictionary(), encoding: JSONEncoding.default , headers:jsonHeaders).responseJSON { response in
 
-            debugPrint("Parameters:// \(model.asDictionary())")
+//            debugPrint("Parameters:// \(model.asDictionary())")
 //            if let  JSON = response.result.value,
 //                let JSONData = try? JSONSerialization.data(withJSONObject: JSON, options: .pretty// printed),
 //                let prettyString = NSString(data: JSONData, encoding: String.Encoding.utf8.rawValue) {

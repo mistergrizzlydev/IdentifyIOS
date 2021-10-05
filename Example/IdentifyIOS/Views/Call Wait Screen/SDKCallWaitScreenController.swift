@@ -353,6 +353,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
 extension SDKCallWaitScreenController: SoundRecognitionDelegate {
     
     func recognitionCompleted() {
+        manager.allSteps?.speech = true
         removeCurrentModule()
     }
     
@@ -368,8 +369,8 @@ extension SDKCallWaitScreenController: SelfieDelegate {
 
 extension SDKCallWaitScreenController: SignatureDelegate {
     func signatureCompleted() {
-        removeCurrentModule()
         manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadSignature")
+        removeCurrentModule()
     }
 }
 
@@ -393,6 +394,7 @@ extension SDKCallWaitScreenController: HumanVerificationDelegate {
 extension SDKCallWaitScreenController: ScannerStatusDelegate {
     
     func nfcCompleted() {
+        manager.allSteps?.nfc = true
         removeCurrentModule()
     }
     

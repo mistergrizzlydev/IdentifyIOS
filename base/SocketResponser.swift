@@ -21,6 +21,8 @@ public class FirstRoom: Codable {
     var created_by: String?
     var customer_id: String?
     var customer_uid: String?
+    var language: String?
+    var sign_language: String?
     
     init() {
         self.id = ""
@@ -30,9 +32,11 @@ public class FirstRoom: Codable {
         self.created_by = ""
         self.customer_id = ""
         self.customer_uid = ""
+        self.language = ""
+        self.sign_language = ""
     }
 
-    init(id: String?, status: String?, form_uid: String?, created_at: String?, created_by: String?, customer_id: String?, customer_uid: String?) {
+    init(id: String?, status: String?, form_uid: String?, created_at: String?, created_by: String?, customer_id: String?, customer_uid: String?, language: String?, sign_language: String?) {
         self.id = id
         self.status = status
         self.form_uid = form_uid
@@ -40,6 +44,8 @@ public class FirstRoom: Codable {
         self.created_by = created_by
         self.customer_id = customer_id
         self.customer_uid = customer_uid
+        self.language = language
+        self.sign_language = sign_language
     }
     
 }

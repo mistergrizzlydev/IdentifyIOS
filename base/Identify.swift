@@ -47,6 +47,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var selectedHost: HostType?
     public var appQuitType: AppQuitType? = .restartModules
     public var logLevel: LogLevel? = .all
+    public var allSteps: Steps? = Steps()
     
     public var mrzBirthDate = ""
     public var mrzDocumentNo = ""
@@ -262,6 +263,27 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     
     public func sendCurrentScreen(screen: SdkModules) {
         let newSignal = ConnectSocketResp.init(location: screen.rawValue, room: tempResp.data?.customer_uid ?? "", action: "stepChanged")
+        
+        if screen == .waitScreen {
+            sendStep(screen: screen)
+        } else {
+            do {
+                let data = try JSONEncoder().encode(newSignal)
+                let message = String(data: data, encoding: String.Encoding.utf8)!
+                if self.socket.isConnected {
+                    self.socket.write(string: message)
+                }
+                
+            } catch {
+                // print(error)
+            }
+        }
+        
+    }
+    
+    private func sendStep(screen: SdkModules) {
+        let jsonStr:String = "{\"nfc\": \(allSteps?.nfc ?? false), \"liveness\": \(allSteps?.liveness ?? false), \"idFront\": \(allSteps?.idFront ?? false), , \"idBack\": \(allSteps?.idBack ?? false)\"video\": \(allSteps?.video ?? false), \"signature\": \(allSteps?.signature ?? false), \"speech\": \(allSteps?.speech ?? false), \"sign_languange\": \(self.tempResp.data?.sign_language ?? ""), \"language\": \(self.tempResp.data?.language ?? ""), \"selfie\": \(allSteps?.selfie ?? false) }"
+        let newSignal = SendStepsResp.init(location: screen.rawValue, room: tempResp.data?.customer_uid ?? "", action: "stepChanged", steps: jsonStr)
         do {
             let data = try JSONEncoder().encode(newSignal)
             let message = String(data: data, encoding: String.Encoding.utf8)!
@@ -272,8 +294,8 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         } catch {
             // print(error)
         }
-        
     }
+    
     
     public func sendImOnline(socket: WebSocketClient) {
         let newSignal2 = ConnectSocketResp.init(location: "conf", room: tempResp.data?.customer_uid ?? "", action: "imOnline")
@@ -360,7 +382,20 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
                 self.socket.write(string: message)
             }
         } catch {
+            self.allSteps?.selfie = false
             AlertViewManager.defaultManager.showOkAlert("Socket ERROR", message: error.localizedDescription, handler: nil)
+        }
+        if actionName == "uploadIdBack" {
+            allSteps?.idBack = newStats
+        }
+        if actionName == "uploadIdFront" {
+            allSteps?.idFront = newStats
+        }
+        if actionName == "uploadSelfie" {
+            allSteps?.selfie = newStats
+        }
+        if actionName == "uploadSignature" {
+            allSteps?.signature = newStats
         }
     }
     
@@ -507,6 +542,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
             let data = try JSONEncoder().encode(signal)
             let message = String(data: data, encoding: String.Encoding.utf8)!
             if self.socket.isConnected {
+                allSteps?.liveness = true
                 self.socket.write(string: message)
             }
         } catch {
