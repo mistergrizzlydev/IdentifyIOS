@@ -23,7 +23,7 @@ struct SendStepsResp : Codable {
     let location: String
     let room: String
     let action: String
-    let steps: String?
+    let steps: Steps?
 }
 
 struct NFCConnectSocketResp : Codable {
@@ -113,4 +113,22 @@ public class Steps: Codable {
     public var signature: Bool? = false
     public var speech: Bool? = false
     public var selfie: Bool? = false
+    
+    public var language: String? = ""
+    public var sign_language: String? = ""
+    
+    init(nfc: Bool, liveness: Bool, idFront:Bool, idBack: Bool, video: Bool, signature: Bool, speech: Bool, selfie: Bool, language: String, sign_language: String) {
+        self.nfc = nfc
+        self.liveness = liveness
+        self.idFront = idFront
+        self.idBack = idBack
+        self.video = video
+        self.signature = signature
+        self.speech = speech
+        self.selfie = selfie
+        self.language = language
+        self.sign_language = sign_language
+    }
+    
+    init() {}
 }

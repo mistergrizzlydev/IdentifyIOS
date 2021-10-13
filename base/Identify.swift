@@ -282,8 +282,10 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     }
     
     private func sendStep(screen: SdkModules) {
-        let jsonStr:String = "{\"nfc\": \(allSteps?.nfc ?? false), \"liveness\": \(allSteps?.liveness ?? false), \"idFront\": \(allSteps?.idFront ?? false), , \"idBack\": \(allSteps?.idBack ?? false)\"video\": \(allSteps?.video ?? false), \"signature\": \(allSteps?.signature ?? false), \"speech\": \(allSteps?.speech ?? false), \"sign_languange\": \(self.tempResp.data?.sign_language ?? ""), \"language\": \(self.tempResp.data?.language ?? ""), \"selfie\": \(allSteps?.selfie ?? false) }"
-        let newSignal = SendStepsResp.init(location: screen.rawValue, room: tempResp.data?.customer_uid ?? "", action: "stepChanged", steps: jsonStr)
+        
+        let allSteps = Steps(nfc: allSteps?.nfc ?? false, liveness: allSteps?.liveness ?? false, idFront: allSteps?.idFront ?? false, idBack: allSteps?.idBack ?? false, video: allSteps?.video ?? false, signature: allSteps?.signature ?? false, speech: allSteps?.speech ?? false, selfie: allSteps?.selfie ?? false, language: tempResp.data?.language ?? "TR", sign_language: tempResp.data?.sign_language ?? "TRTR")
+        
+        let newSignal = SendStepsResp.init(location: screen.rawValue, room: tempResp.data?.customer_uid ?? "", action: "stepChanged", steps: allSteps)
         do {
             let data = try JSONEncoder().encode(newSignal)
             let message = String(data: data, encoding: String.Encoding.utf8)!
@@ -294,6 +296,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         } catch {
             // print(error)
         }
+        
     }
     
     
