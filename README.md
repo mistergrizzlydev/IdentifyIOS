@@ -5,16 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
-## What is new in 2.0.1
-- Multilanguage added
-- New Human Verification Module
-- Added headset support to the call screen
-- Added alert window when socket connection is lost
-- Added face control to selfie screen
-- Fixed camera session issue when dismissing Mrz screen
-- Switch to NFC screen if KPS data is connected
-- Default FPS setting reduced from 30 to 24
-- Added alarm tone next to vibration when incoming call
+## What is new in 2.0.4
+- The function that shows what stage it is in the panel has been updated.
+- Added warning screen in case of disconnection
 
 ## Requirements
 Min Target iOS 12.1 
