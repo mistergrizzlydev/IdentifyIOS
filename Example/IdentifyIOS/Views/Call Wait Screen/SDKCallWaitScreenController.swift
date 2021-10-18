@@ -53,26 +53,27 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         customerCam.isHidden = true
         waitScreen.isHidden = false
         self.managerSetup()
-//        checkSocketStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadModules), name: NSNotification.Name(rawValue: "skipAllModules"), object: nil) // tüm modülleri atlaması halinde tetiklenir
-        listenSocketNotification()
+        listenSocketIsConnected()
     }
     
-    @objc func listenSocketNotification() {
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(socketAlert), name: Notification.Name("disconnectSocket"), object: nil)
-    }
-        
-    @objc func socketAlert() {
-        if manager.socket.isConnected == false {
-            self.popupAlert(title: "Hata", message: "Socket bağlantınız kesildi, tekrar bağlanılıyor", actionTitles: ["Tekrar bağlan"], actions:[{ action1 in
-                self.manager.connectToServer()
-            }], isRootAlert: true)
+    func listenSocketIsConnected() {
+        manager.socket.onDisconnect = { [weak self] _ in
+            let next = SDKNoInternetViewController.instantiate()
+            let controller = UIApplication.topViewController()
+            next.modalPresentationStyle = .fullScreen
+            next.modalTransitionStyle = .crossDissolve
+            if #available(iOS 13.0, *) {
+                next.isModalInPresentation = true
+            }
+            controller?.present(next, animated: true, completion: nil)
+//            self?.present(next, animated: true, completion: nil)
+//            self?.socketAlert()
         }
     }
     

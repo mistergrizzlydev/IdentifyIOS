@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480C4E2B271D9C1100FF06AA /* SDKNoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C4E29271D9C1100FF06AA /* SDKNoInternetViewController.swift */; };
+		480C4E2C271D9C1100FF06AA /* SDKNoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480C4E2A271D9C1100FF06AA /* SDKNoInternetViewController.xib */; };
 		4821A7A3266F9E990037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */; };
 		4821A7AA266F9EC30037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */; };
 		4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867111C266FABF500743FAD /* SDKModulesListViewController.xib */; };
@@ -76,6 +78,8 @@
 		2341B4BC304E1B51AE9B0299 /* Pods_IdentifyIOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentifyIOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BE7C41026499EB70D7E712 /* Pods-IdentifyIOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdentifyIOS_Tests.release.xcconfig"; path = "Target Support Files/Pods-IdentifyIOS_Tests/Pods-IdentifyIOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		480C4E29271D9C1100FF06AA /* SDKNoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKNoInternetViewController.swift; sourceTree = "<group>"; };
+		480C4E2A271D9C1100FF06AA /* SDKNoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKNoInternetViewController.xib; sourceTree = "<group>"; };
 		4821A7A6266F9EAD0037331F /* IdentifyIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IdentifyIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867111C266FABF500743FAD /* SDKModulesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKModulesListViewController.xib; sourceTree = "<group>"; };
@@ -165,9 +169,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		480C4E28271D9BFF00FF06AA /* No Internet */ = {
+			isa = PBXGroup;
+			children = (
+				480C4E29271D9C1100FF06AA /* SDKNoInternetViewController.swift */,
+				480C4E2A271D9C1100FF06AA /* SDKNoInternetViewController.xib */,
+			);
+			path = "No Internet";
+			sourceTree = "<group>";
+		};
 		4867111A266FABF500743FAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				480C4E28271D9BFF00FF06AA /* No Internet */,
 				48FF1A0E2678FBA1003F7851 /* New - Human Verification */,
 				48BEF2912670FD5A00822E5A /* Permissions */,
 				4867111B266FABF500743FAD /* Modules List */,
@@ -545,6 +559,7 @@
 				48671169266FABF500743FAD /* SDKSoundRecognitionViewController.xib in Resources */,
 				4867116D266FABF500743FAD /* SDKSelfieViewController.xib in Resources */,
 				48671150266FABF500743FAD /* SDKSignatureViewController.xib in Resources */,
+				480C4E2C271D9C1100FF06AA /* SDKNoInternetViewController.xib in Resources */,
 				4867114F266FABF500743FAD /* CallScreenViewController.xib in Resources */,
 				48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */,
 				48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */,
@@ -697,6 +712,7 @@
 				4867116B266FABF500743FAD /* Design.swift in Sources */,
 				4867115F266FABF500743FAD /* SDKCallWaitScreenController.swift in Sources */,
 				48FF1A132678FBB8003F7851 /* HumanVerificationViewController.swift in Sources */,
+				480C4E2B271D9C1100FF06AA /* SDKNoInternetViewController.swift in Sources */,
 				4867116C266FABF500743FAD /* SDKSelfieViewController.swift in Sources */,
 				48671156266FABF500743FAD /* VisionViewController.swift in Sources */,
 				48671159266FABF500743FAD /* SDKMrzViewController.swift in Sources */,

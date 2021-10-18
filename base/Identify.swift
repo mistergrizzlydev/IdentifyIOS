@@ -56,6 +56,8 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var camOk = false
     public var micOk = false
     public var speechOk = false
+    public var activeScreen: SdkModules? = .waitScreen
+    
     let userDefaults = UserDefaults.standard
     
     private init() {
@@ -241,11 +243,12 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
                 }
             }
         })
-        socket.onDisconnect = { [weak self] error in
-            self?.loadingDelegate?.hideAllLoaders()
-            let nc = NotificationCenter.default
-            nc.post(name: Notification.Name("disconnectSocket"), object: nil)
-        }
+//        socket.onDisconnect = { [weak self] error in
+//            self?.loadingDelegate?.hideAllLoaders()
+//            let nc = NotificationCenter.default
+//            nc.post(name: Notification.Name("disconnectSocket"), object: nil)
+//            return
+//        }
         return true
     }
     
@@ -262,10 +265,12 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     }
     
     public func sendCurrentScreen(screen: SdkModules) {
+        self.activeScreen = screen
         let newSignal = ConnectSocketResp.init(location: screen.rawValue, room: tempResp.data?.customer_uid ?? "", action: "stepChanged")
         
         if screen == .waitScreen {
-            sendStep(screen: screen)
+            sendStep()
+            return
         } else {
             do {
                 let data = try JSONEncoder().encode(newSignal)
@@ -281,20 +286,20 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         
     }
     
-    private func sendStep(screen: SdkModules) {
+    public func sendStep() {
+        let allSteps = Steps(nfc: allSteps?.nfc ?? false, liveness: allSteps?.liveness ?? false, idFront: allSteps?.idFront ?? false, idBack: allSteps?.idBack ?? false, video: allSteps?.video ?? false, signature: allSteps?.signature ?? false, speech: allSteps?.speech ?? false, selfie: allSteps?.selfie ?? false, language: tempResp.data?.language ?? "TR", sign_language: tempResp.data?.sign_language ?? "false")
         
-        let allSteps = Steps(nfc: allSteps?.nfc ?? false, liveness: allSteps?.liveness ?? false, idFront: allSteps?.idFront ?? false, idBack: allSteps?.idBack ?? false, video: allSteps?.video ?? false, signature: allSteps?.signature ?? false, speech: allSteps?.speech ?? false, selfie: allSteps?.selfie ?? false, language: tempResp.data?.language ?? "TR", sign_language: tempResp.data?.sign_language ?? "TRTR")
-        
-        let newSignal = SendStepsResp.init(location: screen.rawValue, room: tempResp.data?.customer_uid ?? "", action: "stepChanged", steps: allSteps)
+        let newSignal = SendStepsResp.init(location: "Call Wait Screen", room: tempResp.data?.customer_uid ?? "", action: "stepChanged", steps: allSteps)
         do {
             let data = try JSONEncoder().encode(newSignal)
             let message = String(data: data, encoding: String.Encoding.utf8)!
             if self.socket.isConnected {
                 self.socket.write(string: message)
+                return
             }
             
         } catch {
-            // print(error)
+                print(error)
         }
         
     }
@@ -332,8 +337,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         if tempResp.data?.customer_uid == "" {
             AlertViewManager.defaultManager.showOkAlert(self.translate(text: .coreError), message: "Customer ID alınamadı, lütfen bağlantınızı kontrol edin") { _ in }
         } else {
-            // print("### first subscribe gönderildi \(tempResp.data?.customer_uid ?? "") ###")
-            let newSignal = ConnectSocketResp.init(location: "NFCCheck", room: tempResp.data?.customer_uid ?? "", action: "subscribe")
+            let newSignal = ConnectSocketResp.init(location: self.activeScreen?.rawValue ?? "Call Wait Screen", room: tempResp.data?.customer_uid ?? "", action: "subscribe")
             do {
                 let data = try JSONEncoder().encode(newSignal)
                 let message = String(data: data, encoding: String.Encoding.utf8)!
