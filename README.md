@@ -5,9 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
-## What is new in 2.0.4
-- The function that shows what stage it is in the panel has been updated.
-- Added warning screen in case of disconnection
+## What is new in 2.0.5
+- Added sign language feature
 
 ## Requirements
 Min Target iOS 12.1 
@@ -73,6 +72,12 @@ manager.mrzBirthDate = "01.12.1950"
 manager.mrzValidDate = "03.05.2029"
 manager.mrzDocumentNo = "B26C75239"
 ```
+You can support sign language
+```ruby
+manager.enableSignLang = true // default false
+```
+**You can review our ViewController.swift (func: setupSDK) file for the use of features.**
+
 ## Skip All Stages, Connect to Representative
                     
 You can call the "addSkipModulesButton" function added to SDKBaseViewController from any screen. Thus, you cancel all stages and direct them to the customer representative waiting screen.
@@ -97,4 +102,5 @@ emir@beytekin.net
 ## License
                     
 IdentifyIOS is available under the MIT license. See the LICENSE file for more info.
+
 
