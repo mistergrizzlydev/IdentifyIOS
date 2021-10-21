@@ -11,6 +11,8 @@
 		480C4E2C271D9C1100FF06AA /* SDKNoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480C4E2A271D9C1100FF06AA /* SDKNoInternetViewController.xib */; };
 		4821A7A3266F9E990037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */; };
 		4821A7AA266F9EC30037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */; };
+		484BBC8B27202D5500BBE851 /* SDKAccessibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BBC8927202D5500BBE851 /* SDKAccessibilityViewController.swift */; };
+		484BBC8C27202D5500BBE851 /* SDKAccessibilityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 484BBC8A27202D5500BBE851 /* SDKAccessibilityViewController.xib */; };
 		4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867111C266FABF500743FAD /* SDKModulesListViewController.xib */; };
 		4867114D266FABF500743FAD /* SDKModulesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867111D266FABF500743FAD /* SDKModulesListViewController.swift */; };
 		4867114E266FABF500743FAD /* CallScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867111F266FABF500743FAD /* CallScreenViewController.swift */; };
@@ -82,6 +84,8 @@
 		480C4E2A271D9C1100FF06AA /* SDKNoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKNoInternetViewController.xib; sourceTree = "<group>"; };
 		4821A7A6266F9EAD0037331F /* IdentifyIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IdentifyIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		484BBC8927202D5500BBE851 /* SDKAccessibilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKAccessibilityViewController.swift; sourceTree = "<group>"; };
+		484BBC8A27202D5500BBE851 /* SDKAccessibilityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKAccessibilityViewController.xib; sourceTree = "<group>"; };
 		4867111C266FABF500743FAD /* SDKModulesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKModulesListViewController.xib; sourceTree = "<group>"; };
 		4867111D266FABF500743FAD /* SDKModulesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKModulesListViewController.swift; sourceTree = "<group>"; };
 		4867111F266FABF500743FAD /* CallScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallScreenViewController.swift; sourceTree = "<group>"; };
@@ -178,9 +182,19 @@
 			path = "No Internet";
 			sourceTree = "<group>";
 		};
+		484BBC7F2720010000BBE851 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				484BBC8927202D5500BBE851 /* SDKAccessibilityViewController.swift */,
+				484BBC8A27202D5500BBE851 /* SDKAccessibilityViewController.xib */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
 		4867111A266FABF500743FAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				484BBC7F2720010000BBE851 /* Accessibility */,
 				480C4E28271D9BFF00FF06AA /* No Internet */,
 				48FF1A0E2678FBA1003F7851 /* New - Human Verification */,
 				48BEF2912670FD5A00822E5A /* Permissions */,
@@ -566,6 +580,7 @@
 				48CCB3F726F8757A00423170 /* Localizable.strings in Resources */,
 				48FF1A142678FBB8003F7851 /* HumanVerificationViewController.xib in Resources */,
 				48671158266FABF500743FAD /* KYC.storyboard in Resources */,
+				484BBC8C27202D5500BBE851 /* SDKAccessibilityViewController.xib in Resources */,
 				48671152266FABF500743FAD /* SmsScreenViewController.xib in Resources */,
 				4867115B266FABF500743FAD /* SmileViewController.xib in Resources */,
 				4867115D266FABF500743FAD /* SDKNfcViewController.xib in Resources */,
@@ -730,6 +745,7 @@
 				48671151266FABF500743FAD /* SDKSignatureViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				4867115E266FABF500743FAD /* UserDefaults.swift in Sources */,
+				484BBC8B27202D5500BBE851 /* SDKAccessibilityViewController.swift in Sources */,
 				48671168266FABF500743FAD /* SDKBaseViewController.swift in Sources */,
 				48671153266FABF500743FAD /* OneTimeExt.swift in Sources */,
 				48FF1A122678FBB8003F7851 /* UIUtilities.swift in Sources */,

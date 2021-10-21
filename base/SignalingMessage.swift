@@ -115,9 +115,9 @@ public class Steps: Codable {
     public var selfie: Bool? = false
     
     public var language: String? = ""
-    public var sign_language: String? = ""
+    public var sign_language: Bool? = false
     
-    init(nfc: Bool, liveness: Bool, idFront:Bool, idBack: Bool, video: Bool, signature: Bool, speech: Bool, selfie: Bool, language: String, sign_language: String) {
+    init(nfc: Bool, liveness: Bool, idFront:Bool, idBack: Bool, video: Bool, signature: Bool, speech: Bool, selfie: Bool, language: String, sign_language: Bool) {
         self.nfc = nfc
         self.liveness = liveness
         self.idFront = idFront

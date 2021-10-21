@@ -41,6 +41,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     weak var smsStatusDelegate: SmsStatusDelegate?
     @IBOutlet weak var completedBtn: UIButton!
     var isCallScreenOpened = false
+    var isAlreadyShowingSign = false // işitme engelliler için eklenmesi gerek
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,24 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         listenSocketIsConnected()
     }
     
+    func checkSignLang() { // işitme engelliler için eklenmesi gerek
+        if manager.enableSignLang == false {
+            self.manager.connectToSignLang = false
+            self.manager.sendCurrentScreen(screen: .waitScreen)
+        } else if manager.enableSignLang && !isAlreadyShowingSign {
+            let nextVC = SDKAccessibilityViewController.instantiate()
+            nextVC.modalTransitionStyle = .crossDissolve
+            nextVC.modalPresentationStyle = .fullScreen
+            if #available(iOS 13.0, *) {
+                nextVC.isModalInPresentation = true
+            }
+            DispatchQueue.main.async {
+                UIApplication.topViewController()?.present(nextVC, animated: true, completion: nil)
+                self.isAlreadyShowingSign = true
+            }
+        }
+    }
+    
     func listenSocketIsConnected() {
         manager.socket.onDisconnect = { [weak self] _ in
             let next = SDKNoInternetViewController.instantiate()
@@ -72,8 +91,6 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                 next.isModalInPresentation = true
             }
             controller?.present(next, animated: true, completion: nil)
-//            self?.present(next, animated: true, completion: nil)
-//            self?.socketAlert()
         }
     }
     
@@ -131,7 +148,6 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                 }
             case .waitScreen:
                 self.userDefaults.setBool(key: "modulesCompleted", value: true)
-                manager.sendCurrentScreen(screen: .waitScreen)
                 UIView.animate(withDuration: 0.3) {
                     self.view.alpha = 1
                 }
@@ -140,7 +156,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
             }
         } else { // tüm modüller tamamlandı ve çağrı bekleme ekranına düştü
             self.userDefaults.setBool(key: "modulesCompleted", value: true)
-            manager.sendCurrentScreen(screen: .waitScreen)
+            checkSignLang() // işitme engelliler için eklenmesi gerek, bu fonksiyondaki değişiklikler tamamen uygulanmalı
             UIView.animate(withDuration: 0.3) {
                 self.view.alpha = 1
             }

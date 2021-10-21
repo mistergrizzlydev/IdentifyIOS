@@ -164,7 +164,13 @@ extension SDKNfcViewController: ProcessScanResult {
                     let dateOfBirth = self.manager.mrzBirthDate
                     let expireDate = self.manager.mrzValidDate
                     
-                    let idInfo = IdentifyCard(ident_id: self.manager.userToken, name: passportUtil.passport?.firstName ?? "", surname: passportUtil.passport?.lastName ?? "", personalNumber: passportUtil.passport?.personalNumber ?? "", birthdate: dateOfBirth, expireDate: expireDate, serialNumber: passportUtil.passport?.documentNumber ?? "", nationality: passportUtil.passport?.nationality ?? "", docType: documentType, authority: passportUtil.passport?.issuingAuthority ?? "", gender: gender, image: img)
+                    var passportDataElements : [String:String]? {
+                        guard let dg1 = passportUtil.passport?.dataGroupsRead[.DG1] as? DataGroup1 else { return nil }
+                        return dg1.elements
+                    }
+                    let idCardFrontText = passportDataElements?["5F1F"]
+                                        
+                    let idInfo = IdentifyCard(ident_id: self.manager.userToken, name: passportUtil.passport?.firstName ?? "", surname: passportUtil.passport?.lastName ?? "", personalNumber: passportUtil.passport?.personalNumber ?? "", birthdate: dateOfBirth, expireDate: expireDate, serialNumber: passportUtil.passport?.documentNumber ?? "", nationality: passportUtil.passport?.nationality ?? "", docType: documentType, authority: passportUtil.passport?.issuingAuthority ?? "", gender: gender, image: img, mrzInfo: idCardFrontText)
                                                             
                     self.manager.netw.verifyNFC(model: idInfo) { (resp) in
                         if resp == true {

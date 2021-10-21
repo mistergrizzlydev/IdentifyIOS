@@ -57,6 +57,8 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var micOk = false
     public var speechOk = false
     public var activeScreen: SdkModules? = .waitScreen
+    public var enableSignLang = false
+    public var connectToSignLang = false
     
     let userDefaults = UserDefaults.standard
     
@@ -287,7 +289,8 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     }
     
     public func sendStep() {
-        let allSteps = Steps(nfc: allSteps?.nfc ?? false, liveness: allSteps?.liveness ?? false, idFront: allSteps?.idFront ?? false, idBack: allSteps?.idBack ?? false, video: allSteps?.video ?? false, signature: allSteps?.signature ?? false, speech: allSteps?.speech ?? false, selfie: allSteps?.selfie ?? false, language: tempResp.data?.language ?? "TR", sign_language: tempResp.data?.sign_language ?? "false")
+        print("send step")
+        let allSteps = Steps(nfc: allSteps?.nfc ?? false, liveness: allSteps?.liveness ?? false, idFront: allSteps?.idFront ?? false, idBack: allSteps?.idBack ?? false, video: allSteps?.video ?? false, signature: allSteps?.signature ?? false, speech: allSteps?.speech ?? false, selfie: allSteps?.selfie ?? false, language: tempResp.data?.language ?? "TR", sign_language: connectToSignLang)
         
         let newSignal = SendStepsResp.init(location: "Call Wait Screen", room: tempResp.data?.customer_uid ?? "", action: "stepChanged", steps: allSteps)
         do {
@@ -299,9 +302,8 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
             }
             
         } catch {
-                print(error)
+            print(error)
         }
-        
     }
     
     
@@ -740,4 +742,16 @@ extension UIStoryboard {
 
         static let main = UIStoryboard(name: "KYC", bundle: nil)
 
+}
+
+extension UIApplication {
+    class func topViewController(viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = viewController as? UINavigationController {
+            return topViewController(viewController: nav.visibleViewController)
+        }
+        if let presented = viewController?.presentedViewController {
+            return topViewController(viewController: presented)
+        }
+        return viewController
+    }
 }

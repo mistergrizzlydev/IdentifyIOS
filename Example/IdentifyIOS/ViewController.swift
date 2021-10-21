@@ -29,6 +29,7 @@ class ViewController: SDKBaseViewController {
     func setupSDK() {
         manager.appQuitType = .restartModules
         manager.selectedHost = .identifyTr
+//        manager.addModules(module: [.nfc])
         manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
 
         manager.userToken = "6e676552-9dc4-11eb-99a4-0acde28968be" // size verilecek olan token
@@ -41,10 +42,11 @@ class ViewController: SDKBaseViewController {
         manager.stunUsername = "test"
         manager.stunPassword = "test"
         manager.setupUrls()
+        manager.enableSignLang = true // işitme engelliler için çağrı öncesi soru penceresi açar
         // KPS sisteminiz varsa kullanıcıya ait verileri eklediğiniz takdirde MRZ tarama ekranı açılmayıp NFC ekranı açılacaktır
-//        manager.mrzBirthDate = "01.12.1950"
-//        manager.mrzValidDate = "03.05.2029"
-//        manager.mrzDocumentNo = "B26C75239"
+        //  manager.mrzBirthDate = "01.12.1950"
+        //  manager.mrzValidDate = "03.05.2029"
+        //  manager.mrzDocumentNo = "B26C75239"
     }
     
     func checkAppQuitType() { // geliştirilmesi devam ediyor.

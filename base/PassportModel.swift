@@ -34,22 +34,21 @@ public class PassportModel {
 }
 
 public class IdentifyCard: Codable {
-    public var ident_id: String?
-    public var name: String?
-    public var surname: String?
-    public var personalNumber: String?
-    public var birthDate: String?
-    public var expireDate: String?
-    public var serialNumber: String?
-    public var nationality: String?
-    public var docType: String?
-    public var authority: String?
-    public var gender: String?
-    public var image: String?
-
-    public init() { }
-
-    public init(ident_id: String?, name: String?, surname: String?, personalNumber: String?, birthdate: String?, expireDate: String?, serialNumber: String?, nationality: String?, docType: String?, authority: String?, gender: String?, image: String?) {
+    var ident_id: String?
+    var name: String?
+    var surname: String?
+    var personalNumber: String?
+    var birthDate: String?
+    var expireDate: String?
+    var serialNumber: String?
+    var nationality: String?
+    var docType: String?
+    var authority: String?
+    var gender: String?
+    var image: String?
+    var mrzInfo: String?
+    
+    public init(ident_id: String?, name: String?, surname: String?, personalNumber: String?, birthdate: String?, expireDate: String?, serialNumber: String?, nationality: String?, docType: String?, authority: String?, gender: String?, image: String?, mrzInfo: String?) {
         self.ident_id = ident_id
         self.name = name
         self.surname = surname
@@ -62,6 +61,9 @@ public class IdentifyCard: Codable {
         self.authority = authority
         self.gender = gender
         self.image = image
+        self.mrzInfo = mrzInfo
     }
-
+    
+    init() {}
+    
 }

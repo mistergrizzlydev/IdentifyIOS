@@ -39,7 +39,9 @@ class SDKNoInternetViewController: SDKBaseViewController {
     }
     
     @objc func dismissThisController() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.manager.sendStep()
+        })
     }
 
 }
