@@ -46,3 +46,55 @@
 "CoreSuccess" = "Success";
 "CoreOK" = "Ok";
 "WrongSMSCode" = "Wrong Sms Code";
+"CoreDate" = "Choose Date";
+"CoreScan" = "Start Scan";
+
+
+// new nfc
+"NewNfcFront" = "Put your ID on a dark background and face it, please don't move your hand until our camera automatically detects it and takes a picture.";
+"NewNfcBack" = "Put your ID on a dark background and turn its BACK and please don't move your hand until our camera automatically detects it and takes a picture.";
+"NewDocumentFront" = "Put your DOCUMENT on a dark background and face it, please don't move your hand until our camera automatically detects it and takes a picture.";
+"NewDocumentBack" = "Put your DOCUMENT on a dark background and turn its BACK and please don't move your hand until our camera automatically detects it and takes a picture.";
+
+"NfcScanInfo" = "Prepare your passport for NFC Scan";
+"NfcIDScanInfo" = "Prepare your ID for NFC Scan";
+"NfcDocumentScanInfo" = "Prepare your document for the scan";
+
+"NfcSuccess" = "Your identity has been successfully identified";
+
+"NfcEditInfoTitle" = "Edit Information";
+"NfcEditInfoDesc" = "One of your credentials could not be read correctly, would you like to edit it?";
+"CoreInputError" = "You left one of the required fields blank, please check";
+"CoreNfcDeviceError" = "Your device does not support NFC, in progress.";
+"SoundRecogOk" = "Word reading successful";
+"SoundRecogFail" = "Word reading failed, word spoken: ";
+"FaceNotFound" = "No faces found, try again";
+"SmilingFaceNotFound" = "No smiling faces found, try again";
+"CoreUploadError" = "Error uploading, please try again";
+
+// info screen
+"NfcInfoTitle" = "";
+"NfcInfoDesc" = "";
+
+"SelfieInfoTitle" = "";
+"SelfieInfoDesc" = "";
+
+"SignatureInfoTitle" = "";
+"SignatureInfoDesc" = "";
+
+"LivenessInfoTitle" = "";
+"LivenessInfoDesc" = "";
+
+"VideoRecordInfoTitle" = "";
+"VideoRecordInfoDesc" = "";
+
+"IdCardInfoTitle" = "";
+"IdCardInfoDesc" = "";
+
+"SpeechInfoTitle" = "";
+"SpeechInfoText" = "";
+
+"NewIdCart" = "ID Card";
+"Passport" = "Passport";
+"OtherCards" = "Others";
+"ScanType" = "Select the type of document you want to scan";

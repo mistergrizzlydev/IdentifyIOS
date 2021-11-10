@@ -7,10 +7,13 @@
 //
 
 import UIKit
-
+protocol ConnectionListenerDelegate: class {
+    func connectedAgain()
+}
 class SDKNoInternetViewController: SDKBaseViewController {
 
     @IBOutlet weak var connectBtn: UIButton!
+    weak var delegate: ConnectionListenerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,23 +22,16 @@ class SDKNoInternetViewController: SDKBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        listenNotification()
-    }
-    
-    @objc func listenNotification() {
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(userLoggedIn), name: Notification.Name("UserLoggedIn"), object: nil)
-    }
-    
-    @objc func userLoggedIn() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.dismissThisController()
-        }
     }
     
     @objc func connectToSocket() {
-        self.manager.connectToRoom()
         connectBtn.setTitle("Lütfen bekleyin..", for: .normal)
+        self.manager.reConnectToRoom { socket in
+            if socket.isConnected {
+                self.delegate?.connectedAgain()
+                self.dismissThisController()
+            }
+        }
     }
     
     @objc func dismissThisController() {

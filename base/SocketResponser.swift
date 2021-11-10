@@ -104,7 +104,7 @@ public class SmsJson: Codable {
 }
 
 public class BoolResponse: Codable {
-    var result: Bool?
+    public var result: Bool?
     
     init(result: Bool?) {
         self.result = result

@@ -11,8 +11,33 @@
 		480C4E2C271D9C1100FF06AA /* SDKNoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480C4E2A271D9C1100FF06AA /* SDKNoInternetViewController.xib */; };
 		4821A7A3266F9E990037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42915053037019BA13A23EF5 /* Pods_IdentifyIOS_Example.framework */; };
 		4821A7AA266F9EC30037331F /* Pods_IdentifyIOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */; };
+		482B4C1B2731348F002D1377 /* SDKInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482B4C192731348F002D1377 /* SDKInformationViewController.swift */; };
+		482B4C1C2731348F002D1377 /* SDKInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C1A2731348F002D1377 /* SDKInformationViewController.xib */; };
+		482B4C28273153DA002D1377 /* customer_sup.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C1E273153D3002D1377 /* customer_sup.json */; };
+		482B4C29273153DA002D1377 /* selfie.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C1F273153D4002D1377 /* selfie.json */; };
+		482B4C2A273153DA002D1377 /* nfc.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C20273153D5002D1377 /* nfc.json */; };
+		482B4C2B273153DA002D1377 /* look_right.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C21273153D5002D1377 /* look_right.json */; };
+		482B4C2C273153DA002D1377 /* video_record.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C22273153D6002D1377 /* video_record.json */; };
+		482B4C2D273153DA002D1377 /* blink_couple.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C23273153D7002D1377 /* blink_couple.json */; };
+		482B4C2E273153DA002D1377 /* speech.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C24273153D8002D1377 /* speech.json */; };
+		482B4C2F273153DA002D1377 /* look_left.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C25273153D8002D1377 /* look_left.json */; };
+		482B4C30273153DA002D1377 /* smile.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C26273153D9002D1377 /* smile.json */; };
+		482B4C31273153DA002D1377 /* signature.json in Resources */ = {isa = PBXBuildFile; fileRef = 482B4C27273153DA002D1377 /* signature.json */; };
 		484BBC8B27202D5500BBE851 /* SDKAccessibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BBC8927202D5500BBE851 /* SDKAccessibilityViewController.swift */; };
 		484BBC8C27202D5500BBE851 /* SDKAccessibilityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 484BBC8A27202D5500BBE851 /* SDKAccessibilityViewController.xib */; };
+		48615ACA27301B6300E9BE74 /* SDKScannerSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48615AC827301B6300E9BE74 /* SDKScannerSelectorViewController.xib */; };
+		48615ACB27301B6300E9BE74 /* SDKScannerSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48615AC927301B6300E9BE74 /* SDKScannerSelectorViewController.swift */; };
+		48615ACF27301B7500E9BE74 /* SDKScannerSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48615ACD27301B7400E9BE74 /* SDKScannerSelectorTableViewCell.xib */; };
+		48615AD027301B7500E9BE74 /* SDKScannerSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48615ACE27301B7400E9BE74 /* SDKScannerSelectorTableViewCell.swift */; };
+		48615AD327301B8A00E9BE74 /* SDKNewNFCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48615AD127301B8A00E9BE74 /* SDKNewNFCViewController.xib */; };
+		48615AD427301B8A00E9BE74 /* SDKNewNFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48615AD227301B8A00E9BE74 /* SDKNewNFCViewController.swift */; };
+		48615AD827301B9A00E9BE74 /* KeysErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48615AD627301B9900E9BE74 /* KeysErrorViewController.xib */; };
+		48615AD927301B9A00E9BE74 /* KeysErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48615AD727301B9A00E9BE74 /* KeysErrorViewController.swift */; };
+		48615ADB27302AB000E9BE74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48615ADA27302AA900E9BE74 /* GoogleService-Info.plist */; };
+		48615ADE273035ED00E9BE74 /* SDKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48615ADC273035EC00E9BE74 /* SDKLoginViewController.xib */; };
+		48615ADF273035ED00E9BE74 /* SDKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48615ADD273035ED00E9BE74 /* SDKLoginViewController.swift */; };
+		48615AE32730365600E9BE74 /* SDKNetworkSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48615AE12730365600E9BE74 /* SDKNetworkSettingsViewController.swift */; };
+		48615AE42730365600E9BE74 /* SDKNetworkSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48615AE22730365600E9BE74 /* SDKNetworkSettingsViewController.xib */; };
 		4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867111C266FABF500743FAD /* SDKModulesListViewController.xib */; };
 		4867114D266FABF500743FAD /* SDKModulesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867111D266FABF500743FAD /* SDKModulesListViewController.swift */; };
 		4867114E266FABF500743FAD /* CallScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867111F266FABF500743FAD /* CallScreenViewController.swift */; };
@@ -34,8 +59,6 @@
 		4867115E266FABF500743FAD /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48671135266FABF500743FAD /* UserDefaults.swift */; };
 		4867115F266FABF500743FAD /* SDKCallWaitScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48671137266FABF500743FAD /* SDKCallWaitScreenController.swift */; };
 		48671160266FABF500743FAD /* SDKCallWaitScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48671138266FABF500743FAD /* SDKCallWaitScreenController.xib */; };
-		48671161266FABF500743FAD /* SDKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867113A266FABF500743FAD /* SDKLoginViewController.swift */; };
-		48671162266FABF500743FAD /* SDKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867113B266FABF500743FAD /* SDKLoginViewController.xib */; };
 		48671163266FABF500743FAD /* SDKOnBoardingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867113E266FABF500743FAD /* SDKOnBoardingDetailViewController.swift */; };
 		48671164266FABF500743FAD /* SDKOnBoardingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867113F266FABF500743FAD /* SDKOnBoardingDetailViewController.xib */; };
 		48671165266FABF500743FAD /* SDKPopUpActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48671140266FABF500743FAD /* SDKPopUpActionViewController.swift */; };
@@ -47,11 +70,14 @@
 		4867116B266FABF500743FAD /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48671148266FABF500743FAD /* Design.swift */; };
 		4867116C266FABF500743FAD /* SDKSelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867114A266FABF500743FAD /* SDKSelfieViewController.swift */; };
 		4867116D266FABF500743FAD /* SDKSelfieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4867114B266FABF500743FAD /* SDKSelfieViewController.xib */; };
+		4896DEF7273271D40015AC94 /* SDKAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4896DEF5273271D40015AC94 /* SDKAddressViewController.swift */; };
+		4896DEF8273271D40015AC94 /* SDKAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4896DEF6273271D40015AC94 /* SDKAddressViewController.xib */; };
 		48BEF2942670FDBB00822E5A /* SDKPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */; };
 		48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */; };
 		48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BEF29626710BDA00822E5A /* Colors.xcassets */; };
 		48CCB3F726F8757A00423170 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48CCB3F926F8757A00423170 /* Localizable.strings */; };
 		48E6BFE926957FA5002B9C04 /* identifytr.cer in Resources */ = {isa = PBXBuildFile; fileRef = 48E6BFE726957F9D002B9C04 /* identifytr.cer */; };
+		48ED03992732BD5C005A6E7C /* FloatingButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED03982732BD5C005A6E7C /* FloatingButtonController.swift */; };
 		48FF1A122678FBB8003F7851 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */; };
 		48FF1A132678FBB8003F7851 /* HumanVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */; };
 		48FF1A142678FBB8003F7851 /* HumanVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48FF1A112678FBB8003F7851 /* HumanVerificationViewController.xib */; };
@@ -84,8 +110,33 @@
 		480C4E2A271D9C1100FF06AA /* SDKNoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKNoInternetViewController.xib; sourceTree = "<group>"; };
 		4821A7A6266F9EAD0037331F /* IdentifyIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IdentifyIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4821A7A9266F9EC30037331F /* Pods_IdentifyIOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_IdentifyIOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		482B4C192731348F002D1377 /* SDKInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKInformationViewController.swift; sourceTree = "<group>"; };
+		482B4C1A2731348F002D1377 /* SDKInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKInformationViewController.xib; sourceTree = "<group>"; };
+		482B4C1E273153D3002D1377 /* customer_sup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = customer_sup.json; sourceTree = "<group>"; };
+		482B4C1F273153D4002D1377 /* selfie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = selfie.json; sourceTree = "<group>"; };
+		482B4C20273153D5002D1377 /* nfc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nfc.json; sourceTree = "<group>"; };
+		482B4C21273153D5002D1377 /* look_right.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = look_right.json; sourceTree = "<group>"; };
+		482B4C22273153D6002D1377 /* video_record.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = video_record.json; sourceTree = "<group>"; };
+		482B4C23273153D7002D1377 /* blink_couple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blink_couple.json; sourceTree = "<group>"; };
+		482B4C24273153D8002D1377 /* speech.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = speech.json; sourceTree = "<group>"; };
+		482B4C25273153D8002D1377 /* look_left.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = look_left.json; sourceTree = "<group>"; };
+		482B4C26273153D9002D1377 /* smile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smile.json; sourceTree = "<group>"; };
+		482B4C27273153DA002D1377 /* signature.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signature.json; sourceTree = "<group>"; };
 		484BBC8927202D5500BBE851 /* SDKAccessibilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKAccessibilityViewController.swift; sourceTree = "<group>"; };
 		484BBC8A27202D5500BBE851 /* SDKAccessibilityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKAccessibilityViewController.xib; sourceTree = "<group>"; };
+		48615AC827301B6300E9BE74 /* SDKScannerSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKScannerSelectorViewController.xib; sourceTree = "<group>"; };
+		48615AC927301B6300E9BE74 /* SDKScannerSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKScannerSelectorViewController.swift; sourceTree = "<group>"; };
+		48615ACD27301B7400E9BE74 /* SDKScannerSelectorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKScannerSelectorTableViewCell.xib; sourceTree = "<group>"; };
+		48615ACE27301B7400E9BE74 /* SDKScannerSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKScannerSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		48615AD127301B8A00E9BE74 /* SDKNewNFCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKNewNFCViewController.xib; sourceTree = "<group>"; };
+		48615AD227301B8A00E9BE74 /* SDKNewNFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKNewNFCViewController.swift; sourceTree = "<group>"; };
+		48615AD627301B9900E9BE74 /* KeysErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeysErrorViewController.xib; sourceTree = "<group>"; };
+		48615AD727301B9A00E9BE74 /* KeysErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysErrorViewController.swift; sourceTree = "<group>"; };
+		48615ADA27302AA900E9BE74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		48615ADC273035EC00E9BE74 /* SDKLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKLoginViewController.xib; sourceTree = "<group>"; };
+		48615ADD273035ED00E9BE74 /* SDKLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKLoginViewController.swift; sourceTree = "<group>"; };
+		48615AE12730365600E9BE74 /* SDKNetworkSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKNetworkSettingsViewController.swift; sourceTree = "<group>"; };
+		48615AE22730365600E9BE74 /* SDKNetworkSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKNetworkSettingsViewController.xib; sourceTree = "<group>"; };
 		4867111C266FABF500743FAD /* SDKModulesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKModulesListViewController.xib; sourceTree = "<group>"; };
 		4867111D266FABF500743FAD /* SDKModulesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKModulesListViewController.swift; sourceTree = "<group>"; };
 		4867111F266FABF500743FAD /* CallScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallScreenViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +158,6 @@
 		48671135266FABF500743FAD /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		48671137266FABF500743FAD /* SDKCallWaitScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKCallWaitScreenController.swift; sourceTree = "<group>"; };
 		48671138266FABF500743FAD /* SDKCallWaitScreenController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKCallWaitScreenController.xib; sourceTree = "<group>"; };
-		4867113A266FABF500743FAD /* SDKLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKLoginViewController.swift; sourceTree = "<group>"; };
-		4867113B266FABF500743FAD /* SDKLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKLoginViewController.xib; sourceTree = "<group>"; };
 		4867113E266FABF500743FAD /* SDKOnBoardingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKOnBoardingDetailViewController.swift; sourceTree = "<group>"; };
 		4867113F266FABF500743FAD /* SDKOnBoardingDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDKOnBoardingDetailViewController.xib; sourceTree = "<group>"; };
 		48671140266FABF500743FAD /* SDKPopUpActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKPopUpActionViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +173,8 @@
 		4867126A266FAEED00743FAD /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867126B266FAEED00743FAD /* QKMRZParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QKMRZParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4867126C266FAEED00743FAD /* SwiftSignatureView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSignatureView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4896DEF5273271D40015AC94 /* SDKAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKAddressViewController.swift; sourceTree = "<group>"; };
+		4896DEF6273271D40015AC94 /* SDKAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKAddressViewController.xib; sourceTree = "<group>"; };
 		48BEF2902670F5C300822E5A /* IdentifyIOS_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdentifyIOS_Example.entitlements; sourceTree = "<group>"; };
 		48BEF2922670FDBB00822E5A /* SDKPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKPermissionsViewController.swift; sourceTree = "<group>"; };
 		48BEF2932670FDBB00822E5A /* SDKPermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDKPermissionsViewController.xib; sourceTree = "<group>"; };
@@ -133,6 +184,7 @@
 		48CCB3F826F8757A00423170 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48CCB3FA26F8757F00423170 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48E6BFE726957F9D002B9C04 /* identifytr.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = identifytr.cer; sourceTree = "<group>"; };
+		48ED03982732BD5C005A6E7C /* FloatingButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonController.swift; sourceTree = "<group>"; };
 		48FF1A0F2678FBB8003F7851 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		48FF1A102678FBB8003F7851 /* HumanVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanVerificationViewController.swift; sourceTree = "<group>"; };
 		48FF1A112678FBB8003F7851 /* HumanVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumanVerificationViewController.xib; sourceTree = "<group>"; };
@@ -182,6 +234,32 @@
 			path = "No Internet";
 			sourceTree = "<group>";
 		};
+		482B4C182731347D002D1377 /* Information Screen */ = {
+			isa = PBXGroup;
+			children = (
+				482B4C192731348F002D1377 /* SDKInformationViewController.swift */,
+				482B4C1A2731348F002D1377 /* SDKInformationViewController.xib */,
+			);
+			path = "Information Screen";
+			sourceTree = "<group>";
+		};
+		482B4C1D273153B1002D1377 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				482B4C23273153D7002D1377 /* blink_couple.json */,
+				482B4C1E273153D3002D1377 /* customer_sup.json */,
+				482B4C25273153D8002D1377 /* look_left.json */,
+				482B4C21273153D5002D1377 /* look_right.json */,
+				482B4C20273153D5002D1377 /* nfc.json */,
+				482B4C1F273153D4002D1377 /* selfie.json */,
+				482B4C27273153DA002D1377 /* signature.json */,
+				482B4C26273153D9002D1377 /* smile.json */,
+				482B4C24273153D8002D1377 /* speech.json */,
+				482B4C22273153D6002D1377 /* video_record.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		484BBC7F2720010000BBE851 /* Accessibility */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,14 +269,67 @@
 			path = Accessibility;
 			sourceTree = "<group>";
 		};
+		48615AC627301B3200E9BE74 /* New NFC */ = {
+			isa = PBXGroup;
+			children = (
+				48615AD527301B8D00E9BE74 /* Error Screen */,
+				48615AD227301B8A00E9BE74 /* SDKNewNFCViewController.swift */,
+				48615AD127301B8A00E9BE74 /* SDKNewNFCViewController.xib */,
+			);
+			path = "New NFC";
+			sourceTree = "<group>";
+		};
+		48615AC727301B4A00E9BE74 /* Document Type */ = {
+			isa = PBXGroup;
+			children = (
+				48615ACC27301B6700E9BE74 /* table cell */,
+				48615AC927301B6300E9BE74 /* SDKScannerSelectorViewController.swift */,
+				48615AC827301B6300E9BE74 /* SDKScannerSelectorViewController.xib */,
+			);
+			path = "Document Type";
+			sourceTree = "<group>";
+		};
+		48615ACC27301B6700E9BE74 /* table cell */ = {
+			isa = PBXGroup;
+			children = (
+				48615ACE27301B7400E9BE74 /* SDKScannerSelectorTableViewCell.swift */,
+				48615ACD27301B7400E9BE74 /* SDKScannerSelectorTableViewCell.xib */,
+			);
+			path = "table cell";
+			sourceTree = "<group>";
+		};
+		48615AD527301B8D00E9BE74 /* Error Screen */ = {
+			isa = PBXGroup;
+			children = (
+				48615AD727301B9A00E9BE74 /* KeysErrorViewController.swift */,
+				48615AD627301B9900E9BE74 /* KeysErrorViewController.xib */,
+			);
+			path = "Error Screen";
+			sourceTree = "<group>";
+		};
+		48615AE02730364A00E9BE74 /* Network Settings */ = {
+			isa = PBXGroup;
+			children = (
+				48615AE12730365600E9BE74 /* SDKNetworkSettingsViewController.swift */,
+				48615AE22730365600E9BE74 /* SDKNetworkSettingsViewController.xib */,
+			);
+			path = "Network Settings";
+			sourceTree = "<group>";
+		};
 		4867111A266FABF500743FAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4896DEF4273271C10015AC94 /* Address */,
+				482B4C1D273153B1002D1377 /* Animations */,
+				482B4C182731347D002D1377 /* Information Screen */,
+				48615AE02730364A00E9BE74 /* Network Settings */,
+				48615AC727301B4A00E9BE74 /* Document Type */,
+				48615AC627301B3200E9BE74 /* New NFC */,
 				484BBC7F2720010000BBE851 /* Accessibility */,
 				480C4E28271D9BFF00FF06AA /* No Internet */,
 				48FF1A0E2678FBA1003F7851 /* New - Human Verification */,
 				48BEF2912670FD5A00822E5A /* Permissions */,
-				4867111B266FABF500743FAD /* Modules List */,
+				4867111B266FABF500743FAD /* Modules List Panel */,
 				4867111E266FABF500743FAD /* CallScreen */,
 				48671121266FABF500743FAD /* Signature */,
 				48671124266FABF500743FAD /* Sms */,
@@ -213,17 +344,18 @@
 				48671145266FABF500743FAD /* Sound Recognition */,
 				48671148266FABF500743FAD /* Design.swift */,
 				48671149266FABF500743FAD /* SelfieCameraView */,
+				48ED03982732BD5C005A6E7C /* FloatingButtonController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4867111B266FABF500743FAD /* Modules List */ = {
+		4867111B266FABF500743FAD /* Modules List Panel */ = {
 			isa = PBXGroup;
 			children = (
 				4867111C266FABF500743FAD /* SDKModulesListViewController.xib */,
 				4867111D266FABF500743FAD /* SDKModulesListViewController.swift */,
 			);
-			path = "Modules List";
+			path = "Modules List Panel";
 			sourceTree = "<group>";
 		};
 		4867111E266FABF500743FAD /* CallScreen */ = {
@@ -304,8 +436,8 @@
 		48671139266FABF500743FAD /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				4867113A266FABF500743FAD /* SDKLoginViewController.swift */,
-				4867113B266FABF500743FAD /* SDKLoginViewController.xib */,
+				48615ADD273035ED00E9BE74 /* SDKLoginViewController.swift */,
+				48615ADC273035EC00E9BE74 /* SDKLoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -356,6 +488,15 @@
 			path = SelfieCameraView;
 			sourceTree = "<group>";
 		};
+		4896DEF4273271C10015AC94 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				4896DEF5273271D40015AC94 /* SDKAddressViewController.swift */,
+				4896DEF6273271D40015AC94 /* SDKAddressViewController.xib */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
 		48BEF2912670FD5A00822E5A /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				48BEF2902670F5C300822E5A /* IdentifyIOS_Example.entitlements */,
+				48615ADA27302AA900E9BE74 /* GoogleService-Info.plist */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for IdentifyIOS */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -567,27 +709,45 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				48671162266FABF500743FAD /* SDKLoginViewController.xib in Resources */,
+				482B4C30273153DA002D1377 /* smile.json in Resources */,
 				48671160266FABF500743FAD /* SDKCallWaitScreenController.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				48671169266FABF500743FAD /* SDKSoundRecognitionViewController.xib in Resources */,
+				482B4C2D273153DA002D1377 /* blink_couple.json in Resources */,
+				482B4C2F273153DA002D1377 /* look_left.json in Resources */,
+				482B4C28273153DA002D1377 /* customer_sup.json in Resources */,
 				4867116D266FABF500743FAD /* SDKSelfieViewController.xib in Resources */,
+				48615ADE273035ED00E9BE74 /* SDKLoginViewController.xib in Resources */,
 				48671150266FABF500743FAD /* SDKSignatureViewController.xib in Resources */,
+				48615ACF27301B7500E9BE74 /* SDKScannerSelectorTableViewCell.xib in Resources */,
 				480C4E2C271D9C1100FF06AA /* SDKNoInternetViewController.xib in Resources */,
+				48615AE42730365600E9BE74 /* SDKNetworkSettingsViewController.xib in Resources */,
+				482B4C29273153DA002D1377 /* selfie.json in Resources */,
+				482B4C2C273153DA002D1377 /* video_record.json in Resources */,
+				482B4C1C2731348F002D1377 /* SDKInformationViewController.xib in Resources */,
 				4867114F266FABF500743FAD /* CallScreenViewController.xib in Resources */,
+				482B4C2A273153DA002D1377 /* nfc.json in Resources */,
+				48615ACA27301B6300E9BE74 /* SDKScannerSelectorViewController.xib in Resources */,
 				48BEF2952670FDBB00822E5A /* SDKPermissionsViewController.xib in Resources */,
+				48615AD327301B8A00E9BE74 /* SDKNewNFCViewController.xib in Resources */,
+				48615ADB27302AB000E9BE74 /* GoogleService-Info.plist in Resources */,
+				4896DEF8273271D40015AC94 /* SDKAddressViewController.xib in Resources */,
 				48BEF29726710BDA00822E5A /* Colors.xcassets in Resources */,
 				48CCB3F726F8757A00423170 /* Localizable.strings in Resources */,
+				482B4C2B273153DA002D1377 /* look_right.json in Resources */,
 				48FF1A142678FBB8003F7851 /* HumanVerificationViewController.xib in Resources */,
 				48671158266FABF500743FAD /* KYC.storyboard in Resources */,
 				484BBC8C27202D5500BBE851 /* SDKAccessibilityViewController.xib in Resources */,
 				48671152266FABF500743FAD /* SmsScreenViewController.xib in Resources */,
 				4867115B266FABF500743FAD /* SmileViewController.xib in Resources */,
 				4867115D266FABF500743FAD /* SDKNfcViewController.xib in Resources */,
+				482B4C31273153DA002D1377 /* signature.json in Resources */,
 				48671166266FABF500743FAD /* SDKOnBoardingViewController.xib in Resources */,
 				48E6BFE926957FA5002B9C04 /* identifytr.cer in Resources */,
 				4867114C266FABF500743FAD /* SDKModulesListViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				48615AD827301B9A00E9BE74 /* KeysErrorViewController.xib in Resources */,
+				482B4C2E273153DA002D1377 /* speech.json in Resources */,
 				48671164266FABF500743FAD /* SDKOnBoardingDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +784,9 @@
 				"${BUILT_PRODUCTS_DIR}/QKMRZParser/QKMRZParser.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSignatureView/SwiftSignatureView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/WeScan/WeScan.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
@@ -644,6 +807,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QKMRZParser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSignatureView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeScan.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
 			);
@@ -682,10 +848,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-IdentifyIOS_Example/Pods-IdentifyIOS_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitFaceDetection/GoogleMVFaceDetectorResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitTextRecognition/LatinOCRResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LatinOCRResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -722,22 +890,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				4867114E266FABF500743FAD /* CallScreenViewController.swift in Sources */,
-				48671161266FABF500743FAD /* SDKLoginViewController.swift in Sources */,
 				48671165266FABF500743FAD /* SDKPopUpActionViewController.swift in Sources */,
 				4867116B266FABF500743FAD /* Design.swift in Sources */,
+				48615AD027301B7500E9BE74 /* SDKScannerSelectorTableViewCell.swift in Sources */,
 				4867115F266FABF500743FAD /* SDKCallWaitScreenController.swift in Sources */,
+				48615ACB27301B6300E9BE74 /* SDKScannerSelectorViewController.swift in Sources */,
 				48FF1A132678FBB8003F7851 /* HumanVerificationViewController.swift in Sources */,
+				4896DEF7273271D40015AC94 /* SDKAddressViewController.swift in Sources */,
 				480C4E2B271D9C1100FF06AA /* SDKNoInternetViewController.swift in Sources */,
 				4867116C266FABF500743FAD /* SDKSelfieViewController.swift in Sources */,
 				48671156266FABF500743FAD /* VisionViewController.swift in Sources */,
 				48671159266FABF500743FAD /* SDKMrzViewController.swift in Sources */,
 				48671155266FABF500743FAD /* PreviewView.swift in Sources */,
+				48ED03992732BD5C005A6E7C /* FloatingButtonController.swift in Sources */,
 				48671154266FABF500743FAD /* SmsScreenViewController.swift in Sources */,
 				48671163266FABF500743FAD /* SDKOnBoardingDetailViewController.swift in Sources */,
+				48615AE32730365600E9BE74 /* SDKNetworkSettingsViewController.swift in Sources */,
 				4867115A266FABF500743FAD /* SmileViewController.swift in Sources */,
+				482B4C1B2731348F002D1377 /* SDKInformationViewController.swift in Sources */,
 				4867115C266FABF500743FAD /* SDKNfcViewController.swift in Sources */,
 				4867114D266FABF500743FAD /* SDKModulesListViewController.swift in Sources */,
+				48615ADF273035ED00E9BE74 /* SDKLoginViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				48615AD427301B8A00E9BE74 /* SDKNewNFCViewController.swift in Sources */,
 				4867116A266FABF500743FAD /* SDKSoundRecognitionViewController.swift in Sources */,
 				48671167266FABF500743FAD /* SDKOnBoardingViewController.swift in Sources */,
 				48671157266FABF500743FAD /* StringUtils.swift in Sources */,
@@ -747,6 +922,7 @@
 				4867115E266FABF500743FAD /* UserDefaults.swift in Sources */,
 				484BBC8B27202D5500BBE851 /* SDKAccessibilityViewController.swift in Sources */,
 				48671168266FABF500743FAD /* SDKBaseViewController.swift in Sources */,
+				48615AD927301B9A00E9BE74 /* KeysErrorViewController.swift in Sources */,
 				48671153266FABF500743FAD /* OneTimeExt.swift in Sources */,
 				48FF1A122678FBB8003F7851 /* UIUtilities.swift in Sources */,
 			);
@@ -908,14 +1084,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = identify.sample.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimlikkolay.Kimlik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -928,14 +1104,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = identify.sample.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimlikkolay.Kimlik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

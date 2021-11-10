@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Bold.ttf">
+            <string>NunitoSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="165" id="KGk-i7-Jjw" customClass="SDKScannerSelectorTableViewCell" customModule="IdentifyIOS_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZkS-15-U8A">
+                        <rect key="frame" x="10" y="14.5" width="300" height="106.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="106.5" id="58T-xw-vqP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjF-5v-dQc">
+                        <rect key="frame" x="26" y="131" width="268" height="19.5"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
+                        <color key="textColor" red="0.91758388280000003" green="0.94172710179999997" blue="0.90587908029999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-iU-Z8Y">
+                        <rect key="frame" x="0.0" y="164" width="320" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="aoQ-5p-Z3T"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="d1b-iU-Z8Y" secondAttribute="bottom" id="6aT-98-dNk"/>
+                    <constraint firstItem="cjF-5v-dQc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="AFB-P6-4Tn"/>
+                    <constraint firstAttribute="trailing" secondItem="d1b-iU-Z8Y" secondAttribute="trailing" id="CRO-QH-fde"/>
+                    <constraint firstItem="ZkS-15-U8A" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-15" id="GMt-rv-kq2"/>
+                    <constraint firstItem="ZkS-15-U8A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WBl-B0-JBO"/>
+                    <constraint firstAttribute="trailing" secondItem="ZkS-15-U8A" secondAttribute="trailing" constant="10" id="b3U-a4-FoK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cjF-5v-dQc" secondAttribute="trailing" constant="10" id="feY-wA-n9f"/>
+                    <constraint firstItem="cjF-5v-dQc" firstAttribute="top" secondItem="ZkS-15-U8A" secondAttribute="bottom" constant="10" id="mzr-fO-AXt"/>
+                    <constraint firstItem="d1b-iU-Z8Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qHj-md-OMu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="AccentColor"/>
+            <connections>
+                <outlet property="sectionImg" destination="ZkS-15-U8A" id="Lug-zr-tJX"/>
+                <outlet property="sectionName" destination="cjF-5v-dQc" id="7gw-Vy-mE0"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="142.29910714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

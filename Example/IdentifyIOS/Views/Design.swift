@@ -27,7 +27,7 @@ public struct DesignConstants {
     public static var waitScrThankUText: String? = langManager.translate(key: .thankU)
     public static var waitScrThankULblColor: UIColor? = DEFAULT_LABEL_COLOR
     public static var waitScrThankULblFontFamily: UIFont? = DEFAULT_LABEL_FAMILY
-    public static var waitScrCompleteBtnText: String? = langManager.translate(key: .coreSuccess)
+    public static var waitScrCompleteBtnText: String? = "Ekranı Kapat"
     public static var waitScrCompleteBtnTextColor: UIColor? = DEFAULT_LABEL_COLOR
     public static var waitScrCompleteBtnTextFont: UIFont? = DEFAULT_LABEL_FAMILY
 

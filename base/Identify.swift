@@ -59,6 +59,10 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var activeScreen: SdkModules? = .waitScreen
     public var enableSignLang = false
     public var connectToSignLang = false
+    public var nfcCompleted = false
+    public var idPhotoCompleted = false
+
+
     
     let userDefaults = UserDefaults.standard
     
@@ -112,6 +116,11 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         module9.mName = "Speech Recognition"
         module9.mValue = .speech
         identfiyModules.append(module9)
+        
+        let module10 = Modules()
+        module10.mName = "Address Confirm"
+        module10.mValue = .addressConf
+        identfiyModules.append(module10)
     }
     
     public func openWaitScreen() {
@@ -127,16 +136,19 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
 //                UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController?.present(controller, animated: false, completion: nil)
 //            }
 //        }
+//        let nc = NotificationCenter.default
+//        nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
     }
 
     public func setupUrls() {
         switch selectedHost {
         case .identifyTr:
-//            self.baseAPIUrl = URLConstants.baseAPIUrl
-//            self.stunServers = URLConstants.stunServers
-//            self.stunUsername = URLConstants.stunUsername
-//            self.stunPassword = URLConstants.stunPassword
-            self.socket = WebSocket(url: URL(string: self.webSocketUrl)!)
+            self.baseAPIUrl = userDefaults.string(forKey: "baseAPIUrl") ?? URLConstants.baseAPIUrl
+            self.stunServers = [userDefaults.string(forKey: "stunServer") ?? String(URLConstants.stunServers.first!), userDefaults.string(forKey: "stunServer2") ?? String(URLConstants.stunServers.last!)]
+            self.stunUsername = userDefaults.string(forKey: "stunUser") ??  URLConstants.stunUsername
+            self.stunPassword = userDefaults.string(forKey: "stunPass") ?? URLConstants.stunPassword
+            let socketUrl = userDefaults.string(forKey: "socketUrl") ?? self.webSocketUrl
+            self.socket = WebSocket(url: URL(string: socketUrl)!)
             self.setupSettings()
         case .kimlikBasit:
             self.baseAPIUrl = KBURLConstants.baseAPIUrl
@@ -145,6 +157,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
             self.stunPassword = KBURLConstants.stunPassword
             self.socket = WebSocket(url: URL(string: "wss://ws.kimlikbasit.com:8888")!)
             self.setupSettings()
+        
         default:
             return
         }
@@ -172,6 +185,50 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
                 self.connectToWebSocket()
             }
         }
+    }
+    
+    public func reConnectToRoom(callback: @escaping ((_ results: WebSocket) -> Void)) {
+        netw.connectToRoom(identId: self.userToken) { res in
+            if res.result == true {
+                self.tempResp = res
+                self.reConnectToSocket(callback: { results in
+                    if results.isConnected {
+                        self.loadingDelegate?.hideAllLoaders()
+                        self.sendFirstSubscribe(socket: self.socket)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                            callback(results)
+                        })
+                    }
+                })
+            }
+        }
+    }
+    
+    public func reConnectToSocket(callback: @escaping ((_ results: WebSocket) -> Void)) {
+        socket.delegate = self
+        socket.pongDelegate = self as? WebSocketPongDelegate
+        self.socket.enableCompression = true
+        self.socket.desiredTrustHostname = "identify24"
+        self.socket.disableSSLCertValidation = true
+        socket.connect()
+        webRTCClient = WebRTCClient()
+        webRTCClient.delegate = self
+        webRTCClient.setup(videoTrack: true, audioTrack: true, dataChannel: true, customFrameCapturer: false, isFront: true)
+        isConnected = true
+        tryToConnectWebSocket = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
+            if self.socket != nil {
+                if self.webRTCClient.isConnected || self.socket.isConnected {
+                    self.socket.enableCompression = true
+                    self.socket.desiredTrustHostname = "identify24"
+                    self.socket.disableSSLCertValidation = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                        callback(self.socket)
+                    })
+                    self.tryToConnectWebSocket?.invalidate()
+                    return
+                }
+            }
+        })
     }
     
     public func connectToWebSocket() {
@@ -270,27 +327,22 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         self.activeScreen = screen
         let newSignal = ConnectSocketResp.init(location: screen.rawValue, room: tempResp.data?.customer_uid ?? "", action: "stepChanged")
         
-        if screen == .waitScreen {
-            sendStep()
-            return
-        } else {
-            do {
-                let data = try JSONEncoder().encode(newSignal)
-                let message = String(data: data, encoding: String.Encoding.utf8)!
-                if self.socket.isConnected {
-                    self.socket.write(string: message)
-                }
-                
-            } catch {
-                // print(error)
+        do {
+            let data = try JSONEncoder().encode(newSignal)
+            let message = String(data: data, encoding: String.Encoding.utf8)!
+            if self.socket.isConnected {
+                self.socket.write(string: message)
             }
+            
+        } catch {
+            // print(error)
         }
         
     }
     
     public func sendStep() {
-        print("send step")
-        let allSteps = Steps(nfc: allSteps?.nfc ?? false, liveness: allSteps?.liveness ?? false, idFront: allSteps?.idFront ?? false, idBack: allSteps?.idBack ?? false, video: allSteps?.video ?? false, signature: allSteps?.signature ?? false, speech: allSteps?.speech ?? false, selfie: allSteps?.selfie ?? false, language: tempResp.data?.language ?? "TR", sign_language: connectToSignLang)
+
+        let allSteps = Steps(nfc: allSteps?.nfc ?? false, liveness: allSteps?.liveness ?? false, idFront: allSteps?.idFront ?? false, idBack: allSteps?.idBack ?? false, video: allSteps?.video ?? false, signature: allSteps?.signature ?? false, speech: allSteps?.speech ?? false, selfie: allSteps?.selfie ?? false, language: tempResp.data?.language ?? "TR", sign_language: connectToSignLang, verifyAddress: allSteps?.verifyAddress ?? false)
         
         let newSignal = SendStepsResp.init(location: "Call Wait Screen", room: tempResp.data?.customer_uid ?? "", action: "stepChanged", steps: allSteps)
         do {
@@ -337,9 +389,10 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public func sendFirstSubscribe(socket: WebSocketClient) {
         
         if tempResp.data?.customer_uid == "" {
+            print("custom id alınamadı")
             AlertViewManager.defaultManager.showOkAlert(self.translate(text: .coreError), message: "Customer ID alınamadı, lütfen bağlantınızı kontrol edin") { _ in }
         } else {
-            let newSignal = ConnectSocketResp.init(location: self.activeScreen?.rawValue ?? "Call Wait Screen", room: tempResp.data?.customer_uid ?? "", action: "subscribe")
+            let newSignal = FirstSubscribeResp.init(location: identfiyModules.first?.mName ?? "Call Wait Screen", room: tempResp.data?.customer_uid ?? "", action: "subscribe", deviceInfo: DeviceInfo.init())
             do {
                 let data = try JSONEncoder().encode(newSignal)
                 let message = String(data: data, encoding: String.Encoding.utf8)!
@@ -353,7 +406,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         
     }
     
-    public func sendNFCStatus(_ isAvailable: Bool) {
+    public func sendNFCStatus(_ isAvailable: String) {
         let deviceHardwareCheck = NFCReaderSession.readingAvailable
         if !deviceHardwareCheck {
             let newSignal = NFCConnectSocketResp.init(room: tempResp.data?.customer_uid ?? "", action: "NFCStatus", status: "notAvailable")
@@ -367,8 +420,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
                 AlertViewManager.defaultManager.showOkAlert("Socket ERROR", message: error.localizedDescription, handler: nil)
             }
         } else {
-            let nfcStatus = isAvailable ? "true" : "false"
-            let newSignal = NFCConnectSocketResp.init(room: tempResp.data?.customer_uid ?? "", action: "NFCStatus", status: nfcStatus)
+            let newSignal = NFCConnectSocketResp.init(room: tempResp.data?.customer_uid ?? "", action: "NFCStatus", status: isAvailable)
             do {
                 let data = try JSONEncoder().encode(newSignal)
                 let message = String(data: data, encoding: String.Encoding.utf8)!
@@ -405,6 +457,12 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         }
         if actionName == "uploadSignature" {
             allSteps?.signature = newStats
+        }
+        if actionName == "uploadVideo" {
+            allSteps?.video = newStats
+        }
+        if actionName == "validateAddress" {
+            allSteps?.verifyAddress = newStats
         }
     }
     

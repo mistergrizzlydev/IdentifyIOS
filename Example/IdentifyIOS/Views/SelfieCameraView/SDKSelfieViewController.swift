@@ -8,30 +8,33 @@
 import UIKit
 import AVKit
 import MobileCoreServices
+import WeScan
+import AVFoundation
 import IdentifyIOS
 
-protocol SelfieDelegate:class {
+protocol SelfieDelegate: class {
     func selfieCompleted()
+    func videoCompleted()
 }
 
 class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     @IBOutlet var backGround: UIView!
     @IBOutlet weak var comingPhotoView: UIImageView!
-//    var manager: IdentifyManager?
     weak var delegate: SelfieDelegate?
     weak var oldDeviceSmileyDelegate: SmileDelegate?
     @IBOutlet weak var appLogo: UIImageView!
     var selfieTypes: SelfieTypes? = .selfie
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var againBtn: UIButton!
+    var videoData = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addSkipModulesButton()
         appLogo.image = GlobalConstants.appLogo
         self.view.backgroundColor = DesignConstants.selfieScrBackgroundColor
         self.setupUI()
-        
         switch selfieTypes {
         case .video:
             if DesignConstants.selfieScrVideoShowInfoPopUp == true {
@@ -83,20 +86,34 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
     func openCamera() {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
+        vc.allowsEditing = false
+        vc.delegate = self
         switch selfieTypes {
         case .frontId, .backId:
-            vc.cameraDevice = .rear
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                let scannerViewController = ImageScannerController()
+                if #available(iOS 13.0, *) {
+                    scannerViewController.isModalInPresentation = true
+                }
+                scannerViewController.modalPresentationStyle = .fullScreen
+                scannerViewController.imageScannerDelegate = self
+                self.present(scannerViewController, animated: false)
+            }
         case .video:
             vc.mediaTypes = [kUTTypeMovie as String]
             vc.cameraCaptureMode = .video
+            vc.cameraDevice = .front
             vc.videoMaximumDuration = 5
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.present(vc, animated: false)
+            }
         default:
             vc.cameraCaptureMode = .photo
             vc.cameraDevice = .front
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.present(vc, animated: false)
+            }
         }
-        vc.allowsEditing = false
-        vc.delegate = self
-        present(vc, animated: false)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -107,27 +124,53 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
             submitBtn.isUserInteractionEnabled = true
             submitBtn.alpha = 1
             comingPhotoView.image = image
+            switch selfieTypes {
+            
+            case .selfie:
+                comingPhotoView.image = image
+                showLoader()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.detectFace()
+                }
+            case .oldPhoneFace:
+                showLoader()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.detectSmiley()
+                }
+            default:
+                return
+            }
         }
         
-        switch selfieTypes {
-        
-        case .selfie:
-            comingPhotoView.image = image
-            showLoader()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.detectFace()
-            }
-        case .oldPhoneFace:
-            showLoader()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.detectSmiley()
-            }
-        case .video:
-            submitBtn.isUserInteractionEnabled = true
-            submitBtn.alpha = 1
-        default:
+        guard let videoUrl = info[UIImagePickerController.InfoKey.mediaURL] as? URL else {
             return
         }
+            do {
+                let data = try Data(contentsOf: videoUrl, options: .mappedIfSafe)
+                self.videoData = data
+                let player = AVPlayer(url: videoUrl) // your video url
+                let playerLayer = AVPlayerLayer(player: player)
+                playerLayer.frame = backGround.bounds
+                
+                backGround.layer.addSublayer(playerLayer)
+                player.play()
+//                NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { [weak self] _ in
+//                   player.seek(to: CMTime.zero)
+//                   player.play()
+//                }
+                
+                switch selfieTypes {
+                case .video:
+                    submitBtn.isUserInteractionEnabled = true
+                    submitBtn.alpha = 1
+                default:
+                    return
+                }
+            } catch  {
+                print("error")
+            }
+        
+
     }
 
     @IBAction func submitAct(_ sender: Any) {
@@ -137,30 +180,29 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
         let y = (comingPhotoView.image?.size.height ?? 1200) / 3
         let myImage = portraitImg.convert(toSize: CGSize(width: x, height: y), scale: UIScreen.main.scale)
         let idPhoto = myImage.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
-        let portraitImage = myImage.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
+        let portraitImage = portraitImg.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
+
         switch selfieTypes {
         case .selfie:
-            self.manager.netw.uploadSelfieImage(image: portraitImage, selfieType: .selfie, callback: { response, error in
-                if response == true {
+            self.manager.netw.uploadSelfieImage(image: portraitImage, selfieType: .selfie, callback: { response in
+                if response.result == true {
                     self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadSelfie")
                     self.dismiss(animated: true) {
-                        self.delegate?.selfieCompleted()
+                        if self.selfieTypes == .selfie {
+                            self.delegate?.selfieCompleted()
+                        }
                         self.hideLoader()
                     }
                 } else {
                     self.manager.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadSelfie")
                     self.hideLoader()
                 }
-                if (error != nil) {
-                    print(error?.localizedDescription)
-                    self.hideLoader()
-                }
             })
         case .frontId:
-            self.manager.netw.uploadSelfieImage(image: idPhoto, selfieType: .frontId, callback: { response, error in
+            self.manager.netw.uploadSelfieImage(image: idPhoto, selfieType: .frontId, callback: { response in
                 self.hideLoader()
-                if response == true {
-                    self.popupAlert(title: self.translate(text: .coreSuccess), message: DesignConstants.selfieScrIdBackPopUpInfoText, actionTitles: ["Tamam"], actions:[{ action1 in
+                if response.result == true {
+                    self.popupAlert(title: self.translate(text: .coreSuccess), message: DesignConstants.selfieScrIdBackPopUpInfoText, actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
                         self.selfieTypes = .backId
                         self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadIdFront")
                         self.openCamera()
@@ -171,15 +213,11 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
                 } else {
                     self.manager.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadIdFront")
                 }
-                if (error != nil) {
-                    print(error?.localizedDescription)
-                    self.hideLoader()
-                }
             })
         case .backId:
-            self.manager.netw.uploadSelfieImage(image: idPhoto, selfieType: .backId, callback: { response, error in
+            self.manager.netw.uploadSelfieImage(image: idPhoto, selfieType: .backId, callback: { response in
                 self.hideLoader()
-                if response == true {
+                if response.result == true {
                     self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadIdBack")
                     self.dismiss(animated: true) {
                         self.delegate?.selfieCompleted()
@@ -187,22 +225,22 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
                 } else {
                     self.manager.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadIdBack")
                 }
-                
-                if (error != nil) {
-                    print(error?.localizedDescription)
-                    self.hideLoader()
-                }
-                
             })
         case .video:
-            self.dismiss(animated: true) {
-                self.manager.allSteps?.video = true
-                self.delegate?.selfieCompleted()
+            self.manager.netw.uploadVideo(videoData: self.videoData) { response in
+                self.hideLoader()
+                if response.result == false {
+                    self.manager.sendSelfieImageStatus(uploadStatus: "false", actionName: "uploadVideo")
+                } else {
+                    self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadVideo")
+                    self.dismiss(animated: true) {
+                        self.delegate?.videoCompleted()
+                    }
+                }
             }
         default:
             return
         }
-        
     }
     
     func fixOrientation(img: UIImage) -> UIImage {
@@ -231,7 +269,7 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
             submitBtn.alpha = 1
         } else {
             hideLoader()
-            self.popupAlert(title: self.translate(text: .coreError), message: "Yüz bulunamadı, tekrar deneyin", actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+            self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .faceNotFound), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
                 self.openCamera()
             }])
         }
@@ -246,7 +284,7 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
             for face in faces as! [CIFaceFeature] {
                 hideLoader()
                 if face.hasSmile == false {
-                    self.popupAlert(title: self.translate(text: .coreError), message: "Gülümseyen bir yüz bulunamadı, tekrar deneyin", actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+                    self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .smilingFaceNotFound), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
                         self.openCamera()
                     }])
                 } else {
@@ -257,14 +295,14 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
             }
         } else {
             hideLoader()
-            self.popupAlert(title: self.translate(text: .coreError), message: "Yüz bulunamadı, tekrar deneyin", actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+            self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .faceNotFound), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
                 self.openCamera()
             }])
         }
     }
     
     func uploadErrorPopup() {
-        self.popupAlert(title: self.translate(text: .coreError), message: "Yükleme sırasında hata oluştu, lütfen tekrar deneyin", actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+        self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .coreUploadError), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
             self.openCamera()
         }])
     }
@@ -277,6 +315,24 @@ extension SDKSelfieViewController: PopUpProtocol {
     
     func handlePopUpAction(action: Bool) {
         self.openCamera()
+    }
+    
+}
+
+extension SDKSelfieViewController: ImageScannerControllerDelegate {
+    func imageScannerController(_ scanner: ImageScannerController, didFinishScanningWithResults results: ImageScannerResults) {
+        comingPhotoView.image = results.croppedScan.image
+        submitBtn.isUserInteractionEnabled = true
+        submitBtn.alpha = 1
+        scanner.dismiss(animated: true)
+    }
+    
+    func imageScannerControllerDidCancel(_ scanner: ImageScannerController) {
+        scanner.dismiss(animated: true)
+    }
+    
+    func imageScannerController(_ scanner: ImageScannerController, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
     
 }

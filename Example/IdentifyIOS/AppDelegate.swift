@@ -7,39 +7,82 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import IdentifyIOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        UIApplication.shared.isIdleTimerDisabled = true
+    var deeplinkUrl = ""
+    
+    let userDefaults = UserDefaults.standard
+    
+    let cacheManager = UserDefaultService.shared
+    
+    let manager = IdentifyManager.shared
+    
+    var hostType: HostType? = .identifyTr
+    
+    var appType: AppType? = .demoApp
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool { // http deep link
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+                let url = userActivity.webpageURL!
+                let identId = url.absoluteURL.lastPathComponent
+                let host = url.absoluteURL.host
+                if host == "admin.kimlikbasit.com" {
+                    self.hostType = .kimlikBasit
+                } else {
+                    self.hostType = .identifyTr
+                }
+                self.deeplinkUrl = identId
+                openMainScreen()
+            }
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool { // hnet:// dlink
+        openMainScreen()
+        return false
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UIApplication.shared.isIdleTimerDisabled = true
+        IQKeyboardManager.shared.enable = true
+        openMainScreen()
+        return true
     }
+    
+    func openMainScreen() {
+        UIApplication.shared.isIdleTimerDisabled = true
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        var mainViewController = UIViewController()
+        
+        switch appType {
+        case .demoApp:
+            GlobalConstants.appLogo = UIImage(named: "identifyTR")!
+            GlobalConstants.nfcErrorMaxCount = 3
+            manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech, .addressConf])
+            if self.deeplinkUrl != "" {
+                mainViewController = SDKLoginViewController(deepLinkIds: deeplinkUrl, hostType: hostType)
+            } else {
+                mainViewController = SDKLoginViewController(deepLinkIds: "", hostType: hostType)
+            }
+        case .onlySDK:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+            mainViewController = initialViewController
+        default:
+            return
+        }
+        
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.setNavigationBarHidden(true, animated: true)
+        window!.rootViewController = navigationController
+        window!.makeKeyAndVisible()
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
 

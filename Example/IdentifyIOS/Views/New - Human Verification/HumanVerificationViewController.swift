@@ -17,7 +17,6 @@ protocol HumanVerificationDelegate {
 
 class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
     
-//    let manager = IdentifyManager.shared
     var delegate: HumanVerificationDelegate?
     
     private let detectors: [Detector] = [
@@ -61,16 +60,19 @@ class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
     private var headTurnLeftOk = false
     private var headTurnRightOk = false
     private var smileOk = false
+    private var runningCount = 0
 
     override func viewDidLoad() {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        addSkipModulesButton()
         self.setUpPreviewOverlayView()
         self.setUpAnnotationOverlayView()
         self.setUpCaptureSessionOutput()
         self.setUpCaptureSessionInput()
         self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.showStepPopUp(step: .leftEye)
+            self.showStepPopUp(step: .plsSmie, aniName: "selfie")
+            self.showInfoText(step: .smileTxt)
         }
     }
     
@@ -92,10 +94,16 @@ class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
         startSession()
     }
     
-    func showStepPopUp(step: Dialogs) {
-        stopSession()
+    func showInfoText(step: Dialogs) {
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         self.statusLbl.text = step.rawValue
-        self.showPopUp(image: UIImage(named: "ob3")!, desc: step.rawValue)
+    }
+    
+    func showStepPopUp(step: Dialogs, aniName:String) {
+        stopSession()
+//        self.statusLbl.text = step.rawValue
+        self.showAniPopUp(anim: aniName, desc: step.rawValue)
+//        self.showPopUp(image: UIImage(named: "ob3")!, desc: step.rawValue)
     }
     
     private func detectFacesOnDevice(in image: VisionImage, width: CGFloat, height: CGFloat) {
@@ -144,56 +152,63 @@ class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
           ).standardized
           
           let frame = face.frame
-                
-            if leftEyeBlinkOk == false && currentStep == 0 {
-                let leftEyeOpenProb = face.leftEyeOpenProbability
-                if leftEyeOpenProb < 0.4 {
-                    currentStep += 1
-                    leftEyeBlinkOk = true
-                    showStepPopUp(step: .rightEye)
-                }
-            } else if leftEyeBlinkOk == true && rightEyeBlinkOk == false && currentStep == 1 {
-                if face.hasRightEyeOpenProbability {
-                  let rightEyeOpenProb = face.rightEyeOpenProbability
-                  if rightEyeOpenProb < 0.4 {
-                    currentStep += 1
-                    rightEyeBlinkOk = true
-                    showStepPopUp(step: .headLeft)
-                  }
-                }
-            } else if rightEyeBlinkOk == true && headTurnLeftOk == false && currentStep == 2 {
-                if face.hasHeadEulerAngleY {
-                    let rotY = face.headEulerAngleY
-                    if rotY < -40 {
-                        currentStep += 1
-                        headTurnLeftOk = true
-                        showStepPopUp(step: .headRight)
-                    }
-                }
-            } else if headTurnLeftOk == true && headTurnRightOk == false && currentStep == 3 {
-                if face.hasHeadEulerAngleY {
-                    let rotY = face.headEulerAngleY
-                    if rotY > 40 {
-                        currentStep += 1
-                        headTurnRightOk = true
-                        showStepPopUp(step: .plsSmie)
-                    }
-                }
-            } else if headTurnRightOk ==  true && smileOk == false && currentStep == 4 {
+            if currentStep == 0 {
                 if face.hasSmilingProbability {
                   let smileProb = face.smilingProbability
                   if smileProb > 0.8 {
-                    stopSession()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        self.dismiss(animated: true, completion: {
-                            self.delegate?.isHuman()
-                        })
-                    }
+                      currentStep = 1
+                      stopSession()
+                      self.showInfoText(step: .blinkEyeTxt)
+                      showStepPopUp(step: .blinkEye, aniName: "blink_couple")
                   }
+                }
+            } else if currentStep == 1 {
+                let leftEyeOpenProb = face.leftEyeOpenProbability
+                let rightEyeOpenProb = face.rightEyeOpenProbability
+                if leftEyeOpenProb < 0.1 && rightEyeOpenProb < 0.1 {
+                    currentStep = 2
+                    leftEyeBlinkOk = true
+                    rightEyeBlinkOk = true
+                    stopSession()
+                    self.showInfoText(step: .headLeftTxt)
+                    showStepPopUp(step: .headLeft, aniName: "look_left")
+                }
+            } else if currentStep == 2  {
+                if face.hasHeadEulerAngleY {
+                    let rotY = face.headEulerAngleY
+                    if rotY < -45 {
+                        stopSession()
+                        currentStep = 3
+                        headTurnLeftOk = true
+                        self.showInfoText(step: .headRightTxt)
+                        showStepPopUp(step: .headRight, aniName: "look_right")
+                    }
+                }
+            } else if currentStep == 3  {
+                if face.hasHeadEulerAngleY {
+                    let rotY = face.headEulerAngleY
+                    if rotY > 45 {
+                        currentStep = 4
+                        headTurnRightOk = true
+                        stopSession()
+                        completeTest()
+                    }
                 }
             }
         }
       }
+    }
+    
+    
+    private func completeTest() {
+        if runningCount == 0 {
+            runningCount += 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.dismiss(animated: true, completion: {
+                    self.delegate?.isHuman()
+                })
+            }
+        }
     }
 
     // MARK: - Private
@@ -485,9 +500,13 @@ private enum Constant {
 }
 
 enum Dialogs: String {
-    case leftEye = "Tamam tuşuna basın ve SOL gözünüzü kırpın"
-    case rightEye = "Tamam tuşuna basın ve SAĞ gözünüzü kırpın"
+    case blinkEye = "Tamam tuşuna basın ve GÖZLERİNİZİ kırpın"
     case headLeft = "Tamam tuşuna basın ve kafanızı SOLA çevirin"
     case headRight = "Tamam tuşuna basın ve kafanızı SAĞA çevirin"
     case plsSmie = "Tamam tuşuna basın ve gülümseyin"
+    
+    case blinkEyeTxt = "Lütfen GÖZLERİNİZİ kırpın"
+    case headLeftTxt = "Lütfen başınızı SOLA çevirin"
+    case headRightTxt = "Lütfen başınızı SAĞA çevirin"
+    case smileTxt = "Lütfen gülümseyin"
 }

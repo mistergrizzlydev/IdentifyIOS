@@ -9,9 +9,9 @@ import UIKit
 
 public class SDKLanguageManager: NSObject {
     
-    public override init() {}
+    override init() {}
     
-    public static let shared = SDKLanguageManager()
+    public static let shared = SDKLanguageManager.init()
     
     public func translate(key: Keywords) -> String {
         switch key {
@@ -86,9 +86,83 @@ public class SDKLanguageManager: NSObject {
             return NSLocalizedString("WrongSMSCode", comment: "")
         case .coreOk:
             return NSLocalizedString("CoreOK", comment: "")
+        case .newNfcFront:
+            return NSLocalizedString("NewNfcFront", comment: "")
+        case .newNfcBack:
+            return NSLocalizedString("NewNfcBack", comment: "")
+        case .newDocumentFront:
+            return NSLocalizedString("NewDocumentFront", comment: "")
+        case .newDocumentBack:
+            return NSLocalizedString("NewDocumentBack", comment: "")
+        case .nfcPassportScanInfo:
+            return NSLocalizedString("NfcPassportScanInfo", comment: "")
+        case .nfcIDScanInfo:
+            return NSLocalizedString("NfcIDScanInfo", comment: "")
+        case .nfcDocumentScanInfo:
+            return NSLocalizedString("NfcDocumentScanInfo", comment: "")
+        case .nfcSuccess:
+            return NSLocalizedString("NfcSuccess", comment: "")
+        case .nfcEditInfoTitle:
+            return NSLocalizedString("NfcEditInfoTitle", comment: "")
+        case .nfcEditInfoDesc:
+            return NSLocalizedString("NfcEditInfoDesc", comment: "")
+        case .coreDate:
+            return NSLocalizedString("CoreDate", comment: "")
+        case .coreScan:
+            return NSLocalizedString("CoreScan", comment: "")
+        case .coreInputError:
+            return NSLocalizedString("CoreInputError", comment: "")
+        case .coreNfcDeviceError:
+            return NSLocalizedString("CoreNfcDeviceError", comment: "")
+        case .soundRecogOk:
+            return NSLocalizedString("SoundRecogOk", comment: "")
+        case .soundRecogFail:
+            return NSLocalizedString("SoundRecogFail", comment: "")
+        case .faceNotFound:
+            return NSLocalizedString("FaceNotFound", comment: "")
+        case .smilingFaceNotFound:
+            return NSLocalizedString("SmilingFaceNotFound", comment: "")
+        case .coreUploadError:
+            return NSLocalizedString("CoreUploadError", comment: "")
+        case .nfcInfoTitle:
+            return NSLocalizedString("NfcInfoTitle", comment: "")
+        case .nfcInfoDesc:
+            return NSLocalizedString("NfcInfoDesc", comment: "")
+        case .selfieInfoTitle:
+            return NSLocalizedString("SelfieInfoTitle", comment: "")
+        case .selfieInfoDesc:
+            return NSLocalizedString("SelfieInfoDesc", comment: "")
+        case .signatureInfoTitle:
+            return NSLocalizedString("SignatureInfoTitle", comment: "")
+        case .signatureInfoDesc:
+            return NSLocalizedString("SignatureInfoDesc", comment: "")
+        case .livenessInfoTitle:
+            return NSLocalizedString("LivenessInfoTitle", comment: "")
+        case .livenessInfoDesc:
+            return NSLocalizedString("LivenessInfoDesc", comment: "")
+        case .videoRecordInfoTitle:
+            return NSLocalizedString("VideoRecordInfoTitle", comment: "")
+        case .videoRecordInfoDesc:
+            return NSLocalizedString("VideoRecordInfoDesc", comment: "")
+        case .idCardInfoTitle:
+            return NSLocalizedString("IdCardInfoTitle", comment: "")
+        case .idCardInfoDesc:
+            return NSLocalizedString("IdCardInfoDesc", comment: "")
+        case .speechInfoTitle:
+            return NSLocalizedString("SpeechInfoTitle", comment: "")
+        case .speechInfoText:
+            return NSLocalizedString("SpeechInfoText", comment: "")
+        case .newIdCard:
+            return NSLocalizedString("NewIdCart", comment: "")
+        case .passport:
+            return NSLocalizedString("Passport", comment: "")
+        case .otherCards:
+            return NSLocalizedString("OtherCards", comment: "")
+        case .scanType:
+            return NSLocalizedString("ScanType", comment: "")
+
         }
     }
-
 }
 
 public enum Keywords {
@@ -126,4 +200,44 @@ public enum Keywords {
     case coreSuccess
     case wrongSMSCode
     case coreOk
+    case newNfcFront
+    case newNfcBack
+    case newDocumentFront
+    case newDocumentBack
+    case nfcPassportScanInfo
+    case nfcIDScanInfo
+    case nfcDocumentScanInfo
+    case nfcSuccess
+    case nfcEditInfoTitle
+    case nfcEditInfoDesc
+    case coreDate
+    case coreScan
+    case coreInputError
+    case coreNfcDeviceError
+    case soundRecogOk
+    case soundRecogFail
+    case faceNotFound
+    case smilingFaceNotFound
+    case coreUploadError
+    case nfcInfoTitle
+    case nfcInfoDesc
+    case selfieInfoTitle
+    case selfieInfoDesc
+    case signatureInfoTitle
+    case signatureInfoDesc
+    case livenessInfoTitle
+    case livenessInfoDesc
+    case videoRecordInfoTitle
+    case videoRecordInfoDesc
+    case idCardInfoTitle
+    case idCardInfoDesc
+    case speechInfoTitle
+    case speechInfoText
+    case newIdCard
+    case passport
+    case otherCards
+    case scanType
 }
+
+
+

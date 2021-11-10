@@ -5,8 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
-## What is new in 2.0.5
-- Added sign language feature
+## What is new in 2.0.6
+- Added Address Verify Module
+- Added new NFC Module
+- Added new text scanner screen for NFC & IDCard 
+- Human Verification Video Module updated
+- Added document type selection module(new id, passport, driving licence etc.)
+
 
 ## Requirements
 Min Target iOS 12.1 
@@ -18,12 +23,16 @@ Min Target iOS 12.1
 Add the following code to your own .podfile:
 
 ```ruby
-pod 'IdentifyIOS'
 pod 'QKMRZParser'
 pod 'CHIOTPField/Two'
 pod 'IQKeyboardManagerSwift'
 pod 'SwiftSignatureView'
 pod 'GoogleMLKit/FaceDetection'
+pod 'WeScan', '>= 0.9'
+pod 'GoogleMLKit/FaceDetection'
+pod 'GoogleMLKit/TextRecognition'
+pod 'IQKeyboardManagerSwift'
+pod 'lottie-ios'
 ```
 
 ## Identify SDK
@@ -39,7 +48,16 @@ For the NFC feature to work properly, make sure that the "Near Field Communicati
 ```
 
 ## Customizations
-                    
+
+If you want demo application, you can run it in **onlySDK** mode. Check your `AppDelegate` file
+```ruby
+var appType: AppType? = .demoApp // .onlySDK
+```                    
+`ViewController`is your SDK root controller
+`SDKLoginViewController` is your root demo app controller
+
+------------
+**ViewController.swift**
 In case NFC cannot be read, you can set the maximum error count. When you reach the number you set, the NFC module is automatically canceled and the next module is passed. It comes with 3 by default.
 ```ruby
 GlobalConstants.nfcErrorMaxCount = 3
@@ -93,6 +111,7 @@ videoRecord   | For the vitality test, the person is asked to shoot a 5-second v
 idCard        | The person is asked to take front and back photos of their ID, selection from the gallery is not allowed.
 signature     | For the vitality test, the signature of the person is taken.
 speech        | For the vitality test, the person is asked to read the text they see on the screen.
+addressConf        | For address verification, the person enters address and takes a photo of an official document of address information.
 
 
 ## Author
@@ -102,5 +121,6 @@ emir@beytekin.net
 ## License
                     
 IdentifyIOS is available under the MIT license. See the LICENSE file for more info.
+
 
 

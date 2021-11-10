@@ -10,7 +10,11 @@ target 'IdentifyIOS_Example' do
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftSignatureView'
   pod 'GoogleMLKit/FaceDetection'
-
+  pod 'WeScan', '>= 0.9'
+  pod 'GoogleMLKit/FaceDetection'
+  pod 'GoogleMLKit/TextRecognition'
+  pod 'IQKeyboardManagerSwift'
+  pod 'lottie-ios'
   target 'IdentifyIOS_Tests' do
     inherit! :search_paths
 

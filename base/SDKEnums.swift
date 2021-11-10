@@ -19,6 +19,7 @@ public enum SDKType: Int, Codable {
 public enum HostType: String, Codable {
     case kimlikBasit = "Kimlik Basit"
     case identifyTr = "Identify Tr"
+    case custom = "Custom"
 }
 
 public enum SdkModules: String, Codable {
@@ -31,6 +32,8 @@ public enum SdkModules: String, Codable {
     case idCard         = "Id Card"
     case signature      = "Signature"
     case speech         = "Speech Recognition"
+    case liveView       = "Live View"
+    case addressConf    = "Address Confirm"
 }
 
 public enum SelfieTypes: String, Codable {

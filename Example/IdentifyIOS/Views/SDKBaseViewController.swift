@@ -9,6 +9,7 @@ import UIKit
 import CoreNFC
 import ARKit
 import IdentifyIOS
+import Lottie
 
 protocol CallCompletedDelegate:class {
     func completed()
@@ -20,8 +21,7 @@ class SDKBaseViewController: UIViewController {
     let colorManager = SDKColorManager.shared
     let userDefaults = UserDefaultService.shared
     var manager = IdentifyManager.shared
-    var callCompleted = false
-
+    var animationView: AnimationView?
     var nfcAvailable: Bool = {
         if #available(iOS 13.0, *) {
             return NFCNDEFReaderSession.readingAvailable && NFCTagReaderSession.readingAvailable
@@ -48,22 +48,14 @@ class SDKBaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        if self.callCompleted == false && manager.socket != nil {
-//            manager.socket.onDisconnect = { err in
-//                if self.manager.socket.isConnected == false {
-//                    self.manager.connectToServer()
-//                }
-//            }
-//        }
     }
     
     func addSkipModulesButton() {
         skipButton.setTitle("Tüm aşamaları atla ve temsilciye bağlan", for: .normal)
         skipButton.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 50)
-        skipButton.backgroundColor = .red
+        skipButton.backgroundColor = .green
         skipButton.addTarget(self, action: #selector(skipAllModules), for: .touchUpInside)
         self.view.addSubview(skipButton)
-        
     }
     
     @objc func skipAllModules() {
@@ -112,6 +104,54 @@ class SDKBaseViewController: UIViewController {
     func showPopUp(image: UIImage, desc: String) {
         SDKPopUpActionViewController.showPopup(parentVC: self,infoImage: image, infoText: desc)
     }
+    
+    func showAniPopUp(anim: String, desc: String) {
+        SDKPopUpActionViewController.showAnimationPopup(parentVC: self, animation: anim, infoText: desc)
+    }
+    
+    // for lottie
+    
+    func createAnimationView(animationName: String, loop: Bool) -> AnimationView {
+        let animationView = AnimationView(name: animationName)
+        animationView.contentMode = .scaleAspectFit
+        if !loop {
+            animationView.loopMode = .playOnce
+        } else {
+            animationView.loopMode = .loop
+        }
+        return animationView
+    }
+    
+    @objc func setAnimation(view: UIView, name: String, loop: Bool) {
+        if let animateTag = view.viewWithTag(100) {
+            animateTag.removeFromSuperview()
+        }
+        animationView = self.createAnimationView(animationName: name, loop: loop)
+        animationView?.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+        animationView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        animationView?.tag = 100
+        self.animationView?.reloadImages()
+        view.insertSubview(self.animationView!, at: 0)
+        self.animationView?.play()
+        self.animationView?.backgroundColor = .clear
+        self.animationView?.backgroundBehavior = .pauseAndRestore
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: OperationQueue.main) { (_) in
+            self.animationView?.play()
+        }
+    }
+    
+    func openInfoScreen(page: SdkModules?) {
+        let nextVC = SDKInformationViewController.instantiate()
+        nextVC.activeScreen = page
+        nextVC.modalTransitionStyle = .crossDissolve
+        nextVC.modalPresentationStyle = .fullScreen
+        if #available(iOS 13.0, *) {
+            nextVC.isModalInPresentation = true
+        }
+        DispatchQueue.main.async {
+            self.present(nextVC, animated: true, completion: nil)
+        }
+    }
 }
 
 var vSpinner : UIView?
@@ -157,12 +197,14 @@ extension NotificationCenter {
     
 }
 
-extension String {
-    func toMrzDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        let date = dateFormatter.date(from: self)
-        dateFormatter.dateFormat = "yyMMdd"
-        return dateFormatter.string(from: date!)
+extension UIApplication {
+    public class func topViewController(viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = viewController as? UINavigationController {
+            return topViewController(viewController: nav.visibleViewController)
+        }
+        if let presented = viewController?.presentedViewController {
+            return topViewController(viewController: presented)
+        }
+        return viewController
     }
 }

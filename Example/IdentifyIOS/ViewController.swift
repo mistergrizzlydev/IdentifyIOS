@@ -11,8 +11,6 @@ import IdentifyIOS
 
 class ViewController: SDKBaseViewController {
     
-//    let manager = IdentifyManager.shared
-    
     var quitType: AppQuitType {
         return manager.appQuitType ?? .restartModules
     }
@@ -23,13 +21,13 @@ class ViewController: SDKBaseViewController {
         setupSDK()
         checkAppQuitType()
         checkPermissions()
-        self.setupUI() // ister kodla, isterseniz views klasöründen tasarımı değiştirebilirsiniz
+//        self.setupUI() // ister kodla, isterseniz views klasöründen tasarımı değiştirebilirsiniz
     }
     
     func setupSDK() {
         manager.appQuitType = .restartModules
         manager.selectedHost = .identifyTr
-//        manager.addModules(module: [.nfc])
+//        manager.addModules(module: [.signature, .speech])
         manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
 
         manager.userToken = "6e676552-9dc4-11eb-99a4-0acde28968be" // size verilecek olan token
@@ -79,7 +77,7 @@ class ViewController: SDKBaseViewController {
         // Çağrı Bekleme Ekranı
         DesignConstants.waitScrBackgroundColor = .red
         DesignConstants.waitScrHiddenBackgroundPhoto = false // arkaplanda ortada yer alan görseli gizler
-        DesignConstants.waitScrBackgroundPhoto = #imageLiteral(resourceName: "ob3") // arkaplanda ortada yer alan görseli değiştirir
+        DesignConstants.waitScrBackgroundPhoto = #imageLiteral(resourceName: "SplashBack") // arkaplanda ortada yer alan görseli değiştirir
         DesignConstants.waitScrDesc1LblText = "Merhaba"
         DesignConstants.waitScrDesc2LblText = "Lütfen kimliğinizi yanınızda tutun"
         DesignConstants.waitScrDesc1FontFamily = .systemFont(ofSize: 12)
@@ -212,9 +210,9 @@ class ViewController: SDKBaseViewController {
         controller.manager = self.manager
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if #available(iOS 13, *) {
-                self.present(controller, animated: true, completion: nil)
+                UIApplication.topViewController()?.present(controller, animated: true, completion: nil)
             } else {
-                self.present(controller, animated: true, completion: nil)
+                UIApplication.topViewController()?.present(controller, animated: true, completion: nil)
             }
         }
     }
@@ -226,16 +224,4 @@ extension ViewController: PermissionViewDelegate {
         debugPrint("permission delegate ok")
     }
     
-}
-
-extension UIApplication {
-    class func topViewController(viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-        if let nav = viewController as? UINavigationController {
-            return topViewController(viewController: nav.visibleViewController)
-        }
-        if let presented = viewController?.presentedViewController {
-            return topViewController(viewController: presented)
-        }
-        return viewController
-    }
 }

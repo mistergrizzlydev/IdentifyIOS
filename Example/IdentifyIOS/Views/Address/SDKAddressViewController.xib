@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKAddressViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="addressTxt" destination="B9J-eB-Dlw" id="oTH-ie-IoE"/>
+                <outlet property="appLogo" destination="2gd-Ze-Bpi" id="kpu-tT-DSd"/>
+                <outlet property="docPhoto" destination="fNN-Mz-Ctq" id="g9m-Th-mps"/>
+                <outlet property="documentInfoLbl" destination="KFF-Li-Cfd" id="LFE-tK-QJu"/>
+                <outlet property="photoBtn" destination="CSj-ak-pbV" id="GQS-hB-2Ka"/>
+                <outlet property="submitBtn" destination="U1f-kY-qux" id="13T-kV-ZmD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="SplashBack" translatesAutoresizingMaskIntoConstraints="NO" id="gvM-1F-wh2">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="identifyTR" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-Ze-Bpi">
+                    <rect key="frame" x="98" y="56" width="218" height="86"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="8JB-oB-yWQ"/>
+                        <constraint firstAttribute="width" constant="218" id="zyl-KZ-Kbm"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-wU-iJl">
+                    <rect key="frame" x="20" y="157" width="374" height="133"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İkametgah adresinizi yazınız" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-BT-5Mf">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9J-eB-Dlw">
+                            <rect key="frame" x="0.0" y="26" width="374" height="107"/>
+                            <color key="backgroundColor" name="KB White"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="107" id="Dp2-Lo-uns"/>
+                            </constraints>
+                            <color key="textColor" name="KB Black"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <dataDetectorType key="dataDetectorTypes" address="YES"/>
+                        </textView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HPA-RV-UnM">
+                    <rect key="frame" x="20" y="310" width="374" height="332.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adresinizi doğrulayabilmemiz için lütfen herhangi bir faturanızın fotoğrafını çekin veya seçin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFF-Li-Cfd">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSj-ak-pbV">
+                            <rect key="frame" x="0.0" y="41.5" width="374" height="31"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="Dark Blue"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Fotoğraf Seç &amp; Çek"/>
+                            <connections>
+                                <action selector="photoAct:" destination="-1" eventType="touchUpInside" id="Q0B-Dz-aGD"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fNN-Mz-Ctq">
+                            <rect key="frame" x="0.0" y="82.5" width="374" height="250"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="250" id="wsH-jO-oVo"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="fNN-Mz-Ctq" secondAttribute="bottom" id="q0W-Wn-4Di"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1f-kY-qux">
+                    <rect key="frame" x="32" y="814" width="350" height="48"/>
+                    <color key="backgroundColor" name="KB White"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="b17-qj-UkQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Gönder">
+                        <color key="titleColor" name="Dark Blue"/>
+                    </state>
+                    <connections>
+                        <action selector="submitForm" destination="-1" eventType="touchUpInside" id="gyF-1t-Ptj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="2gd-Ze-Bpi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0B2-K5-pdL"/>
+                <constraint firstItem="aWN-wU-iJl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1LJ-dF-lEE"/>
+                <constraint firstItem="aWN-wU-iJl" firstAttribute="top" secondItem="2gd-Ze-Bpi" secondAttribute="bottom" constant="15" id="DvL-ig-fux"/>
+                <constraint firstItem="HPA-RV-UnM" firstAttribute="leading" secondItem="aWN-wU-iJl" secondAttribute="leading" id="LQr-GH-lkG"/>
+                <constraint firstItem="HPA-RV-UnM" firstAttribute="top" secondItem="aWN-wU-iJl" secondAttribute="bottom" constant="20" id="NMT-0g-hnM"/>
+                <constraint firstItem="gvM-1F-wh2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Tbn-aA-hux"/>
+                <constraint firstItem="2gd-Ze-Bpi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="WH8-d6-jwO"/>
+                <constraint firstItem="gvM-1F-wh2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="X5M-BG-y7X"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U1f-kY-qux" secondAttribute="trailing" constant="32" id="frM-cx-pdw"/>
+                <constraint firstItem="U1f-kY-qux" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="gRN-tP-9q3"/>
+                <constraint firstAttribute="bottom" secondItem="gvM-1F-wh2" secondAttribute="bottom" id="oIi-Da-Qoh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aWN-wU-iJl" secondAttribute="trailing" constant="20" id="sk9-7c-fCz"/>
+                <constraint firstItem="U1f-kY-qux" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="uhs-1k-nuv"/>
+                <constraint firstItem="gvM-1F-wh2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vA8-vX-aMM"/>
+                <constraint firstItem="HPA-RV-UnM" firstAttribute="trailing" secondItem="aWN-wU-iJl" secondAttribute="trailing" id="vZe-mx-tR4"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SplashBack" width="375" height="812"/>
+        <image name="identifyTR" width="1400" height="398"/>
+        <namedColor name="Dark Blue">
+            <color red="0.19599999487400055" green="0.15299999713897705" blue="0.78799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="KB Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="KB White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

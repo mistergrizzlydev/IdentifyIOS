@@ -47,3 +47,54 @@
 "CoreSuccess" = "Başarılı";
 "CoreOK" = "Tamam";
 "WrongSMSCode" = "Hatalı SMS Kodu";
+"CoreDate" = "Tarih Seçin";
+"CoreScan" = "Taramaya Başla";
+
+// new nfc
+"NewNfcFront" = "Kimliğinizi koyu bir zemine koyup ÖN yüzünü çevirin ve kameramız otomatik algılayıp fotoğrafını çekene kadar lütfen elinizi oynatmayın.";
+"NewNfcBack" = "Kimliğinizi koyu bir zemine koyup ARKA yüzünü çevirin ve kameramız otomatik algılayıp fotoğrafını çekene kadar lütfen elinizi oynatmayın.";
+"NewDocumentFront" = "Belgenizi koyu bir zemine koyup ÖN yüzünü çevirin ve kameramız otomatik algılayıp fotoğrafını çekene kadar lütfen elinizi oynatmayın.";
+"NewDocumentBack" = "Belgenizi koyu bir zemine koyup ARKA yüzünü çevirin ve kameramız otomatik algılayıp fotoğrafını çekene kadar lütfen elinizi oynatmayın.";
+
+"NfcPassportScanInfo" = "NFC Taraması için pasaportunuzu hazırlayın";
+"NfcIDScanInfo" = "NFC Taraması için kimliğinizi hazırlayın";
+"NfcDocumentScanInfo" = "Fotoğraf çekimi için belgenizi hazırlayın";
+
+"NfcSuccess" = "Kimliğiniz başarıyla tanımlandı";
+
+"NfcEditInfoTitle" = "Bilgileri Düzenle";
+"NfcEditInfoDesc" = "Kimlik bilgilerinizden 1 tanesi doğru okunamadı, düzenlemek ister misiniz ?";
+"CoreInputError" = "Gerekli alanlardan birini boş bıraktınız, lütfen kontrol edin";
+"CoreNfcDeviceError" = "Cihazınızda NFC desteği bulunmamaktadır, sıradaki işleme geçiliyor.";
+"SoundRecogOk" = "Kelime okuma başarılı";
+"SoundRecogFail" = "Kelime okuma başarısız, söylenen kelime: ";
+"FaceNotFound" = "Yüz bulunamadı, tekrar deneyin";
+"SmilingFaceNotFound" = "Gülümseyen bir yüz bulunamadı, tekrar deneyin";
+"CoreUploadError" = "Yükleme sırasında hata oluştu, lütfen tekrar deneyin";
+
+// info screen
+"NfcInfoTitle" = "";
+"NfcInfoDesc" = "";
+
+"SelfieInfoTitle" = "";
+"SelfieInfoDesc" = "";
+
+"SignatureInfoTitle" = "";
+"SignatureInfoDesc" = "";
+
+"LivenessInfoTitle" = "";
+"LivenessInfoDesc" = "";
+
+"VideoRecordInfoTitle" = "";
+"VideoRecordInfoDesc" = "";
+
+"IdCardInfoTitle" = "";
+"IdCardInfoDesc" = "";
+
+"SpeechInfoTitle" = "";
+"SpeechInfoText" = "";
+
+"NewIdCart" = "Yeni Kimlik Kartı";
+"Passport" = "Pasaport";
+"OtherCards" = "Diğerleri";
+"ScanType" = "Taratmak istediğiniz belge türünü seçin";

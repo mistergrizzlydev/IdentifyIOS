@@ -32,6 +32,7 @@ class SDKSoundRecognitionViewController: SDKBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = DesignConstants.soundScrBackgroundColor
+//        openInfoScreen(page: .speech)
         setupUI()
         btnStart.addTarget(self, action: #selector(startRecording), for: .touchDown)
         btnStart.addTarget(self, action: #selector(stopRecording), for: .touchUpInside)
@@ -109,13 +110,13 @@ class SDKSoundRecognitionViewController: SDKBaseViewController {
     private func updateUI(withResult result: SFSpeechRecognitionResult) {
         let resultText = result.bestTranscription.formattedString
         if resultText == "Berlin" {
-            self.popupAlert(title: "Başarılı", message: "Kelime okuma başarılı", actionTitles: ["Tamam"], actions:[{ action1 in
+            self.popupAlert(title: self.translate(text: .coreSuccess), message: self.translate(text: .soundRecogOk), actionTitles: ["Tamam"], actions:[{ action1 in
                 self.dismiss(animated: true) {
                     self.delegate?.recognitionCompleted()
                 }
             }])
         } else {
-            self.popupAlert(title: self.translate(text: .coreError), message: "Kelime okuma başarısız, söylenen kelime \(resultText)", actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+            self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .soundRecogFail) + resultText, actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
             }])
         }
     }

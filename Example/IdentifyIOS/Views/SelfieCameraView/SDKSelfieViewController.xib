@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKSelfieViewController" customModule="Kimlik" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKSelfieViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
             <connections>
                 <outlet property="againBtn" destination="7LW-ix-cxB" id="Y5M-0W-0zk"/>
                 <outlet property="appLogo" destination="CgP-nJ-sJD" id="Ksd-pm-h03"/>
@@ -25,6 +25,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="SplashBack" translatesAutoresizingMaskIntoConstraints="NO" id="vWB-wr-3eg">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uWK-DB-jc2" customClass="UIImageView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,21 +72,26 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="vWB-wr-3eg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7a1-fa-Q03"/>
+                <constraint firstAttribute="bottom" secondItem="vWB-wr-3eg" secondAttribute="bottom" id="AJ9-GF-qfh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0Rd-W9-VjH" secondAttribute="trailing" constant="12" id="CB8-Oj-17i"/>
                 <constraint firstItem="CgP-nJ-sJD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FC8-D8-MoD"/>
                 <constraint firstAttribute="bottom" secondItem="uWK-DB-jc2" secondAttribute="bottom" id="Fo5-Sz-OFd"/>
+                <constraint firstItem="vWB-wr-3eg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M7w-Q7-C56"/>
                 <constraint firstItem="0Rd-W9-VjH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="Nrh-aX-rGN"/>
                 <constraint firstItem="uWK-DB-jc2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TkL-ER-nHd"/>
                 <constraint firstItem="uWK-DB-jc2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZAs-rq-9de"/>
                 <constraint firstItem="uWK-DB-jc2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rO0-FB-EdR"/>
                 <constraint firstItem="CgP-nJ-sJD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="27" id="sW5-sO-lgK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0Rd-W9-VjH" secondAttribute="bottom" constant="12" id="uYb-Ne-wIw"/>
+                <constraint firstItem="vWB-wr-3eg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xuL-8E-02x"/>
             </constraints>
             <point key="canvasLocation" x="-214.49275362318843" y="135.9375"/>
         </view>
     </objects>
     <resources>
         <image name="SDKLogoHeader" width="218" height="86"/>
+        <image name="SplashBack" width="375" height="812"/>
         <namedColor name="Dark Blue">
             <color red="0.19599999487400055" green="0.15299999713897705" blue="0.78799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

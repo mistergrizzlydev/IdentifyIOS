@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,11 +24,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="SplashBack" translatesAutoresizingMaskIntoConstraints="NO" id="pj7-69-uKl">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-Ut-Hnr">
                     <rect key="frame" x="12" y="323" width="390" height="250"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpA-qo-XPw" customClass="SwiftSignatureView" customModule="SwiftSignatureView">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="217.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="217.5" id="DBY-dg-hV9"/>
+                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
                                     <color key="value" name="Dark Blue"/>
@@ -82,18 +88,23 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="pj7-69-uKl" secondAttribute="bottom" id="B5D-Og-ktC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ep8-Mi-5zc" secondAttribute="trailing" constant="12" id="Cst-b1-bMk"/>
                 <constraint firstItem="ep8-Mi-5zc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="KD3-75-KUG"/>
                 <constraint firstItem="fB6-Ut-Hnr" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Kka-4H-FCx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ep8-Mi-5zc" secondAttribute="bottom" constant="12" id="SMs-GA-9Aw"/>
+                <constraint firstItem="pj7-69-uKl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TNa-yU-RHn"/>
                 <constraint firstItem="fB6-Ut-Hnr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vvl-jf-3d4"/>
                 <constraint firstItem="fB6-Ut-Hnr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="arZ-qm-SpB"/>
+                <constraint firstItem="pj7-69-uKl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="awA-at-l3x"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fB6-Ut-Hnr" secondAttribute="trailing" constant="12" id="gc6-jY-D0r"/>
+                <constraint firstItem="pj7-69-uKl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lfd-3R-Pa1"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="124"/>
+            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
         </view>
     </objects>
     <resources>
+        <image name="SplashBack" width="375" height="812"/>
         <namedColor name="Dark Blue">
             <color red="0.19599999487400055" green="0.15299999713897705" blue="0.78799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

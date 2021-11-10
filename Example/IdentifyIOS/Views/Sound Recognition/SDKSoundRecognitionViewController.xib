@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKSoundRecognitionViewController" customModule="Kimlik" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKSoundRecognitionViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
             <connections>
                 <outlet property="backView" destination="i5M-Pr-FkT" id="Bch-ct-jhe"/>
                 <outlet property="btnStart" destination="CWK-W9-aeB" id="0km-NC-G9O"/>
@@ -22,6 +22,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="SplashBack" translatesAutoresizingMaskIntoConstraints="NO" id="Ymg-IO-dke">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9re-d8-fVz">
                     <rect key="frame" x="12" y="316" width="390" height="264.5"/>
                     <subviews>
@@ -54,14 +57,19 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9re-d8-fVz" secondAttribute="trailing" constant="12" id="6RS-oz-9n1"/>
+                <constraint firstItem="Ymg-IO-dke" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8Tk-vO-7ee"/>
+                <constraint firstItem="Ymg-IO-dke" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HQE-x6-kjo"/>
+                <constraint firstAttribute="bottom" secondItem="Ymg-IO-dke" secondAttribute="bottom" id="Kdx-Ya-sB1"/>
                 <constraint firstItem="9re-d8-fVz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="gwe-fR-bOX"/>
                 <constraint firstItem="9re-d8-fVz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="n3q-uL-gZn"/>
+                <constraint firstAttribute="trailing" secondItem="Ymg-IO-dke" secondAttribute="trailing" id="uJd-p4-Ene"/>
                 <constraint firstItem="9re-d8-fVz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wbT-pN-gms"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
         </view>
     </objects>
     <resources>
+        <image name="SplashBack" width="375" height="812"/>
         <image name="berlinSound" width="365.5" height="167.5"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

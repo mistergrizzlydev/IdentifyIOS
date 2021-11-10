@@ -7,6 +7,7 @@
 
 import UIKit
 import IdentifyIOS
+import Lottie
 
 class SDKPopUpActionViewController: SDKBaseViewController {
     
@@ -21,6 +22,8 @@ class SDKPopUpActionViewController: SDKBaseViewController {
     
     var popUpImage = UIImage()
     var popUpDesc = String()
+    var haveAnimation = false
+    var animatonName = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,7 @@ class SDKPopUpActionViewController: SDKBaseViewController {
         popupView.layer.cornerRadius = 6.0
         popupView.layer.borderWidth = 0.2
         popupView.layer.borderColor = UIColor.gray.cgColor
+        popupView.addShadow()
     }
     
     func translater() {
@@ -45,8 +49,17 @@ class SDKPopUpActionViewController: SDKBaseViewController {
     }
     
     func populate() {
-        self.popupDesc.text = popUpDesc
-        self.popupImg.image = popUpImage
+        if haveAnimation {
+            let animationView = UIView()
+            animationView.frame = popupImg.frame
+            popupImg.addSubview(animationView)
+            self.setAnimation(view: animationView, name: animatonName, loop: true)
+            self.popupDesc.text = popUpDesc
+        } else {
+            self.popupDesc.text = popUpDesc
+            self.popupImg.image = popUpImage
+        }
+        
     }
     
     @IBAction func okayAction(_ sender: Any) {
@@ -62,6 +75,18 @@ class SDKPopUpActionViewController: SDKBaseViewController {
         myStoryboard.modalTransitionStyle = .crossDissolve
         myStoryboard.delegate = parentVC as? PopUpProtocol
         myStoryboard.popUpImage = infoImage
+        myStoryboard.popUpDesc = infoText
+            parentVC.present(myStoryboard, animated: true)
+    }
+    
+    static func showAnimationPopup(parentVC: UIViewController, animation: String, infoText: String) {
+        let myBundle = Bundle(for: SDKPopUpActionViewController.self)
+        let myStoryboard = UIStoryboard(name: "KYC", bundle: myBundle).instantiateSB() as SDKPopUpActionViewController
+        myStoryboard.modalPresentationStyle = .custom
+        myStoryboard.modalTransitionStyle = .crossDissolve
+        myStoryboard.delegate = parentVC as? PopUpProtocol
+        myStoryboard.haveAnimation = true
+        myStoryboard.animatonName = animation
         myStoryboard.popUpDesc = infoText
             parentVC.present(myStoryboard, animated: true)
     }

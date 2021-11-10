@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKNetworkSettingsViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="baseUrl" destination="Zpi-BA-haj" id="y1z-7V-AzC"/>
+                <outlet property="socketUrl" destination="FzJ-7U-tke" id="3g2-NX-njF"/>
+                <outlet property="stunPass" destination="bIB-lR-rNX" id="9Ms-kj-qH6"/>
+                <outlet property="stunServer1" destination="SCC-D5-Gkq" id="vlo-4C-MBW"/>
+                <outlet property="stunServer2" destination="h2l-Rm-uGd" id="Rrh-KT-Iay"/>
+                <outlet property="stunUser" destination="uDw-ZM-yvl" id="chy-3k-ilw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0f-1M-SND">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0r-hS-jNO" userLabel="root">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="609"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="19g-YJ-fd9">
+                                    <rect key="frame" x="25" y="55" width="364" height="54"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxK-R9-XAq">
+                                            <rect key="frame" x="0.0" y="0.0" width="64" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" name="KB Black"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="https://api.identifytr.com/" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zpi-BA-haj">
+                                            <rect key="frame" x="0.0" y="20" width="364" height="34"/>
+                                            <color key="backgroundColor" name="KB White"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="kfK-jQ-evy"/>
+                                            </constraints>
+                                            <color key="textColor" name="KB Black"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zpi-BA-haj" firstAttribute="leading" secondItem="19g-YJ-fd9" secondAttribute="leading" id="FyR-Ba-qmq"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zpi-BA-haj" secondAttribute="trailing" id="fNz-aP-M2v"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="x9W-dg-Hgi">
+                                    <rect key="frame" x="25" y="144" width="364" height="54"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stun Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezY-o4-bAf">
+                                            <rect key="frame" x="0.0" y="0.0" width="78" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" name="KB Black"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="stun:stun.l.google.com:19302" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-D5-Gkq">
+                                            <rect key="frame" x="0.0" y="20" width="364" height="34"/>
+                                            <color key="backgroundColor" name="KB White"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="Ozh-9Y-Hpe"/>
+                                            </constraints>
+                                            <color key="textColor" name="KB Black"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="SCC-D5-Gkq" secondAttribute="trailing" id="9k9-1C-v37"/>
+                                        <constraint firstItem="SCC-D5-Gkq" firstAttribute="leading" secondItem="x9W-dg-Hgi" secondAttribute="leading" id="KXN-fR-IUW"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="mTd-Aj-Q7A">
+                                    <rect key="frame" x="25" y="233" width="364" height="54"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pf-qR-01H">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" name="KB Black"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="turn:3.64.99.127:3478" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h2l-Rm-uGd">
+                                            <rect key="frame" x="0.0" y="20" width="364" height="34"/>
+                                            <color key="backgroundColor" name="KB White"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="T92-rt-2Cq"/>
+                                            </constraints>
+                                            <color key="textColor" name="KB Black"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="h2l-Rm-uGd" secondAttribute="trailing" id="6KI-Xq-b6e"/>
+                                        <constraint firstItem="h2l-Rm-uGd" firstAttribute="leading" secondItem="mTd-Aj-Q7A" secondAttribute="leading" id="OZQ-Ao-eCq"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-nJ-5L1">
+                                    <rect key="frame" x="25" y="322" width="364" height="54"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stun Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwC-Ol-gRn">
+                                            <rect key="frame" x="0.0" y="0.0" width="102" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" name="KB Black"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uDw-ZM-yvl">
+                                            <rect key="frame" x="0.0" y="20" width="364" height="34"/>
+                                            <color key="backgroundColor" name="KB White"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="aFa-MJ-4td"/>
+                                            </constraints>
+                                            <color key="textColor" name="KB Black"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uDw-ZM-yvl" firstAttribute="leading" secondItem="lnM-nJ-5L1" secondAttribute="leading" id="co9-mS-vWV"/>
+                                        <constraint firstAttribute="trailing" secondItem="uDw-ZM-yvl" secondAttribute="trailing" id="s3O-Zq-hcA"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Sxf-kw-lxw">
+                                    <rect key="frame" x="25" y="411" width="364" height="54"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stun Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXj-hs-Cos">
+                                            <rect key="frame" x="0.0" y="0.0" width="98.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" name="KB Black"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIB-lR-rNX">
+                                            <rect key="frame" x="0.0" y="20" width="364" height="34"/>
+                                            <color key="backgroundColor" name="KB White"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="jKD-ni-nmu"/>
+                                            </constraints>
+                                            <color key="textColor" name="KB Black"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="bIB-lR-rNX" secondAttribute="trailing" id="3Nc-Kz-kJz"/>
+                                        <constraint firstItem="bIB-lR-rNX" firstAttribute="leading" secondItem="Sxf-kw-lxw" secondAttribute="leading" id="8M1-gh-8w4"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="0Ge-kt-1l7">
+                                    <rect key="frame" x="25" y="500" width="364" height="54"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Socket Url" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8V-gB-hx4">
+                                            <rect key="frame" x="0.0" y="0.0" width="69" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" name="KB Black"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="wss://ws.kimlikbasit.com:8888" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzJ-7U-tke">
+                                            <rect key="frame" x="0.0" y="20" width="364" height="34"/>
+                                            <color key="backgroundColor" name="KB White"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="L3g-On-UBe"/>
+                                            </constraints>
+                                            <color key="textColor" name="KB Black"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FzJ-7U-tke" firstAttribute="leading" secondItem="0Ge-kt-1l7" secondAttribute="leading" id="WaX-Z8-Pd1"/>
+                                        <constraint firstAttribute="trailing" secondItem="FzJ-7U-tke" secondAttribute="trailing" id="rot-2h-0gR"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                            <constraints>
+                                <constraint firstItem="x9W-dg-Hgi" firstAttribute="trailing" secondItem="19g-YJ-fd9" secondAttribute="trailing" id="003-Ic-nZ6"/>
+                                <constraint firstItem="0Ge-kt-1l7" firstAttribute="trailing" secondItem="Sxf-kw-lxw" secondAttribute="trailing" id="2En-e6-OsU"/>
+                                <constraint firstItem="x9W-dg-Hgi" firstAttribute="leading" secondItem="19g-YJ-fd9" secondAttribute="leading" id="2rr-vw-fX5"/>
+                                <constraint firstItem="mTd-Aj-Q7A" firstAttribute="trailing" secondItem="x9W-dg-Hgi" secondAttribute="trailing" id="GEs-Hm-EB3"/>
+                                <constraint firstItem="lnM-nJ-5L1" firstAttribute="leading" secondItem="mTd-Aj-Q7A" secondAttribute="leading" id="GLB-dY-hFc"/>
+                                <constraint firstItem="0Ge-kt-1l7" firstAttribute="leading" secondItem="Sxf-kw-lxw" secondAttribute="leading" id="HO9-Gm-qSR"/>
+                                <constraint firstItem="Sxf-kw-lxw" firstAttribute="trailing" secondItem="lnM-nJ-5L1" secondAttribute="trailing" id="LPs-tw-VC3"/>
+                                <constraint firstItem="x9W-dg-Hgi" firstAttribute="top" secondItem="19g-YJ-fd9" secondAttribute="bottom" constant="35" id="SX6-Km-XmU"/>
+                                <constraint firstItem="Sxf-kw-lxw" firstAttribute="top" secondItem="lnM-nJ-5L1" secondAttribute="bottom" constant="35" id="YVc-9w-O9c"/>
+                                <constraint firstItem="19g-YJ-fd9" firstAttribute="top" secondItem="D0r-hS-jNO" secondAttribute="top" constant="55" id="fN4-1c-QmU"/>
+                                <constraint firstItem="mTd-Aj-Q7A" firstAttribute="leading" secondItem="x9W-dg-Hgi" secondAttribute="leading" id="juP-bS-FYp"/>
+                                <constraint firstAttribute="bottom" secondItem="0Ge-kt-1l7" secondAttribute="bottom" constant="55" id="mXe-HS-EBr"/>
+                                <constraint firstItem="19g-YJ-fd9" firstAttribute="leading" secondItem="D0r-hS-jNO" secondAttribute="leading" constant="25" id="p2j-0E-5ti"/>
+                                <constraint firstItem="lnM-nJ-5L1" firstAttribute="trailing" secondItem="mTd-Aj-Q7A" secondAttribute="trailing" id="su3-FE-R1z"/>
+                                <constraint firstItem="Sxf-kw-lxw" firstAttribute="leading" secondItem="lnM-nJ-5L1" secondAttribute="leading" id="tQi-Ds-pJd"/>
+                                <constraint firstItem="lnM-nJ-5L1" firstAttribute="top" secondItem="mTd-Aj-Q7A" secondAttribute="bottom" constant="35" id="tfx-0G-2Lk"/>
+                                <constraint firstItem="0Ge-kt-1l7" firstAttribute="top" secondItem="Sxf-kw-lxw" secondAttribute="bottom" constant="35" id="uDw-Zb-tm3"/>
+                                <constraint firstAttribute="trailing" secondItem="19g-YJ-fd9" secondAttribute="trailing" constant="25" id="xH7-oq-emm"/>
+                                <constraint firstItem="mTd-Aj-Q7A" firstAttribute="top" secondItem="x9W-dg-Hgi" secondAttribute="bottom" constant="35" id="zha-Mv-xiv"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="D0r-hS-jNO" firstAttribute="top" secondItem="v0f-1M-SND" secondAttribute="top" id="663-3f-jv0"/>
+                        <constraint firstItem="D0r-hS-jNO" firstAttribute="width" secondItem="v0f-1M-SND" secondAttribute="width" id="GWf-8g-8nf"/>
+                        <constraint firstAttribute="bottom" secondItem="D0r-hS-jNO" secondAttribute="bottom" id="T0q-nL-pii"/>
+                        <constraint firstItem="D0r-hS-jNO" firstAttribute="height" secondItem="v0f-1M-SND" secondAttribute="height" priority="250" id="gCT-eg-u7h"/>
+                        <constraint firstItem="D0r-hS-jNO" firstAttribute="leading" secondItem="v0f-1M-SND" secondAttribute="leading" id="phG-Vg-QVb"/>
+                        <constraint firstAttribute="trailing" secondItem="D0r-hS-jNO" secondAttribute="trailing" id="yWN-gv-WSx"/>
+                    </constraints>
+                </scrollView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jcg-hd-8tP">
+                    <rect key="frame" x="0.0" y="851" width="414" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-eI-ZVG">
+                            <rect key="frame" x="0.0" y="0.0" width="179.5" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Sıfırla">
+                                <color key="titleColor" name="AccentColor"/>
+                            </state>
+                            <connections>
+                                <action selector="resetConfig:" destination="-1" eventType="touchUpInside" id="36l-d8-BBI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pe-pu-pRv">
+                            <rect key="frame" x="180.5" y="0.0" width="233.5" height="45"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="Kaydet">
+                                <color key="titleColor" name="KB White"/>
+                            </state>
+                            <connections>
+                                <action selector="saveSettings:" destination="-1" eventType="touchUpInside" id="4K3-ob-vfM"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="cqS-Ra-QiN"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemTealColor"/>
+            <constraints>
+                <constraint firstItem="v0f-1M-SND" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="I4Z-iW-km3"/>
+                <constraint firstItem="Jcg-hd-8tP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JQT-hS-8Tj"/>
+                <constraint firstAttribute="bottom" secondItem="Jcg-hd-8tP" secondAttribute="bottom" id="JpZ-Qm-Uwt"/>
+                <constraint firstItem="v0f-1M-SND" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KkY-hZ-G3R"/>
+                <constraint firstItem="v0f-1M-SND" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Q1A-sJ-k87"/>
+                <constraint firstAttribute="bottom" secondItem="v0f-1M-SND" secondAttribute="bottom" id="Tnt-Vz-Ibc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jcg-hd-8tP" secondAttribute="trailing" id="tAH-R5-7Jc"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="98.4375"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="KB Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="KB White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

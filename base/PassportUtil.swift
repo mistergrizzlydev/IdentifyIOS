@@ -11,22 +11,32 @@ import NFCPassportReader
 
 @available(iOS 13.0, *)
 public class PassportUtil {
-    public var passportNumber : String = ""
-    public var dateOfBirth: String =  ""
-    public var expiryDate: String = ""
+    public var passportNumber : String = UserDefaults.standard.string(forKey:"passportNumber" ) ?? ""
+    public var dateOfBirth: String = UserDefaults.standard.string(forKey:"dateOfBirth" ) ?? ""
+    public var expiryDate: String = UserDefaults.standard.string(forKey:"expiryDate" ) ?? ""
     public var passport : NFCPassportModel?
     
-    public var isValid : Bool {
+    var isValid : Bool {
         return passportNumber.count >= 8 && dateOfBirth.count == 6 && expiryDate.count == 6
     }
     
-    public init () {}
+    public init() { }
+        
+    public func makeMrzKey(birthDate: String, expireDate: String, documentNo: String) -> String {
+        // Calculate checksums
+        let passportNrChksum = calcCheckSum(documentNo)
+        let dateOfBirthChksum = calcCheckSum(birthDate)
+        let expiryDateChksum = calcCheckSum(expireDate)
+        let mrzKey = "\(documentNo)\(passportNrChksum)\(birthDate)\(dateOfBirthChksum)\(expireDate)\(expiryDateChksum)"
+        
+        return mrzKey
+    }
     
     public func getMRZKey() -> String {
-//        let d = UserDefaults.standard
-//        d.set(passportNumber, forKey: "passportNumber")
-//        d.set(dateOfBirth, forKey: "dateOfBirth")
-//        d.set(expiryDate, forKey: "expiryDate")
+        let d = UserDefaults.standard
+        d.set(passportNumber, forKey: "passportNumber")
+        d.set(dateOfBirth, forKey: "dateOfBirth")
+        d.set(expiryDate, forKey: "expiryDate")
         
         // Calculate checksums
         let passportNrChksum = calcCheckSum(passportNumber)
@@ -34,16 +44,6 @@ public class PassportUtil {
         let expiryDateChksum = calcCheckSum(expiryDate)
         
         let mrzKey = "\(passportNumber)\(passportNrChksum)\(dateOfBirth)\(dateOfBirthChksum)\(expiryDate)\(expiryDateChksum)"
-        
-        return mrzKey
-    }
-    
-    public func makeMrzKey(birthDate: String, expireDate: String, documentNo: String) -> String {
-        // Calculate checksums
-        let passportNrChksum = calcCheckSum(documentNo)
-        let dateOfBirthChksum = calcCheckSum(birthDate)
-        let expiryDateChksum = calcCheckSum(expireDate)
-        let mrzKey = "\(documentNo)\(passportNrChksum)\(birthDate)\(dateOfBirthChksum)\(expireDate)\(expiryDateChksum)"
         
         return mrzKey
     }

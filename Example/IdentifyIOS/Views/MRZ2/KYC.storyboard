@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,12 +18,12 @@
         <!--Vision View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SDKMrzViewController" id="BYZ-38-t0r" customClass="VisionViewController" customModule="Kimlik" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SDKMrzViewController" id="BYZ-38-t0r" customClass="VisionViewController" customModule="IdentifyIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCx-30-dWq" customClass="PreviewView" customModule="Kimlik" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCx-30-dWq" customClass="PreviewView" customModule="IdentifyIOS_Example" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
@@ -84,7 +84,7 @@
         <!--Pop Up Action View Controller-->
         <scene sceneID="Dsc-2V-oAe">
             <objects>
-                <viewController storyboardIdentifier="SDKPopUpActionViewController" id="q0F-vZ-uYU" customClass="SDKPopUpActionViewController" customModule="Kimlik" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SDKPopUpActionViewController" id="q0F-vZ-uYU" customClass="SDKPopUpActionViewController" customModule="IdentifyIOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1VC-af-DeJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,13 +96,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="455"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bCa-4g-HB4">
-                                        <rect key="frame" x="12" y="12" width="350" height="230.5"/>
+                                        <rect key="frame" x="12" y="12" width="350" height="240"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="230.5" id="JQ3-9s-KZD"/>
+                                            <constraint firstAttribute="height" constant="240" id="JQ3-9s-KZD"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOz-Qs-ygq">
-                                        <rect key="frame" x="12" y="254.5" width="350" height="118.5"/>
+                                        <rect key="frame" x="12" y="264" width="350" height="109"/>
                                         <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="17"/>
                                         <color key="textColor" name="KB White"/>
                                         <nil key="highlightedColor"/>

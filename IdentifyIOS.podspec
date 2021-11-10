@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   s.dependency 'Starscream', '~> 3.1.1'
   s.dependency 'GoogleWebRTC'
   s.dependency 'NFCPassportReader'
-  
+  s.dependency 'SwiftyJSON'
   
   # s.resource_bundles = {
   #   'IdentifyIOS' => ['IdentifyIOS/Assets/*.png']

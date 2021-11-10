@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+        <array key="NunitoSans-SemiBold.ttf">
+            <string>NunitoSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKNewNFCViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundIdPhoto" destination="X7Z-yw-Si6" id="wPU-q1-FwT"/>
+                <outlet property="editBtn" destination="Kxu-lK-QMK" id="g7m-uG-Ce5"/>
+                <outlet property="infoLbl" destination="iOj-Jn-P0k" id="cID-AU-Ogy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="SplashBack" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-qi-N2n">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="X7Z-yw-Si6">
+                    <rect key="frame" x="63.5" y="365" width="287" height="166"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="166" id="Sos-NI-IM0"/>
+                        <constraint firstAttribute="width" secondItem="X7Z-yw-Si6" secondAttribute="height" multiplier="287:166" id="zZ8-wO-i8q"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="identifyTR" translatesAutoresizingMaskIntoConstraints="NO" id="OCy-On-RYW">
+                    <rect key="frame" x="131" y="76" width="152" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="152" id="P73-IM-P4C"/>
+                        <constraint firstAttribute="height" constant="60" id="r2D-X4-Aa5"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxu-lK-QMK">
+                    <rect key="frame" x="50" y="816" width="314" height="48"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="WkP-Cy-GAP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="18"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.0039215686269999999" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOj-Jn-P0k">
+                    <rect key="frame" x="12" y="560" width="390" height="0.0"/>
+                    <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
+                    <color key="textColor" name="KB White"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="AccentColor"/>
+            <constraints>
+                <constraint firstItem="hB6-qi-N2n" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="73I-F8-9kk"/>
+                <constraint firstItem="X7Z-yw-Si6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fzh-4g-VRy"/>
+                <constraint firstItem="hB6-qi-N2n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="G1R-Z3-Ips"/>
+                <constraint firstItem="iOj-Jn-P0k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="PcR-j9-zo6"/>
+                <constraint firstItem="OCy-On-RYW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RJd-2u-xFH"/>
+                <constraint firstItem="X7Z-yw-Si6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TsT-Od-wPP"/>
+                <constraint firstItem="iOj-Jn-P0k" firstAttribute="top" secondItem="X7Z-yw-Si6" secondAttribute="bottom" constant="29" id="VTu-mN-lK0"/>
+                <constraint firstAttribute="bottom" secondItem="hB6-qi-N2n" secondAttribute="bottom" id="Zsg-7h-6ag"/>
+                <constraint firstItem="hB6-qi-N2n" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cZz-Ex-fY8"/>
+                <constraint firstAttribute="bottom" secondItem="Kxu-lK-QMK" secondAttribute="bottom" constant="32" id="iFs-X3-wDq"/>
+                <constraint firstItem="OCy-On-RYW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="nJH-z8-US8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iOj-Jn-P0k" secondAttribute="trailing" constant="12" id="tRw-7V-XRe"/>
+                <constraint firstItem="Kxu-lK-QMK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="w43-lI-ErZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kxu-lK-QMK" secondAttribute="trailing" constant="50" id="zLy-46-eci"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SplashBack" width="375" height="812"/>
+        <image name="identifyTR" width="1400" height="398"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="KB White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

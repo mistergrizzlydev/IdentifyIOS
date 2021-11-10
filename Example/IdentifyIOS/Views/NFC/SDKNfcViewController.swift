@@ -120,7 +120,7 @@ extension SDKNfcViewController: ProcessScanResult {
     }
     
     func readCard(with res: PassportModel?) {
-        let passportUtil = PassportUtil()
+        let passportUtil = PassportUtil.init()
         var mrzKey = ""
         if withoutMrz {
             mrzKey = passportUtil.makeMrzKey(birthDate: manager.mrzBirthDate.toMrzDate(), expireDate: manager.mrzValidDate.toMrzDate(), documentNo: manager.mrzDocumentNo)
@@ -173,7 +173,7 @@ extension SDKNfcViewController: ProcessScanResult {
                     let idInfo = IdentifyCard(ident_id: self.manager.userToken, name: passportUtil.passport?.firstName ?? "", surname: passportUtil.passport?.lastName ?? "", personalNumber: passportUtil.passport?.personalNumber ?? "", birthdate: dateOfBirth, expireDate: expireDate, serialNumber: passportUtil.passport?.documentNumber ?? "", nationality: passportUtil.passport?.nationality ?? "", docType: documentType, authority: passportUtil.passport?.issuingAuthority ?? "", gender: gender, image: img, mrzInfo: idCardFrontText)
                                                             
                     self.manager.netw.verifyNFC(model: idInfo) { (resp) in
-                        if resp == true {
+                        if resp.result == true {
                             self.delegate?.nfcAvailable(status: true)
                             self.goToWaitScreen()
                         } else {

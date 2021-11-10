@@ -28,11 +28,12 @@ class SDKSignatureViewController: SDKBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = DesignConstants.signatureScrBackgroundColor
+        openInfoScreen(page: .signature)
         setupUI()
         if #available(iOS 13.0, *) { // dark mode için gerekli
             if let signaturInnerView = signatureView.subviews.first(where: {$0 is ISignatureView}) {
                 if let canvasView = signaturInnerView.subviews.first(where: {$0 is PKCanvasView}) {
-                canvasView.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1)
+                canvasView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
                 }
             }
         }
@@ -69,16 +70,13 @@ class SDKSignatureViewController: SDKBaseViewController {
     @IBAction func sendSignAct(_ sender: Any) {
         showLoader()
         guard let signatureImg = signatureView.getCroppedSignature()?.convert(toSize: CGSize(width: 400, height: 250), scale: UIScreen.main.scale).toBase64() else { return }
-        self.manager.netw.uploadSelfieImage(image: signatureImg, selfieType: .signature, callback: { response, error in
+        self.manager.netw.uploadSelfieImage(image: signatureImg, selfieType: .signature, callback: { response in
             self.hideLoader()
-            if response == true {
+            if response.result == true {
                 self.dismiss(animated: true) {
                     self.delegate?.signatureCompleted()
                 }
-            }
-            
-            if (error != nil) {
-                print(error?.localizedDescription)
+            } else {
                 self.hideLoader()
             }
         })

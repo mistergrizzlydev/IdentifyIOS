@@ -42,6 +42,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     @IBOutlet weak var completedBtn: UIButton!
     var isCallScreenOpened = false
     var isAlreadyShowingSign = false // işitme engelliler için eklenmesi gerek
+    var callEnded = false // bağlantı temsilci tarafından kapatıldıysa bağlantınız koptu ekranı getirilmesin
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +55,13 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         customerCam.isHidden = true
         waitScreen.isHidden = false
         self.managerSetup()
+        listenSocketIsConnected()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadModules), name: NSNotification.Name(rawValue: "skipAllModules"), object: nil) // tüm modülleri atlaması halinde tetiklenir
-        listenSocketIsConnected()
     }
     
     func checkSignLang() { // işitme engelliler için eklenmesi gerek
@@ -75,7 +76,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                 nextVC.isModalInPresentation = true
             }
             DispatchQueue.main.async {
-                UIApplication.topViewController()?.present(nextVC, animated: true, completion: nil)
+                UIApplication.topViewController()?.present(nextVC, animated: false, completion: nil)
                 self.isAlreadyShowingSign = true
             }
         }
@@ -87,10 +88,13 @@ class SDKCallWaitScreenController: SDKBaseViewController {
             let controller = UIApplication.topViewController()
             next.modalPresentationStyle = .fullScreen
             next.modalTransitionStyle = .crossDissolve
+            next.delegate = self
             if #available(iOS 13.0, *) {
                 next.isModalInPresentation = true
             }
-            controller?.present(next, animated: true, completion: nil)
+            if self?.callEnded == false {
+                controller?.present(next, animated: true, completion: nil)
+            }
         }
     }
     
@@ -148,13 +152,21 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                 }
             case .waitScreen:
                 self.userDefaults.setBool(key: "modulesCompleted", value: true)
+                checkSignLang()
+                self.setupCameras()
                 UIView.animate(withDuration: 0.3) {
                     self.view.alpha = 1
+                }
+            case .addressConf:
+                manager.sendCurrentScreen(screen: .addressConf)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.showAddressView()
                 }
             default:
                 return
             }
         } else { // tüm modüller tamamlandı ve çağrı bekleme ekranına düştü
+            self.setupCameras()
             self.userDefaults.setBool(key: "modulesCompleted", value: true)
             checkSignLang() // işitme engelliler için eklenmesi gerek, bu fonksiyondaki değişiklikler tamamen uygulanmalı
             UIView.animate(withDuration: 0.3) {
@@ -168,7 +180,6 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         manager.connectToServer()
         manager.socket.onConnect = {
             self.manager.sendFirstSubscribe(socket: self.manager.socket!)
-            self.setupCameras()
             self.checkModules()
         }
     }
@@ -197,18 +208,22 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     }
     
     func openMrzScreen() {
+        manager.sendCurrentScreen(screen: .nfc)
         if #available(iOS 13, *), self.nfcAvailable {
-            let next = SDKNfcViewController.instantiate()
+            let next = SDKNewNFCViewController.instantiate()
             next.modalPresentationStyle = .fullScreen
             next.delegate = self
+            next.isWantNfc = true
             next.manager = manager
             let nextNC = UINavigationController(rootViewController: next)
             nextNC.modalPresentationStyle = .overFullScreen
+            nextNC.setNavigationBarHidden(true, animated: true)
             self.present(nextNC, animated: true)
         } else {
             print("not supported nfc")
-            self.popupAlert(title: self.translate(text: .coreError), message: "Cihazınızda NFC desteği bulunmamaktadır, sıradaki işleme geçiliyor.", actionTitles: ["Tamam"], actions:[{ action1 in
-                self.manager.sendNFCStatus(false)
+            self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .coreNfcDeviceError), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+                self.manager.sendNFCStatus("false")
+                self.manager.allSteps?.nfc = false
                 self.manager.identfiyModules.removeFirst()
                 self.checkModules()
             }])
@@ -290,30 +305,12 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         nextVC.delegate = self
         nextVC.manager = self.manager
         self.present(nextVC, animated: true, completion: nil)
-        /*
-        if self.arFaceAvailable {
-            let smiley = SmileViewController.instantiate()
-            smiley.modalPresentationStyle = .fullScreen
-            smiley.manager = self.manager
-            smiley.delegate = self
-            self.present(smiley, animated: true, completion: nil)
-        } else {
-            let oldSmiley = SDKSelfieViewController.instantiate()
-            oldSmiley.selfieTypes = .oldPhoneFace
-            oldSmiley.modalPresentationStyle = .fullScreen
-            oldSmiley.manager = self.manager
-            oldSmiley.delegate = self
-            oldSmiley.oldDeviceSmileyDelegate = self
-            self.present(oldSmiley, animated: true, completion: nil)
-        }
-        */
     }
     
     func showSelfieView() {
         let controller = SDKSelfieViewController.instantiate()
         controller.modalPresentationStyle = .fullScreen
         controller.selfieTypes = .selfie
-        controller.manager = self.manager
         controller.delegate = self
         self.present(controller, animated: true, completion: nil)
     }
@@ -322,19 +319,34 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         let oldSmiley = SDKSelfieViewController.instantiate()
         oldSmiley.selfieTypes = .video
         oldSmiley.modalPresentationStyle = .fullScreen
-        oldSmiley.manager = self.manager
         oldSmiley.delegate = self
         self.present(oldSmiley, animated: true, completion: nil)
     }
     
-    func showIDCardView() {
-        let controller = SDKSelfieViewController.instantiate()
-        controller.modalPresentationStyle = .fullScreen
-        controller.selfieTypes = .frontId
-        controller.manager = self.manager
-        controller.delegate = self
-        self.present(controller, animated: true, completion: nil)
-        
+    func showIDCardView() { // kimlik fotosu çekme ekranı
+        manager.sendCurrentScreen(screen: .idCard)
+        if #available(iOS 13, *), !manager.nfcCompleted { // eğer nfc kullanılmadı ve cihaz 13+ ise
+            let next = SDKNewNFCViewController.instantiate()
+            next.modalPresentationStyle = .fullScreen
+            next.delegate = self
+            next.isWantNfc = false
+            next.manager = manager
+            let nextNC = UINavigationController(rootViewController: next)
+            nextNC.modalPresentationStyle = .overFullScreen
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.present(next, animated: true, completion: nil)
+            }
+        } else if !manager.nfcCompleted { // nfc kullanılmadı ve cihaz 13- ise
+            let controller = SDKSelfieViewController.instantiate()
+            controller.modalPresentationStyle = .fullScreen
+            controller.selfieTypes = .frontId
+            controller.delegate = self
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.present(controller, animated: true, completion: nil)
+            }
+        } else { // nfc işlemi tamamsa
+            removeCurrentModule()
+        }
     }
     
     func showSignatureView() {
@@ -347,6 +359,13 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     
     func showSpeechRecognitionView() {
         let controller = SDKSoundRecognitionViewController.instantiate()
+        controller.delegate = self
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func showAddressView() {
+        let controller = SDKAddressViewController.instantiate()
         controller.delegate = self
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
@@ -377,6 +396,10 @@ extension SDKCallWaitScreenController: SoundRecognitionDelegate {
 }
 
 extension SDKCallWaitScreenController: SelfieDelegate {
+    
+    func videoCompleted() {
+        removeCurrentModule()
+    }
     
     func selfieCompleted() {
         removeCurrentModule()
@@ -411,14 +434,21 @@ extension SDKCallWaitScreenController: HumanVerificationDelegate {
 extension SDKCallWaitScreenController: ScannerStatusDelegate {
     
     func nfcCompleted() {
-        manager.allSteps?.nfc = true
+        manager.allSteps?.nfc = nfcAvailable
         removeCurrentModule()
     }
     
     func nfcAvailable(status: Bool) {
-        manager.sendNFCStatus(status)
+        manager.sendNFCStatus("\(status)")
     }
     
+}
+
+extension SDKCallWaitScreenController: AddressDelegate {
+    
+    func addressCompleted() {
+        removeCurrentModule()
+    }
 }
 
 extension SDKCallWaitScreenController: CallScreenDelegate {
@@ -437,6 +467,13 @@ extension SDKCallWaitScreenController: SmsScreenDelegate {
         manager.sendSmsTan(tan: tag)
     }
     
+}
+
+extension SDKCallWaitScreenController: ConnectionListenerDelegate {
+    
+    func connectedAgain() {
+//        self.dismiss(animated: true, completion: nil) // açık olan yeniden bağlan ekranını kapatır
+    }
 }
 
 
@@ -459,7 +496,7 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
     }
     
     func skipNFC() { // panelden nfc iptal etme talebi
-        manager.sendNFCStatus(false)
+        manager.sendNFCStatus("\(false)")
         if !alreadySkippedNFC {
             self.dismiss(animated: true) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -488,12 +525,11 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
     }
     
     func endCall() { // kullanıcı 50 sn boyunca çağrıyı yanıtlamadı
+        self.callEnded = true
         manager.socket.disconnect()
-        manager.socket = nil
         self.dismiss(animated: true, completion: nil)
         showThankYouView()
         showWaitingArea()
-        self.callCompleted = true
     }
     
     func comingSms() { // sms geldi
@@ -509,21 +545,21 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
     }
     
     func terminateCall() { // görüşme sonlandı
+        self.callEnded = true
         manager.socket.disconnect()
-        manager.socket = nil
         self.userDefaults.setBool(key: "modulesCompleted", value: false) // işlemler tamamlanınca cache i temizliyoruz
-        showThankYouView()
-        showWaitingArea()
-        if isCallScreenOpened {
-            self.dismiss(animated: true, completion: nil)
-        }
-        self.callCompleted = true
+        self.hideMyCamera()
+        self.showThankYouView()
     }
     
     func imOffline() { // panelde sayfa yenilendi veya browser kapatıldı
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.manager.socket.connect()
         }
+        self.hideMyCamera()
+    }
+    
+    func hideMyCamera() {
         myCam.isHidden = true
         customerCam.isHidden = true
         waitScreen.isHidden = false
