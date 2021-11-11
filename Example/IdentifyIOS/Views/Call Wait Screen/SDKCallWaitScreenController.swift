@@ -43,7 +43,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     var isCallScreenOpened = false
     var isAlreadyShowingSign = false // işitme engelliler için eklenmesi gerek
     var callEnded = false // bağlantı temsilci tarafından kapatıldıysa bağlantınız koptu ekranı getirilmesin
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         UIView.animate(withDuration: 0) {
@@ -207,30 +207,6 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         manager.delegate = self
     }
     
-    func openMrzScreen() {
-        manager.sendCurrentScreen(screen: .nfc)
-        if #available(iOS 13, *), self.nfcAvailable {
-            let next = SDKNewNFCViewController.instantiate()
-            next.modalPresentationStyle = .fullScreen
-            next.delegate = self
-            next.isWantNfc = true
-            next.manager = manager
-            let nextNC = UINavigationController(rootViewController: next)
-            nextNC.modalPresentationStyle = .overFullScreen
-            nextNC.setNavigationBarHidden(true, animated: true)
-            self.present(nextNC, animated: true)
-        } else {
-            print("not supported nfc")
-            self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .coreNfcDeviceError), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
-                self.manager.sendNFCStatus("false")
-                self.manager.allSteps?.nfc = false
-                self.manager.identfiyModules.removeFirst()
-                self.checkModules()
-            }])
-        }
-        
-    }
-    
     func addCardCircle() {
         let cardSize = CGFloat(350)
         let midCardX = (self.myCam.bounds.midX - cardSize / 2)
@@ -323,7 +299,37 @@ class SDKCallWaitScreenController: SDKBaseViewController {
         self.present(oldSmiley, animated: true, completion: nil)
     }
     
+    func openMrzScreen() {
+        let withoutMrz = manager.mrzBirthDate != "" && manager.mrzValidDate != "" && manager.mrzDocumentNo != ""
+        manager.sendCurrentScreen(screen: .nfc)
+        if #available(iOS 13, *), self.nfcAvailable {
+            let next = SDKNewNFCViewController.instantiate()
+            next.modalPresentationStyle = .fullScreen
+            next.delegate = self
+            next.isWantNfc = true
+            next.manager = manager
+            let nextNC = UINavigationController(rootViewController: next)
+            nextNC.modalPresentationStyle = .overFullScreen
+            nextNC.setNavigationBarHidden(true, animated: true)
+            self.present(nextNC, animated: true)
+        } else if withoutMrz && manager.nfcCompleted {
+            showIDCardView()
+        }
+        
+        else {
+            print("not supported nfc")
+            self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .coreNfcDeviceError), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
+                self.manager.sendNFCStatus("false")
+                self.manager.allSteps?.nfc = false
+                self.manager.identfiyModules.removeFirst()
+                self.checkModules()
+            }])
+        }
+        
+    }
+    
     func showIDCardView() { // kimlik fotosu çekme ekranı
+        let withoutMrz = manager.mrzBirthDate != "" && manager.mrzValidDate != "" && manager.mrzDocumentNo != ""
         manager.sendCurrentScreen(screen: .idCard)
         if #available(iOS 13, *), !manager.nfcCompleted { // eğer nfc kullanılmadı ve cihaz 13+ ise
             let next = SDKNewNFCViewController.instantiate()
@@ -344,7 +350,22 @@ class SDKCallWaitScreenController: SDKBaseViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.present(controller, animated: true, completion: nil)
             }
-        } else { // nfc işlemi tamamsa
+        } else if withoutMrz && manager.nfcCompleted { // nfc işlemi mrz dataları elle verilerek yapıldıysa fakat kimlik fotosu yoksa
+            if #available(iOS 13, *) {
+                let next = SDKNewNFCViewController.instantiate()
+                next.modalPresentationStyle = .fullScreen
+                next.delegate = self
+                next.isWantNfc = false
+                next.manager = manager
+                next.cardType = .oldSchool
+                let nextNC = UINavigationController(rootViewController: next)
+                nextNC.modalPresentationStyle = .overFullScreen
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.present(next, animated: true, completion: nil)
+                }
+            }
+            
+        }  else { // nfc işlemi ve foto çekimi tamamsa
             removeCurrentModule()
         }
     }

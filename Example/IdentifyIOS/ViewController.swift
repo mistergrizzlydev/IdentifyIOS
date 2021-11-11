@@ -33,7 +33,7 @@ class ViewController: SDKBaseViewController {
         manager.userToken = "6e676552-9dc4-11eb-99a4-0acde28968be" // size verilecek olan token
         manager.netw.timeoutIntervalForRequest = 35
         manager.netw.timeoutIntervalForResource = 15
-        
+        manager.verificationCardType = .onlyIdCard // .all
         manager.baseAPIUrl = "https://api.identifytr.com/"
         manager.webSocketUrl = "wss://ws.identifytr.com:8888/"
         manager.stunServers = ["stun:stun.l.google.com:19302", "turn:3.64.99.127:3478"]

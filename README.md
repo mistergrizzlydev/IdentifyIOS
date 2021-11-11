@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
+
+## What is new in 2.0.7
+- The document type selection screen to be scanned has been made optional
+
 ## What is new in 2.0.6
 - Added Address Verify Module
 - Added new NFC Module
@@ -52,11 +56,24 @@ For the NFC feature to work properly, make sure that the "Near Field Communicati
 If you want demo application, you can run it in **onlySDK** mode. Check your `AppDelegate` file
 ```ruby
 var appType: AppType? = .demoApp // .onlySDK
+manager.verificationCardType = .all // .onlyIdCard
 ```                    
 `ViewController`is your SDK root controller
 `SDKLoginViewController` is your root demo app controller
 
 ------------
+#### Verification Card Type
+```ruby
+manager.verificationCardType = .all // .onlyIdCard
+```
+Properties  | Description
+------------- | -------------
+.all           | You can see the document selection screen and continue with your chosen one.
+.onlyIdCard           | You will not see the document selection screen and continue with your ID Card.
+
+
+------------
+
 **ViewController.swift**
 In case NFC cannot be read, you can set the maximum error count. When you reach the number you set, the NFC module is automatically canceled and the next module is passed. It comes with 3 by default.
 ```ruby
@@ -121,6 +138,7 @@ emir@beytekin.net
 ## License
                     
 IdentifyIOS is available under the MIT license. See the LICENSE file for more info.
+
 
 
 

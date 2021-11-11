@@ -54,3 +54,8 @@ public enum LogLevel: String, Codable {
     case none = "None"
     case all = "All"
 }
+
+public enum VerificationCardType: String {
+    case onlyIdCard
+    case all
+}

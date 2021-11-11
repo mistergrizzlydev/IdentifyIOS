@@ -48,12 +48,20 @@ class SDKLoginViewController: SDKBaseViewController {
         translate()
         addGradientBackground(view: rootView)
         setupViews()
-        manager.loadingDelegate = self
-        manager.enableSignLang = true
+        setupManager()
         checkPermissions()
         buildNoLbl.text = Bundle.main.buildVersionNumber
 //        floatingButtonController = FloatingButtonController()
 //        floatingButtonController?.button.addTarget(self, action: #selector(floatingButtonWasTapped), for: .touchUpInside)
+    }
+    
+    func setupManager() {
+        manager.loadingDelegate = self
+        manager.enableSignLang = true
+        // KPS sisteminiz varsa kullanıcıya ait verileri eklediğiniz takdirde MRZ tarama ekranı açılmayıp NFC ekranı açılacaktır
+        //  manager.mrzBirthDate = "01.12.1950"
+        //  manager.mrzValidDate = "13.085.2029"
+        //  manager.mrzDocumentNo = "B26C75239"
     }
     
     func checkPermissions() { // kullanıcının kamera - mikrafon ve konuşma iznini kontrol eder, gereksizse kapatabilirsiniz.

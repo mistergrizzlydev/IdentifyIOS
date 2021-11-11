@@ -69,6 +69,9 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
     
     let passportReader = PassportReader.init()
     var isWantNfc = true
+    var withoutMrz = false
+
+    
     @IBOutlet weak var editBtn: UIButton!
     
     @IBOutlet weak var backgroundIdPhoto: UIImageView!
@@ -77,20 +80,31 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
 //        openInfoScreen(page: .nfc)
         addSkipModulesButton()
         reloadViews()
-        let next = SDKScannerSelectorViewController.instantiate()
-        next.isModalInPresentation = true
-        next.modalPresentationStyle = .fullScreen
-        next.delegate = self
-        DispatchQueue.main.async {
-            self.present(next, animated: true, completion: {
-                self.reloadViews()
-            })
+        self.withoutMrz = manager.mrzBirthDate != "" && manager.mrzValidDate != "" && manager.mrzDocumentNo != ""
+        if manager.verificationCardType == .all {
+            let next = SDKScannerSelectorViewController.instantiate()
+            next.isModalInPresentation = true
+            next.modalPresentationStyle = .fullScreen
+            next.delegate = self
+            DispatchQueue.main.async {
+                self.present(next, animated: true, completion: {
+                    self.reloadViews()
+                })
+            }
+        } else {
+            isWantNfc = true
+            self.cardType = .idCard
+            self.backgroundIdPhoto.image = #imageLiteral(resourceName: "frontId")
+            reloadViews()
         }
+        
         
     }
     
     func reloadViews() {
-        if isWantNfc {
+        if withoutMrz && !manager.nfcCompleted {
+            editBtn.addTarget(self, action: #selector(infoAct), for: .touchUpInside)
+        } else if isWantNfc {
             switch cardType {
             case .passport:
                 infoLbl.text = self.translate(text: .nfcPassportScanInfo)
@@ -142,7 +156,11 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
         } else {
             switch scrType {
             case .frontID:
-                self.showPopUp(image: #imageLiteral(resourceName: "frontId"), desc: self.translate(text: .newNfcFront))
+                if withoutMrz && !manager.nfcCompleted {
+                    self.showPopUp(image: UIImage(named: "ob2")!, desc: DesignConstants.nfcScrWithoutMrzInfoText!)
+                } else {
+                    self.showPopUp(image: #imageLiteral(resourceName: "frontId"), desc: self.translate(text: .newNfcFront))
+                }
             case .backID:
                 self.showPopUp(image: #imageLiteral(resourceName: "backId"), desc: self.translate(text: .newNfcBack))
             default:
@@ -152,13 +170,17 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
     }
     
     func handlePopUpAction(action: Bool) {
-        switch scrType {
-        case .frontID:
-            startReader()
-        case .backID:
-            startReader()
-        default:
-            return
+        if withoutMrz && !manager.nfcCompleted {
+            self.startNfc()
+        } else {
+            switch scrType {
+            case .frontID:
+                startReader()
+            case .backID:
+                startReader()
+            default:
+                return
+            }
         }
     }
     
@@ -232,7 +254,10 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
                 if response.result == true {
                     self.manager.sendSelfieImageStatus(uploadStatus: "true", actionName: "uploadIdBack")
                     
-                    if self.frontInfo.birthDate == nil && self.isWantNfc || self.frontInfo.birthDate == nil && self.isWantNfc || self.frontInfo.validDate == nil && self.isWantNfc { // parlak ışıklı çekimlerde datalardan hata gelebiliyor
+                    if self.manager.nfcCompleted {
+                        self.manager.nfcCompleted = true // aslında nfc yok ama hack amaçlı yazıyoruz, böylece nfc den sonra tekrar foto çekme modülü açılmıyor
+                        self.goToWaitScreen()
+                    } else if self.frontInfo.birthDate == nil && self.isWantNfc || self.frontInfo.birthDate == nil && self.isWantNfc || self.frontInfo.validDate == nil && self.isWantNfc { // parlak ışıklı çekimlerde datalardan hata gelebiliyor
                         DispatchQueue.main.async {
                             self.currentScr = .frontID
                             self.openEditPanel()
@@ -467,16 +492,23 @@ extension SDKNewNFCViewController {
         }
     }
     
-    func startNfc() {
+    @objc func startNfc() {
         
-        if frontInfo.infoCompleted == true && backInfo.infoCompleted == true {
+        if frontInfo.infoCompleted == true && backInfo.infoCompleted == true || withoutMrz == true {
             let passportUtil = PassportUtil()
-            var mrzKey = passportUtil.makeMrzKey(birthDate: frontInfo.birthDate.toMrzDate(), expireDate: frontInfo.validDate.toMrzDate(), documentNo: frontInfo.docNo)
-            if cardType == .passport {
-                mrzKey = passportUtil.makeMrzKey(birthDate: frontInfo.birthDate, expireDate: frontInfo.validDate, documentNo: frontInfo.docNo)
+            var mrzKey = passportUtil.makeMrzKey(birthDate: "", expireDate: "", documentNo: "")
+            
+            if withoutMrz {
+                mrzKey = passportUtil.makeMrzKey(birthDate: manager.mrzBirthDate.toMrzDate(), expireDate: manager.mrzValidDate.toMrzDate(), documentNo: manager.mrzDocumentNo)
             } else {
-                mrzKey = passportUtil.makeMrzKey(birthDate: frontInfo.birthDate.toMrzDate(), expireDate: frontInfo.validDate.toMrzDate(), documentNo: frontInfo.docNo)
+                if cardType == .passport {
+                    mrzKey = passportUtil.makeMrzKey(birthDate: frontInfo.birthDate, expireDate: frontInfo.validDate, documentNo: frontInfo.docNo)
+                } else {
+                    mrzKey = passportUtil.makeMrzKey(birthDate: frontInfo.birthDate.toMrzDate(), expireDate: frontInfo.validDate.toMrzDate(), documentNo: frontInfo.docNo)
+                }
             }
+            
+            
             passportReader.readPassport(mrzKey: mrzKey, customDisplayMessage: { (displayMessage) in
                 switch displayMessage {
                     case .requestPresentPassport:

@@ -61,7 +61,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var connectToSignLang = false
     public var nfcCompleted = false
     public var idPhotoCompleted = false
-
+    public var verificationCardType: VerificationCardType? = .all
 
     
     let userDefaults = UserDefaults.standard

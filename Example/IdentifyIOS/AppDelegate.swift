@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GlobalConstants.appLogo = UIImage(named: "identifyTR")!
             GlobalConstants.nfcErrorMaxCount = 3
             manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech, .addressConf])
+            manager.verificationCardType = .all
             if self.deeplinkUrl != "" {
                 mainViewController = SDKLoginViewController(deepLinkIds: deeplinkUrl, hostType: hostType)
             } else {
