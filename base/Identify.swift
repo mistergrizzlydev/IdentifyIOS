@@ -121,6 +121,11 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
         module10.mName = "Address Confirm"
         module10.mValue = .addressConf
         identfiyModules.append(module10)
+        
+        let module11 = Modules()
+        module11.mName = "Live Stream"
+        module11.mValue = .waitScreen
+        identfiyModules.append(module11)
     }
     
     public func openWaitScreen() {

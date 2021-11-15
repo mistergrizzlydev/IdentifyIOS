@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
+## FORCE UPDATE 2.0.8
+- Address setting method changed (Check `Viewcontroller.swift` line 41 to 45)
+- Transactions allowed without live stream module
+- Added function to notify process completion (Check `Viewcontroller.swift` line 236, onlySDK mode)
 
 ## What is new in 2.0.7
 - The document type selection screen to be scanned has been made optional
@@ -81,7 +85,7 @@ GlobalConstants.nfcErrorMaxCount = 3
 ```
 You can present the module you want, in the order you want.
 ```ruby
-manager.addModules(module: [.ncf, .livenessDetection, .selfie])
+manager.addModules(module: [.ncf, .livenessDetection, .selfie, .waitScreen])
 ```
 You can customize your network timeout.
 ```ruby
@@ -90,12 +94,13 @@ manager.netw.timeoutIntervalForResource = 15
 ```
 You can change your network request addresses.
 ```ruby
-manager.baseAPIUrl = "https://api.identifytr.com/"
-manager.webSocketUrl = "wss://ws.identifytr.com:8888/"
-manager.stunServers = ["stun:stun.l.google.com:19302", "turn:3.64.99.127:3478"]
-manager.stunUsername = "test"
-manager.stunPassword = "test"
+URLConstants.baseAPIUrl = "https://api.identifytr.com/"
+URLConstants.webSocketUrl = "wss://ws.identifytr.com:8888/"
+URLConstants.stunServers = ["stun:stun.l.google.com:19302", "turn:3.64.99.127:3478"]
+URLConstants.stunUsername = "test"
+URLConstants.stunPassword = "test"
 ```
+**Don't forget to add manager.setupUrls() at the end**
 You don't need to start all over again in case of disconnection..
 ```ruby
 manager.appQuitType = .onlyCall // If the connection is lost during the call, it only opens the call screen.
@@ -129,6 +134,7 @@ idCard        | The person is asked to take front and back photos of their ID, s
 signature     | For the vitality test, the signature of the person is taken.
 speech        | For the vitality test, the person is asked to read the text they see on the screen.
 addressConf        | For address verification, the person enters address and takes a photo of an official document of address information.
+waitScreen        | Live stream module, don't forget to add it to the end of the list.
 
 
 ## Author
@@ -138,6 +144,8 @@ emir@beytekin.net
 ## License
                     
 IdentifyIOS is available under the MIT license. See the LICENSE file for more info.
+
+
 
 
 

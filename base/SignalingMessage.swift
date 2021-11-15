@@ -35,8 +35,8 @@ struct DeviceInfo: Codable {
     init() {
         self.platform = "Apple"
         self.osVersion = UIDevice.current.systemVersion
-        self.deviceModel = UIDevice().localizedModel
-        self.deviceBrand = UIDevice.current.modelName
+        self.deviceBrand = UIDevice().localizedModel
+        self.deviceModel = UIDevice.current.modelName
     }
 }
 

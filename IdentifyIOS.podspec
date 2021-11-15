@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IdentifyIOS'
-  s.version          = '0.2.7'
+  s.version          = '0.2.8'
   s.summary          = 'identify.com.tr'
 
 # This description is used to generate tags and improve search results.

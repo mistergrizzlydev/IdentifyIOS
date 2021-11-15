@@ -9,6 +9,10 @@
 import UIKit
 import IdentifyIOS
 
+protocol IdentCompletedDelegate: class {
+    func identFinished()
+}
+
 class ViewController: SDKBaseViewController {
     
     var quitType: AppQuitType {
@@ -27,18 +31,17 @@ class ViewController: SDKBaseViewController {
     func setupSDK() {
         manager.appQuitType = .restartModules
         manager.selectedHost = .identifyTr
-//        manager.addModules(module: [.signature, .speech])
-        manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech]) // app içindeki mevcut modüller, sadece çağrı ekranı için boş bırakabilirsiniz
+        manager.addModules(module: [.nfc, .livenessDetection, .selfie, .videoRecord, .idCard, .signature, .speech, .addressConf, .waitScreen]) // app içindeki mevcut modüller
 
         manager.userToken = "6e676552-9dc4-11eb-99a4-0acde28968be" // size verilecek olan token
         manager.netw.timeoutIntervalForRequest = 35
         manager.netw.timeoutIntervalForResource = 15
         manager.verificationCardType = .onlyIdCard // .all
-        manager.baseAPIUrl = "https://api.identifytr.com/"
-        manager.webSocketUrl = "wss://ws.identifytr.com:8888/"
-        manager.stunServers = ["stun:stun.l.google.com:19302", "turn:3.64.99.127:3478"]
-        manager.stunUsername = "test"
-        manager.stunPassword = "test"
+        URLConstants.baseAPIUrl = "https://api.identifytr.com/"
+        URLConstants.webSocketUrl = "wss://ws.identifytr.com:8888/"
+        URLConstants.stunServers = ["stun:stun.l.google.com:19302", "turn:3.64.99.127:3478"]
+        URLConstants.stunUsername = "test"
+        URLConstants.stunPassword = "test"
         manager.setupUrls()
         manager.enableSignLang = true // işitme engelliler için çağrı öncesi soru penceresi açar
         // KPS sisteminiz varsa kullanıcıya ait verileri eklediğiniz takdirde MRZ tarama ekranı açılmayıp NFC ekranı açılacaktır
@@ -204,6 +207,7 @@ class ViewController: SDKBaseViewController {
         
     @objc func userLoggedIn() {
         let controller = SDKCallWaitScreenController.instantiate()
+        controller.completedDelegate = self
         if #available(iOS 13.0, *) {
           controller.isModalInPresentation = true
         }
@@ -224,4 +228,12 @@ extension ViewController: PermissionViewDelegate {
         debugPrint("permission delegate ok")
     }
     
+}
+
+extension ViewController: IdentCompletedDelegate {
+    
+    func identFinished() { // ident işlemi tamamlandı, webservis vs. buradan haber yollayabilirsiniz
+        print("completed")
+        
+    }
 }

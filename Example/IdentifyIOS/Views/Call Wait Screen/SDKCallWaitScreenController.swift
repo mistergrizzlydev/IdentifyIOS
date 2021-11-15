@@ -43,6 +43,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     var isCallScreenOpened = false
     var isAlreadyShowingSign = false // işitme engelliler için eklenmesi gerek
     var callEnded = false // bağlantı temsilci tarafından kapatıldıysa bağlantınız koptu ekranı getirilmesin
+    var completedDelegate: IdentCompletedDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,18 +163,15 @@ class SDKCallWaitScreenController: SDKBaseViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     self.showAddressView()
                 }
+            
             default:
                 return
             }
-        } else { // tüm modüller tamamlandı ve çağrı bekleme ekranına düştü
-            self.setupCameras()
-            self.userDefaults.setBool(key: "modulesCompleted", value: true)
-            checkSignLang() // işitme engelliler için eklenmesi gerek, bu fonksiyondaki değişiklikler tamamen uygulanmalı
-            UIView.animate(withDuration: 0.3) {
-                self.view.alpha = 1
+        } else {
+            self.dismiss(animated: true) {
+                self.completedDelegate?.identFinished()
             }
         }
-        
     }
     
     func backgroundConnectAction() { // arkaplana atıldığı zaman socket bağlantısı kopmaması için gerekli
@@ -314,9 +312,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
             self.present(nextNC, animated: true)
         } else if withoutMrz && manager.nfcCompleted {
             showIDCardView()
-        }
-        
-        else {
+        } else {
             print("not supported nfc")
             self.popupAlert(title: self.translate(text: .coreError), message: self.translate(text: .coreNfcDeviceError), actionTitles: [self.translate(text: .coreOk)], actions:[{ action1 in
                 self.manager.sendNFCStatus("false")
@@ -331,7 +327,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     func showIDCardView() { // kimlik fotosu çekme ekranı
         let withoutMrz = manager.mrzBirthDate != "" && manager.mrzValidDate != "" && manager.mrzDocumentNo != ""
         manager.sendCurrentScreen(screen: .idCard)
-        if #available(iOS 13, *), !manager.nfcCompleted { // eğer nfc kullanılmadı ve cihaz 13+ ise
+        if #available(iOS 13, *), !manager.nfcCompleted && self.nfcAvailable { // eğer nfc kullanılmadı ve cihaz 13+ ise
             let next = SDKNewNFCViewController.instantiate()
             next.modalPresentationStyle = .fullScreen
             next.delegate = self
@@ -403,7 +399,9 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     }
 
     @IBAction func closeWindowAct(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.completedDelegate?.identFinished()
+        })
     }
 }
 
