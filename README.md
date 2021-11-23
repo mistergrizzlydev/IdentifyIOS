@@ -5,6 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 [![Platform](https://img.shields.io/cocoapods/p/IdentifyIOS.svg?style=flat)](https://cocoapods.org/pods/IdentifyIOS)
 
+## What is new in 2.0.9
+- Document scanning enabled for left landscape mode
+- Added the ability to see the number of waiting people
+- Updated human live test stages
+- Updated nfc for passport
+- Updated wrong logo on sms screen
+
 ## FORCE UPDATE 2.0.8
 - Address setting method changed (Check `Viewcontroller.swift` line 41 to 45)
 - Transactions allowed without live stream module
@@ -144,6 +151,7 @@ emir@beytekin.net
 ## License
                     
 IdentifyIOS is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
