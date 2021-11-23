@@ -180,7 +180,7 @@ class SDKSelfieViewController: SDKBaseViewController, UIImagePickerControllerDel
         let y = (comingPhotoView.image?.size.height ?? 1200) / 3
         let myImage = portraitImg.convert(toSize: CGSize(width: x, height: y), scale: UIScreen.main.scale)
         let idPhoto = myImage.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
-        let portraitImage = portraitImg.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
+        let portraitImage = myImage.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
 
         switch selfieTypes {
         case .selfie:

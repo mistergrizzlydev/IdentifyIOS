@@ -71,7 +71,6 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
     var isWantNfc = true
     var withoutMrz = false
     var currentOrientation: UIImage.Orientation = .up
-    var errorWithOrientation = false
     
     @IBOutlet weak var editBtn: UIButton!
     
@@ -320,9 +319,7 @@ extension SDKNewNFCViewController {
                     frontInfo.validDate = "\(passportDates[2].dropLast())"
                     frontInfo.infoCompleted = true
                     backInfo.infoCompleted = true
-                    errorWithOrientation = false
-                } else {
-//                    errorWithOrientation = true
+                    
                 }
             } else {
                 if (documentRegex.firstMatch(in: text, options: [], range: range) != nil) {
