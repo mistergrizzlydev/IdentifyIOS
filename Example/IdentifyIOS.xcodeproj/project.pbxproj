@@ -225,6 +225,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4804D27D274CF73500FAF654 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		480C4E28271D9BFF00FF06AA /* No Internet */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +549,7 @@
 		607FACD21AFB9204008FA782 /* Example for IdentifyIOS */ = {
 			isa = PBXGroup;
 			children = (
+				4804D27D274CF73500FAF654 /* New Group */,
 				48E6BFE726957F9D002B9C04 /* identifytr.cer */,
 				4867111A266FABF500743FAD /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -1084,7 +1092,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
-				CURRENT_PROJECT_VERSION = 76;
+				CURRENT_PROJECT_VERSION = 81;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;
@@ -1104,7 +1112,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IdentifyIOS_Example.entitlements;
-				CURRENT_PROJECT_VERSION = 76;
+				CURRENT_PROJECT_VERSION = 81;
 				DEVELOPMENT_TEAM = TQUQ2HQ482;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = IdentifyIOS/Info.plist;

@@ -22,6 +22,7 @@ class SDKAccessibilityViewController: SDKBaseViewController {
         self.dismiss(animated: true) {
             self.manager.connectToSignLang = self.signSwitch.isOn
             self.manager.sendStep()
+            self.manager.sendCurrentScreen(screen: .waitScreen)
         }
     }
 }

@@ -25,6 +25,7 @@
                 <outlet property="confView" destination="XeG-tt-8M2" id="Eg8-en-GaU"/>
                 <outlet property="customerCam" destination="Ujm-ry-tCN" id="yva-Ls-Tnd"/>
                 <outlet property="myCam" destination="eR0-yJ-NZ8" id="c1W-9u-dqb"/>
+                <outlet property="remainingTimeDesc" destination="ghR-FY-Rs5" id="HIJ-MQ-HKo"/>
                 <outlet property="shape2Layer" destination="LYQ-Z5-34Y" id="BmH-L4-z6c"/>
                 <outlet property="shapeLayer" destination="LWa-aq-QGi" id="EXM-co-qh6"/>
                 <outlet property="thankYouLabel" destination="wxn-Pp-65Z" id="4Ic-DQ-gar"/>
@@ -87,13 +88,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lütfen bekleyin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxn-Pp-65Z">
-                            <rect key="frame" x="12" y="430.5" width="390" height="35.5"/>
+                            <rect key="frame" x="12" y="433" width="390" height="30.5"/>
                             <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="26"/>
                             <color key="textColor" name="KB White"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSS-Hu-YlO">
-                            <rect key="frame" x="12" y="500" width="390" height="50"/>
+                            <rect key="frame" x="12" y="497.5" width="390" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="YZb-1D-L20"/>
                             </constraints>
@@ -111,26 +112,32 @@
                                 <constraint firstAttribute="height" constant="60" id="ere-WU-FdY"/>
                             </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="waitingBack" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-bC-B77">
-                            <rect key="frame" x="0.0" y="126" width="414" height="644"/>
-                        </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CIk-7G-4mZ">
-                            <rect key="frame" x="32" y="709" width="350" height="115"/>
+                            <rect key="frame" x="32" y="708" width="350" height="116"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Müşteri temsilcimiz sizi aramak üzere lütfen bu ekranda bekleyiniz." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhR-RX-2us">
-                                    <rect key="frame" x="0.0" y="0.0" width="350" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="42"/>
                                     <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
                                     <color key="textColor" name="KB White"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kimliğinizin yanınızda ve hazır olduğundan emin olunuz." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iH-Dt-hdt">
-                                    <rect key="frame" x="0.0" y="65.5" width="350" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="58" width="350" height="42"/>
+                                    <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
+                                    <color key="textColor" name="KB White"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghR-FY-Rs5">
+                                    <rect key="frame" x="0.0" y="116" width="350" height="0.0"/>
                                     <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
                                     <color key="textColor" name="KB White"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="waitingBack" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-bC-B77">
+                            <rect key="frame" x="0.0" y="126" width="414" height="644"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>

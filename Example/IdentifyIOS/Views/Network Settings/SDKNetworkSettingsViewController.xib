@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SDKNetworkSettingsViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
             <connections>
                 <outlet property="baseUrl" destination="Zpi-BA-haj" id="y1z-7V-AzC"/>
+                <outlet property="resetBtn" destination="LT9-eI-ZVG" id="6Ef-NR-P6C"/>
                 <outlet property="socketUrl" destination="FzJ-7U-tke" id="3g2-NX-njF"/>
                 <outlet property="stunPass" destination="bIB-lR-rNX" id="9Ms-kj-qH6"/>
                 <outlet property="stunServer1" destination="SCC-D5-Gkq" id="vlo-4C-MBW"/>
@@ -217,7 +218,7 @@
                     </constraints>
                 </scrollView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jcg-hd-8tP">
-                    <rect key="frame" x="0.0" y="851" width="414" height="45"/>
+                    <rect key="frame" x="0.0" y="817" width="414" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-eI-ZVG">
                             <rect key="frame" x="0.0" y="0.0" width="179.5" height="45"/>
@@ -225,9 +226,6 @@
                             <state key="normal" title="Sıfırla">
                                 <color key="titleColor" name="AccentColor"/>
                             </state>
-                            <connections>
-                                <action selector="resetConfig:" destination="-1" eventType="touchUpInside" id="36l-d8-BBI"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pe-pu-pRv">
                             <rect key="frame" x="180.5" y="0.0" width="233.5" height="45"/>
@@ -251,7 +249,7 @@
             <constraints>
                 <constraint firstItem="v0f-1M-SND" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="I4Z-iW-km3"/>
                 <constraint firstItem="Jcg-hd-8tP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JQT-hS-8Tj"/>
-                <constraint firstAttribute="bottom" secondItem="Jcg-hd-8tP" secondAttribute="bottom" id="JpZ-Qm-Uwt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Jcg-hd-8tP" secondAttribute="bottom" id="JpZ-Qm-Uwt"/>
                 <constraint firstItem="v0f-1M-SND" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KkY-hZ-G3R"/>
                 <constraint firstItem="v0f-1M-SND" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Q1A-sJ-k87"/>
                 <constraint firstAttribute="bottom" secondItem="v0f-1M-SND" secondAttribute="bottom" id="Tnt-Vz-Ibc"/>

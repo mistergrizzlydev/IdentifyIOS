@@ -58,6 +58,7 @@ class SDKLoginViewController: SDKBaseViewController {
     func setupManager() {
         manager.loadingDelegate = self
         manager.enableSignLang = true
+        manager.verificationCardType = .all
         // KPS sisteminiz varsa kullanıcıya ait verileri eklediğiniz takdirde MRZ tarama ekranı açılmayıp NFC ekranı açılacaktır
         //  manager.mrzBirthDate = "01.12.1950"
         //  manager.mrzValidDate = "13.085.2029"
@@ -190,11 +191,11 @@ extension SDKLoginViewController: NetworkUpdateDelegate {
         let cache = UserDefaultService.shared
         let stun1 = cache.getValue(key: "stunServer")
         let stun2 = cache.getValue(key: "stunServer2")
-        manager.baseAPIUrl = cache.getValue(key: "baseAPIUrl")
-        manager.webSocketUrl = cache.getValue(key: "socketUrl")
-        manager.stunServers = [stun1, stun2]
-        manager.stunUsername = cache.getValue(key: "stunUser")
-        manager.stunPassword = cache.getValue(key: "stunPass")
+        URLConstants.baseAPIUrl = cache.getValue(key: "baseAPIUrl")
+        URLConstants.webSocketUrl = cache.getValue(key: "socketUrl")
+        URLConstants.stunServers = [stun1, stun2]
+        URLConstants.stunUsername = cache.getValue(key: "stunUser")
+        URLConstants.stunPassword = cache.getValue(key: "stunPass")
         manager.selectedHost = .identifyTr
         manager.setupUrls()
         buildNoLbl.text = manager.baseAPIUrl

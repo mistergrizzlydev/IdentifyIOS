@@ -34,6 +34,7 @@ class SDKCallWaitScreenController: SDKBaseViewController {
     @IBOutlet weak var waitingStackView: UIStackView!
     @IBOutlet weak var waitingDesc1: UILabel!
     @IBOutlet weak var waitingDesc2: UILabel!
+    @IBOutlet weak var remainingTimeDesc: UILabel!
     
     var layerArray = NSMutableArray()
     var alreadySkippedNFC = false
@@ -452,8 +453,8 @@ extension SDKCallWaitScreenController: HumanVerificationDelegate {
 
 extension SDKCallWaitScreenController: ScannerStatusDelegate {
     
-    func nfcCompleted() {
-        manager.allSteps?.nfc = nfcAvailable
+    func nfcCompleted(isOldSchool: Bool) {
+        manager.allSteps?.nfc = !isOldSchool
         removeCurrentModule()
     }
     
@@ -498,6 +499,14 @@ extension SDKCallWaitScreenController: ConnectionListenerDelegate {
 
 extension SDKCallWaitScreenController: IdentifyListenerDelegate {
     
+    
+    func updateQueue(countMember: String, minutes: String) {
+        print("Tahmini bekleme süreniz \(minutes) dakika, sırada bekleyen \(countMember). kişisiniz")
+        DispatchQueue.main.async {
+            self.remainingTimeDesc.text = "Tahmini bekleme süreniz \(minutes) dakika, sırada bekleyen \(countMember). kişisiniz"
+        }
+    }
+    
     func openWarningCircle() {
         addCircleToCenter()
     }
@@ -535,12 +544,15 @@ extension SDKCallWaitScreenController: IdentifyListenerDelegate {
     }
     
     func incomingCall() { // panelden gelen çağrı isteği
-        let callScreenVC = CallScreenViewController.instantiate()
-        callScreenVC.delegate = self
-        callScreenVC.modalPresentationStyle = .overFullScreen
-        self.present(callScreenVC, animated: true, completion: nil)
-        waitScreen.isHidden = true
-        isCallScreenOpened = true
+        if manager.activeScreen == .waitScreen {
+            let callScreenVC = CallScreenViewController.instantiate()
+            callScreenVC.delegate = self
+            callScreenVC.modalPresentationStyle = .overFullScreen
+            self.present(callScreenVC, animated: true, completion: nil)
+            waitScreen.isHidden = true
+            isCallScreenOpened = true
+        }
+        
     }
     
     func endCall() { // kullanıcı 50 sn boyunca çağrıyı yanıtlamadı

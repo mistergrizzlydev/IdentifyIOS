@@ -12,7 +12,7 @@ import IdentifyIOS
 
 protocol ScannerStatusDelegate {
     func nfcAvailable(status:Bool)
-    func nfcCompleted()
+    func nfcCompleted(isOldSchool:Bool)
 }
 
 protocol ProcessScanResult {
@@ -41,7 +41,7 @@ class SDKNfcViewController: SDKBaseViewController, PopUpProtocol {
     
     func goToWaitScreen() {
         self.dismiss(animated: true, completion: {
-            self.delegate?.nfcCompleted()
+            self.delegate?.nfcCompleted(isOldSchool: false)
         })
     }
 

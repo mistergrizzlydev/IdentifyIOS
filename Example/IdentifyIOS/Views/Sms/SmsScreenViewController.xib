@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,8 +18,9 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmsScreenViewController" customModule="Kimlik" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmsScreenViewController" customModule="IdentifyIOS_Example" customModuleProvider="target">
             <connections>
+                <outlet property="appLogo" destination="HEY-b5-cZX" id="9Z3-15-gS6"/>
                 <outlet property="backView" destination="U6l-ib-5TM" id="olz-6b-P3i"/>
                 <outlet property="codeTxt" destination="mUS-Za-Ury" id="DJZ-6g-C3r"/>
                 <outlet property="connectLabel" destination="vlX-zp-gyj" id="EWs-Lj-q7m"/>
@@ -51,16 +52,16 @@
                     </constraints>
                 </view>
                 <stackView contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Kb4-Ne-zh0">
-                    <rect key="frame" x="12" y="345.5" width="390" height="205"/>
+                    <rect key="frame" x="12" y="347.5" width="390" height="201"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lütfen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YJ-3I-8LD">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="25"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="21"/>
                             <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
                             <color key="textColor" name="KB White"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUS-Za-Ury" customClass="CHIOTPFieldTwo" customModule="CHIOTPField">
-                            <rect key="frame" x="0.0" y="61" width="390" height="60"/>
+                            <rect key="frame" x="0.0" y="57" width="390" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="WyQ-wn-xUB"/>
                             </constraints>
@@ -98,14 +99,14 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6D-gU-Rc4" userLabel="submit">
-                            <rect key="frame" x="0.0" y="157" width="390" height="48"/>
+                            <rect key="frame" x="0.0" y="153" width="390" height="48"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xo-HH-C3j">
                                     <rect key="frame" x="5" y="5" width="380" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bağlan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlX-zp-gyj">
-                                    <rect key="frame" x="166" y="11.5" width="58" height="25"/>
+                                    <rect key="frame" x="167" y="13.5" width="56" height="21"/>
                                     <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="18"/>
                                     <color key="textColor" name="Dark Blue"/>
                                     <nil key="highlightedColor"/>
@@ -146,7 +147,7 @@
     </objects>
     <designables>
         <designable name="mUS-Za-Ury">
-            <size key="intrinsicContentSize" width="5" height="22"/>
+            <size key="intrinsicContentSize" width="5" height="19"/>
         </designable>
     </designables>
     <resources>

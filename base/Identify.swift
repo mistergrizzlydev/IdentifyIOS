@@ -62,6 +62,7 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     public var nfcCompleted = false
     public var idPhotoCompleted = false
     public var verificationCardType: VerificationCardType? = .all
+    public var waitDescCallBack:  ((String)->())?
 
     
     let userDefaults = UserDefaults.standard
@@ -489,9 +490,14 @@ public class IdentifyManager: WebSocketDelegate, WebRTCClientDelegate, CameraSes
     
     public func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         do {
+            print("gelen socket mesajı: \(text)")
+            let queueList = try JSONDecoder().decode(QueueList.self, from: text.data(using: .utf8)!)
             let signalingMessage = try JSONDecoder().decode(SendCandidate.self, from: text.data(using: .utf8)!)
             let cominCan = try JSONDecoder().decode(GetCandidate.self, from: text.data(using: .utf8)!)
             let smsCan = try JSONDecoder().decode(SMSCandidate.self, from: text.data(using: .utf8)!)
+            if queueList.action == "queueStats" || signalingMessage.action == "queueStats" {
+                delegate?.updateQueue(countMember: "\(queueList.countMember ?? 100)", minutes: "\(queueList.apprWaitFor ?? 200)")
+            }
             if cominCan.action == "candidate" {
                 let x = signalingMessage.candidate!
                 let can = RTCIceCandidate(sdp: x.candidate, sdpMLineIndex: x.sdpMLineIndex, sdpMid: x.sdpMid)

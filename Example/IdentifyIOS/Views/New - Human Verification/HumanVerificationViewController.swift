@@ -170,24 +170,26 @@ class HumanVerificationViewController: SDKBaseViewController, PopUpProtocol {
                     leftEyeBlinkOk = true
                     rightEyeBlinkOk = true
                     stopSession()
-                    self.showInfoText(step: .headLeftTxt)
-                    showStepPopUp(step: .headLeft, aniName: "look_left")
+                    self.showInfoText(step: .headRightTxt)
+                    showStepPopUp(step: .headRight, aniName: "look_right")
+                    
+                    
                 }
             } else if currentStep == 2  {
                 if face.hasHeadEulerAngleY {
                     let rotY = face.headEulerAngleY
-                    if rotY < -45 {
+                    if rotY > 45 {
                         stopSession()
                         currentStep = 3
                         headTurnLeftOk = true
-                        self.showInfoText(step: .headRightTxt)
-                        showStepPopUp(step: .headRight, aniName: "look_right")
+                        self.showInfoText(step: .headLeftTxt)
+                        showStepPopUp(step: .headLeft, aniName: "look_left")
                     }
                 }
             } else if currentStep == 3  {
                 if face.hasHeadEulerAngleY {
                     let rotY = face.headEulerAngleY
-                    if rotY > 45 {
+                    if rotY < -45 {
                         currentStep = 4
                         headTurnRightOk = true
                         stopSession()

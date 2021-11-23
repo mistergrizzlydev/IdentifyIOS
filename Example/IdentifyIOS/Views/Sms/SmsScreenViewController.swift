@@ -7,6 +7,7 @@
 
 import UIKit
 import CHIOTPField
+import IdentifyIOS
 
 protocol SmsStatusDelegate: class {
     func isCompleted(status: Bool)
@@ -19,6 +20,7 @@ class SmsScreenViewController: SDKBaseViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var submitHolderView: UIView!
     weak var delegate: SmsScreenDelegate?
+    @IBOutlet weak var appLogo: UIImageView!
     @IBOutlet weak var codeTxt: UITextField!
     
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class SmsScreenViewController: SDKBaseViewController {
     }
     
     func setupViews() {
+        appLogo.image = GlobalConstants.appLogo
         self.addGradientBackground(view: backView)
         submitHolderView.layer.cornerRadius = 12
         submitHolderView.addShadow()

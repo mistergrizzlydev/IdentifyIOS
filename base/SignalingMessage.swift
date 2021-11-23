@@ -97,6 +97,13 @@ struct SMSCandidate: Codable {
     let tid: Int?
 }
 
+struct QueueList: Codable {
+    let action: String?
+    let countMember: Int?
+    let apprWaitFor: Int?
+    let room: String?
+}
+
 struct GetCandidate: Codable {
     let action: String?
     let candidate: Candidate?

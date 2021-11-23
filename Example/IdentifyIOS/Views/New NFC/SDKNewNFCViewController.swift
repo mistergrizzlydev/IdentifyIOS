@@ -70,7 +70,8 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
     let passportReader = PassportReader.init()
     var isWantNfc = true
     var withoutMrz = false
-
+    var currentOrientation: UIImage.Orientation = .up
+    var errorWithOrientation = false
     
     @IBOutlet weak var editBtn: UIButton!
     
@@ -131,7 +132,15 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
     
     func goToWaitScreen() {
         self.dismiss(animated: true, completion: {
-            self.delegate?.nfcCompleted()
+            switch self.cardType {
+            case .passport, .idCard:
+                self.delegate?.nfcCompleted(isOldSchool: false)
+            case .oldSchool:
+                self.delegate?.nfcCompleted(isOldSchool: true)
+            default:
+                return
+            }
+            
         })
     }
     
@@ -197,6 +206,7 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
         scannerViewController.imageScannerDelegate = self
         present(scannerViewController, animated: true)
     }
+
     
     func fixOrientation(img: UIImage) -> UIImage {
         if (img.imageOrientation == .up) {
@@ -220,6 +230,7 @@ class SDKNewNFCViewController: SDKBaseViewController, PopUpProtocol {
         let y = (comingPhotoView.image?.size.height ?? 1200) / 3
         let myImage = portraitImg.convert(toSize: CGSize(width: x, height: y), scale: UIScreen.main.scale)
         let idPhoto = myImage.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
+        
         switch currentScr {
         case .frontID:
             self.manager.netw.uploadSelfieImage(image: idPhoto, selfieType: .frontId, callback: { response in
@@ -309,6 +320,9 @@ extension SDKNewNFCViewController {
                     frontInfo.validDate = "\(passportDates[2].dropLast())"
                     frontInfo.infoCompleted = true
                     backInfo.infoCompleted = true
+                    errorWithOrientation = false
+                } else {
+//                    errorWithOrientation = true
                 }
             } else {
                 if (documentRegex.firstMatch(in: text, options: [], range: range) != nil) {
@@ -466,9 +480,15 @@ extension SDKNewNFCViewController {
     
     func detectTextOnDevice(image: UIImage?) {
         guard let image = image else { return }
+        let imgSize = image.size
         let onDeviceTextRecognizer = TextRecognizer.textRecognizer()
         let visionImage = VisionImage(image: image)
-        visionImage.orientation = image.imageOrientation
+        if imgSize.width < imgSize.height {
+            self.currentOrientation = .left
+        } else {
+            self.currentOrientation = .up
+        }
+        visionImage.orientation = self.currentOrientation
         self.resultsText += "Running On-Device Text Recognition...\n"
         process(visionImage, with: onDeviceTextRecognizer)
     }
@@ -507,7 +527,6 @@ extension SDKNewNFCViewController {
                     mrzKey = passportUtil.makeMrzKey(birthDate: frontInfo.birthDate.toMrzDate(), expireDate: frontInfo.validDate.toMrzDate(), documentNo: frontInfo.docNo)
                 }
             }
-            
             
             passportReader.readPassport(mrzKey: mrzKey, customDisplayMessage: { (displayMessage) in
                 switch displayMessage {
@@ -587,6 +606,13 @@ extension SDKNewNFCViewController {
             })
             return
             
+        } else {
+            DispatchQueue.main.async {
+                self.editBtn.setTitle(self.translate(text: .nfcEditInfoTitle), for: .normal)
+                self.infoLbl.text = self.translate(text: .nfcEditInfoDesc)
+                self.editBtn.removeTarget(self, action: #selector(self.infoAct), for: .touchUpInside)
+                self.editBtn.addTarget(self, action: #selector(self.openEditPanel), for: .touchUpInside)
+            }
         }
         
     }
@@ -623,7 +649,6 @@ extension SDKNewNFCViewController: ImageScannerControllerDelegate {
         scanner.dismiss(animated: true) {
             if !self.manager.idPhotoCompleted {
                 self.uploadPhoto()
-
             }
         }
     }
@@ -660,8 +685,14 @@ extension SDKNewNFCViewController: DismissIDDelegate {
     }
     
     func updateKeys(birtdate: String, docNo: String, validDate: String) {
-        frontInfo.validDate = validDate
-        frontInfo.birthDate = birtdate
+        if cardType == .passport {
+            frontInfo.validDate = validDate.toMrzDate()
+            frontInfo.birthDate = birtdate.toMrzDate()
+        } else {
+            frontInfo.validDate = validDate
+            frontInfo.birthDate = birtdate
+        }
+        
         frontInfo.docNo = docNo
         frontInfo.infoCompleted = true
         backInfo.infoCompleted = true

@@ -20,6 +20,7 @@ public protocol IdentifyListenerDelegate:class {
     func closeCardCircle()
     func terminateCall()
     func imOffline() // paneldeki browser kapanırsa
+    func updateQueue(countMember: String, minutes: String)
 }
 
 public protocol PopUpProtocol {
